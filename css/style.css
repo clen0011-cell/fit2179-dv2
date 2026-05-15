@@ -59,3 +59,23 @@ section {
 }
 
 .stat-label { font-size: 0.9rem; color: #666; }
+
+/* ── Chart Layout ── */
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.chart-container {
+  background: #fff;
+  border: 1px solid #e8e0d4;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 300px;
+}
+
+.chart-wide { grid-column: span 2; }
+.chart-text { padding: 1rem 0; color: #555; line-height: 1.7; }
+
