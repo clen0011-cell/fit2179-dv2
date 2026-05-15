@@ -19,3 +19,16 @@ h1, h2, h3 {
 
 h1 { font-size: 2.8rem; margin-bottom: 1rem; color: #1a1a1a; }
 h2 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #1a1a1a; }
+
+/* ── Sections ── */
+section {
+  padding: 4rem 0;
+  border-bottom: 1px solid #e8e0d4;
+}
+
+.section-intro {
+  max-width: 65ch;
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
