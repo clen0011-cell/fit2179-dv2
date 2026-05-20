@@ -19,27 +19,43 @@
 
   <!-- SECTION 1: HOOK -->
   <section id="hook">
-    <h1>Your nasi lemak costs more than it used to.</h1>
-    <p class="intro-text">Food prices in Malaysia have risen sharply since 2020. Here's what changed, where it hit hardest, and what it means for your household.</p>
+    <div class="hook-text">
+      <h1>Your nasi lemak costs more than it used to.</h1>
+      <p class="intro-text">Food prices in Malaysia have risen sharply since 2020. Here's what changed, where it hit hardest, and what it means for your household.</p>
+    </div>
     <div class="stat-row">
-      <div class="stat-card"><span class="stat-num">+18%</span><span class="stat-label">Food inflation since 2020</span></div>
-      <div class="stat-card"><span class="stat-num">RM 3.50</span><span class="stat-label">Avg nasi lemak in 2015</span></div>
-      <div class="stat-card"><span class="stat-num">RM 6.00</span><span class="stat-label">Avg nasi lemak in 2024</span></div>
+      <div class="stat-card">
+        <span class="stat-num">+18%</span>
+        <span class="stat-label">Food inflation since 2020</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">RM 3.50</span>
+        <span class="stat-label">Avg nasi lemak in 2015</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">RM 6.00</span>
+        <span class="stat-label">Avg nasi lemak in 2024</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">#3</span>
+        <span class="stat-label">Highest food inflation in SEA, 2022</span>
+      </div>
     </div>
   </section>
-  
+
   <!-- SECTION 2: THE BIG PICTURE -->
   <section id="big-picture">
     <h2>Two decades of food prices</h2>
-    <p class="section-intro">Malaysia's food prices have largely stayed stable — until 2021, when global supply shocks changed everything.</p>
+    <p class="section-intro">Malaysia's food prices stayed largely stable for a decade — until 2021, when global supply shocks changed everything.</p>
     <div class="chart-row">
-      <div id="linechart" class="chart-container chart-wide"></div>
+      <div id="linechart" class="chart-container"></div>
       <div class="chart-text">
-        <p>Between 2010 and 2020, food inflation stayed under 4% annually. The post-pandemic period saw the sharpest sustained rise in recorded history.</p>
+        <p>Between 2010 and 2020, food inflation stayed under 4% annually. The COVID-19 pandemic disrupted global supply chains, and the removal of government subsidies pushed prices to their highest sustained level in two decades.</p>
+        <p style="margin-top: 1rem;">The food price index crossed 140 points in 2023 — meaning food costs 40% more on average than it did in 2010.</p>
       </div>
     </div>
-  </section>  
-  
+  </section>
+
   <!-- SECTION 3: CATEGORY BREAKDOWN -->
   <section id="categories">
     <h2>Not all food inflated equally</h2>
@@ -53,42 +69,56 @@
   <!-- SECTION 4: STATE MAP -->
   <section id="states">
     <h2>Where you live matters</h2>
-    <p class="section-intro">Food costs are not the same across Malaysia. Urban states like KL and Selangor face higher prices, while East Malaysian states show different patterns.</p>
+    <p class="section-intro">Food costs are not the same across Malaysia. Urban states like Kuala Lumpur and Selangor face higher prices, while East Malaysian states show different patterns.</p>
     <div class="chart-row">
       <div id="choropleth" class="chart-container chart-wide"></div>
+    </div>
+    <div class="chart-row" style="margin-top: 2rem;">
       <div id="heatmap" class="chart-container"></div>
+      <div id="smallmultiples" class="chart-container"></div>
     </div>
   </section>
-  
+
   <!-- SECTION 5: EATING OUT VS HOME -->
   <section id="eating-out">
     <h2>Eating out is getting further from reach</h2>
-    <p class="section-intro">The gap between cooking at home and eating out has widened — a trend that affects lower-income households most.</p>
+    <p class="section-intro">The gap between cooking at home and eating out has widened significantly — a trend that affects lower-income households the most.</p>
     <div class="chart-row">
       <div id="areachart" class="chart-container chart-wide"></div>
-      <div id="dumbbell" class="chart-container"></div>
     </div>
-    <div id="stackedbar" class="chart-container"></div>
+    <div class="chart-row" style="margin-top: 2rem;">
+      <div id="dumbbell" class="chart-container"></div>
+      <div id="stackedbar" class="chart-container"></div>
+    </div>
   </section>
 
   <!-- SECTION 6: SEA COMPARISON -->
   <section id="comparison">
     <h2>How Malaysia compares in Southeast Asia</h2>
-    <p class="section-intro">Malaysia's food inflation sits in the middle of the regional pack — better than the Philippines, but worse than Singapore.</p>
+    <p class="section-intro">Malaysia's food inflation sits in the middle of the regional pack — lower than the Philippines and Indonesia, but higher than Singapore.</p>
     <div class="chart-row">
       <div id="symbolmap" class="chart-container chart-wide"></div>
-      <div id="dotplot" class="chart-container"></div>
-  
+    </div>
+    <div class="chart-row" style="margin-top: 2rem;">
+      <div id="dotplot" class="chart-container chart-wide"></div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>By [Your Name] · May 2026 · FIT2179 Data Visualisation, Monash University Malaysia</p>
-    <p>Data: <a href="https://data.gov.my">DOSM (data.gov.my)</a> · <a href="https://fao.org/faostat">FAO (faostat.fao.org)</a></p>
+    <div class="footer-inner">
+      <p><strong>The Rising Cost of Malaysian Food</strong></p>
+      <p>By [Your Name] · May 2026 · FIT2179 Data Visualisation, Monash University Malaysia</p>
+      <p>
+        Data sources:
+        <a href="https://data.gov.my" target="_blank">Department of Statistics Malaysia — data.gov.my</a> ·
+        <a href="https://www.fao.org/faostat" target="_blank">FAO FAOSTAT — faostat.fao.org</a>
+      </p>
+      <p>Visualisations built with <a href="https://vega.github.io/vega-lite/" target="_blank">Vega-Lite</a>. Page styled with custom CSS.</p>
+      <p>AI tools (Claude by Anthropic) were used to assist with code generation and grammar checking.</p>
+    </div>
   </footer>
 
   <script src="js/main.js"></script>
 </body>
 </html>
-
