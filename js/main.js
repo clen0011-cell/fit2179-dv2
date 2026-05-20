@@ -8,3 +8,4 @@ vegaEmbed('#barchart', 'vega/barchart.json', {actions: false});
 vegaEmbed('#heatmap', 'vega/heatmap.json', {actions: false});
 vegaEmbed('#areachart', 'vega/areachart.json', {actions: false});
 vegaEmbed('#dumbbell', 'vega/dumbbell.json', {actions: false});
+vegaEmbed('#treemap', 'vega/treemap.json', {actions: false});
