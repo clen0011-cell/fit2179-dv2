@@ -10,3 +10,4 @@ vegaEmbed('#areachart', 'vega/areachart.json', {actions: false});
 vegaEmbed('#dumbbell', 'vega/dumbbell.json', {actions: false});
 vegaEmbed('#treemap', 'vega/treemap.json', {actions: false});
 vegaEmbed('#smallmultiples', 'vega/smallmultiples.json', {actions: false});
+vegaEmbed('#symbolmap', 'vega/symbolmap.json', {actions: false});
