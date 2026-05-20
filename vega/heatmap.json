@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Food Inflation Across States Over Time",
+    "subtitle": "Annual % change in food CPI (division 01) by state",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 320,
+  "data": {"url": "data/cpi_state_inflation.csv"},
+  "transform": [
+    {"filter": "datum.division == '01'"},
+    {"calculate": "year(datum.date)", "as": "year"},
+    {"filter": "datum.year >= 2015"}
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": null
+    },
+    "color": {
+      "field": "inflation",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "orangered",
+        "domain": [0, 8]
+      },
+      "legend": {"title": "Inflation %"}
+    },
+    "tooltip": [
+      {"field": "state", "title": "State"},
+      {"field": "year", "title": "Year"},
+      {"field": "inflation", "title": "Food Inflation %", "format": ".1f"}
+    ]
+  }
+}
