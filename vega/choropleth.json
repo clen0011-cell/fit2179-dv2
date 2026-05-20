@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Food Price Inflation by Malaysian State",
+    "subtitle": "Annual % change in food CPI, 2024",
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 400,
+  "projection": {"type": "equirectangular"},
+  "layer": [
+    {
+      "data": {
+        "url": "malaysia.topojson",
+        "format": {"type": "topojson", "feature": "state"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {"url": "data/cpi_state.csv"},
+            "key": "state",
+            "fields": ["inflation"]
+          }
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 0.8},
+      "encoding": {
+        "color": {
+          "field": "inflation",
+          "type": "quantitative",
+          "scale": {"scheme": "orangered"},
+          "legend": {"title": "Inflation %"}
+        },
+        "tooltip": [
+          {"field": "properties.name", "title": "State"},
+          {"field": "inflation", "title": "Food Inflation %", "format": ".1f"}
+        ]
+      }
+    }
+  ]
+}
