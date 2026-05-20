@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "How Much Prices Have Shifted: 2015 vs 2024",
+    "subtitle": "Each line shows the gap in food CPI index between 2015 and 2024",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 300,
+  "data": {"url": "data/cpi_annual.csv"},
+  "transform": [
+    {"filter": "datum.division == '01' || datum.division == '11'"},
+    {"filter": "datum.year == 2015 || datum.year == 2024"},
+    {
+      "calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'",
+      "as": "category"
+    },
+    {"calculate": "toString(datum.year)", "as": "yearStr"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "color": "#ccc", "strokeWidth": 2},
+      "encoding": {
+        "x": {"field": "index", "type": "quantitative", "title": "CPI Index"},
+        "y": {"field": "category", "type": "nominal", "title": null},
+        "detail": {"field": "category"}
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 120},
+      "encoding": {
+        "x": {"field": "index", "type": "quantitative"},
+        "y": {"field": "category", "type": "nominal"},
+        "color": {
+          "field": "yearStr",
+          "type": "nominal",
+          "scale": {
+            "domain": ["2015", "2024"],
+            "range": ["#f4a261", "#c0392b"]
+          },
+          "legend": {"title": "Year", "orient": "top-right"}
+        },
+        "tooltip": [
+          {"field": "category", "title": "Category"},
+          {"field": "yearStr", "title": "Year"},
+          {"field": "index", "title": "CPI Index", "format": ".1f"}
+        ]
+      }
+    }
+  ]
+}
