@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "What Makes Up Malaysia's Price Basket?",
+    "subtitle": "Share of each division in the CPI basket, 2024",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 350,
+  "data": {
+    "values": [
+      {"category": "Food & Drinks", "weight": 29.5},
+      {"category": "Housing & Utilities", "weight": 23.8},
+      {"category": "Transport", "weight": 14.6},
+      {"category": "Restaurants & Hotels", "weight": 9.4},
+      {"category": "Health", "weight": 6.0},
+      {"category": "Education", "weight": 5.0},
+      {"category": "Furnishings", "weight": 4.2},
+      {"category": "Recreation", "weight": 3.5},
+      {"category": "Clothing", "weight": 2.1},
+      {"category": "Communication", "weight": 1.9}
+    ]
+  },
+  "mark": "rect",
+  "transform": [
+    {
+      "treemap": true,
+      "field": "weight",
+      "as": ["x0", "y0", "x1", "y1"]
+    }
+  ],
+  "encoding": {
+    "x": {"field": "x0", "type": "quantitative", "axis": null},
+    "y": {"field": "y0", "type": "quantitative", "axis": null},
+    "x2": {"field": "x1"},
+    "y2": {"field": "y1"},
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": {"scheme": "warmgreys"},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "category", "title": "Category"},
+      {"field": "weight", "title": "Weight in basket (%)", "format": ".1f"}
+    ]
+  }
+}
