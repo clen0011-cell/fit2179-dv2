@@ -68,15 +68,6 @@ section {
   align-items: start;
 }
 
-/* ── Footer ── */
-footer {
-  padding: 2rem 0;
-  font-size: 0.85rem;
-  color: #888;
-  line-height: 1.8;
-}
-
-footer a { color: #888; }
 .chart-container {
   background: #fff;
   border: 1px solid #e8e0d4;
@@ -88,3 +79,12 @@ footer a { color: #888; }
 .chart-wide { grid-column: span 2; }
 .chart-text { padding: 1rem 0; color: #555; line-height: 1.7; }
 
+/* ── Footer ── */
+footer {
+  padding: 2rem 0;
+  font-size: 0.85rem;
+  color: #888;
+  line-height: 1.8;
+}
+
+footer a { color: #888; }
