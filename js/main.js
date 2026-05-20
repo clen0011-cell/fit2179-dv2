@@ -6,3 +6,4 @@ vegaEmbed('#linechart', 'vega/linechart.json', {
 vegaEmbed('#choropleth', 'vega/choropleth.json', {actions: false});
 vegaEmbed('#barchart', 'vega/barchart.json', {actions: false});
 vegaEmbed('#heatmap', 'vega/heatmap.json', {actions: false});
+vegaEmbed('#areachart', 'vega/areachart.json', {actions: false});
