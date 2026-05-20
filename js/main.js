@@ -4,3 +4,4 @@ vegaEmbed('#linechart', 'vega/linechart.json', {
   renderer: 'svg'
 });
 vegaEmbed('#choropleth', 'vega/choropleth.json', {actions: false});
+vegaEmbed('#barchart', 'vega/barchart.json', {actions: false});
