@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Food Price Trends Across All States",
+    "subtitle": "Monthly food CPI index (2010 = 100) per state",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "data": {"url": "data/cpi_state.csv"},
+  "transform": [
+    {"filter": "datum.division == '01'"}
+  ],
+  "facet": {
+    "field": "state",
+    "type": "nominal",
+    "columns": 4,
+    "header": {
+      "titleFontSize": 0,
+      "labelFontSize": 11,
+      "labelFontWeight": "bold"
+    }
+  },
+  "spec": {
+    "width": 160,
+    "height": 80,
+    "mark": {
+      "type": "line",
+      "color": "#c0392b",
+      "strokeWidth": 1.5
+    },
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "axis": {"labels": false, "ticks": false, "title": null, "grid": false}
+      },
+      "y": {
+        "field": "index",
+        "type": "quantitative",
+        "axis": {"title": null, "grid": false}
+      },
+      "tooltip": [
+        {"field": "state", "title": "State"},
+        {"field": "date", "type": "temporal", "title": "Date"},
+        {"field": "index", "title": "Food CPI", "format": ".1f"}
+      ]
+    }
+  }
+}
