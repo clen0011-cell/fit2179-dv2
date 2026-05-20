@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Which Foods Got More Expensive?",
+    "subtitle": "Annual % change in price by food category, 2024",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 300,
+  "data": {"url": "data/cpi_inflation.csv"},
+  "transform": [
+    {"filter": "datum.year == 2024"},
+    {"filter": "datum.division != 'overall'"},
+    {
+      "lookup": "division",
+      "from": {
+        "data": {
+          "values": [
+            {"division": "01", "label": "Food & Non-Alcoholic Drinks"},
+            {"division": "02", "label": "Alcoholic Drinks & Tobacco"},
+            {"division": "03", "label": "Clothing & Footwear"},
+            {"division": "04", "label": "Housing & Utilities"},
+            {"division": "05", "label": "Furnishings"},
+            {"division": "06", "label": "Health"},
+            {"division": "07", "label": "Transport"},
+            {"division": "08", "label": "Communication"},
+            {"division": "09", "label": "Recreation"},
+            {"division": "10", "label": "Education"},
+            {"division": "11", "label": "Restaurants & Hotels"},
+            {"division": "12", "label": "Misc Goods & Services"}
+          ]
+        },
+        "key": "division",
+        "fields": ["label"]
+      }
+    },
+    {"filter": "datum.division == '01' || datum.division == '11'"}
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4
+  },
+  "encoding": {
+    "x": {
+      "field": "inflation",
+      "type": "quantitative",
+      "title": "Inflation (%)",
+      "axis": {"grid": false}
+    },
+    "y": {
+      "field": "label",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x"
+    },
+    "color": {
+      "field": "inflation",
+      "type": "quantitative",
+      "scale": {"scheme": "orangered"},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "label", "title": "Category"},
+      {"field": "inflation", "title": "Inflation %", "format": ".1f"}
+    ]
+  }
+}
