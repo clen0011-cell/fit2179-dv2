@@ -19,8 +19,8 @@
       "aggregate": [{"op": "mean", "field": "index", "as": "avg_index"}],
       "groupby": ["year"]
     },
-    {"calculate": "new Date(datum.year, 0, 1)", "as": "year_date"}
-  ],
+    {"calculate": "datetime(datum.year, 0, 1)", "as": "year_date"}
+  ]
   "mark": {
     "type": "line",
     "color": "#c0392b",
