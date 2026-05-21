@@ -75,6 +75,18 @@ section {
   padding: 1.5rem;
   min-height: 300px;
 }
+.chart-container {
+  min-height: 350px;
+}
+
+.chart-container .vega-embed {
+  width: 100% !important;
+}
+
+.chart-container .vega-embed canvas,
+.chart-container .vega-embed svg {
+  width: 100% !important;
+}
 
 .chart-wide { grid-column: span 2; }
 .chart-text { padding: 1rem 0; color: #555; line-height: 1.7; }
