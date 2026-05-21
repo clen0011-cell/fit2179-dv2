@@ -1,13 +1,13 @@
-// JS helpers go here
-vegaEmbed('#linechart', 'vega/linechart.json', {
-  actions: false,
-  renderer: 'svg'
-});
-vegaEmbed('#choropleth', 'vega/choropleth.json', {actions: false});
-vegaEmbed('#barchart', 'vega/barchart.json', {actions: false});
-vegaEmbed('#heatmap', 'vega/heatmap.json', {actions: false});
-vegaEmbed('#areachart', 'vega/areachart.json', {actions: false});
-vegaEmbed('#dumbbell', 'vega/dumbbell.json', {actions: false});
-vegaEmbed('#treemap', 'vega/treemap.json', {actions: false});
-vegaEmbed('#smallmultiples', 'vega/smallmultiples.json', {actions: false});
-vegaEmbed('#symbolmap', 'vega/symbolmap.json', {actions: false});
+const embedOpts = { actions: false, renderer: 'svg' };
+
+vegaEmbed('#linechart',      'vega/linechart.json',      embedOpts);
+vegaEmbed('#choropleth',     'vega/choropleth.json',     embedOpts);
+vegaEmbed('#barchart',       'vega/barchart.json',       embedOpts);
+vegaEmbed('#treemap',        'vega/treemap.json',        embedOpts);
+vegaEmbed('#heatmap',        'vega/heatmap.json',        embedOpts);
+vegaEmbed('#smallmultiples', 'vega/smallmultiples.json', embedOpts);
+vegaEmbed('#areachart',      'vega/areachart.json',      embedOpts);
+vegaEmbed('#dumbbell',       'vega/dumbbell.json',       embedOpts);
+vegaEmbed('#stackedbar',     'vega/stackedbar.json',     embedOpts);
+vegaEmbed('#symbolmap',      'vega/symbolmap.json',      embedOpts);
+vegaEmbed('#dotplot',        'vega/dotplot.json',        embedOpts);
