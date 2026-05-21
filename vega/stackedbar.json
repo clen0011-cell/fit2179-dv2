@@ -1,44 +1,55 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Average Household Expenditure by State (2022)",
-    "subtitle": "Monthly mean expenditure (RM) — states sorted by expenditure level",
-    "anchor": "start",
-    "fontSize": 15,
-    "subtitleFontSize": 12
+    "text": "Food Price Inflation by Malaysian State",
+    "subtitle": "Annual % change in food CPI (2023–2024)",
+    "anchor": "start"
   },
   "width": "container",
-  "height": 380,
-  "data": {"url": "data/hies_state.csv"},
-  "layer": [
-    {
-      "mark": {"type": "bar", "cornerRadiusEnd": 4},
-      "encoding": {
-        "y": {
-          "field": "state",
-          "type": "nominal",
-          "sort": "-x",
-          "title": null
-        },
-        "x": {
-          "field": "expenditure_mean",
-          "type": "quantitative",
-          "title": "Mean Monthly Expenditure (RM)",
-          "axis": {"grid": false}
-        },
-        "color": {
-          "field": "poverty",
-          "type": "quantitative",
-          "scale": {"scheme": "orangered"},
-          "legend": {"title": "Poverty Rate (%)"}
-        },
-        "tooltip": [
-          {"field": "state",            "title": "State"},
-          {"field": "expenditure_mean", "title": "Mean Expenditure (RM)", "format": ",.0f"},
-          {"field": "income_mean",      "title": "Mean Income (RM)",      "format": ",.0f"},
-          {"field": "poverty",          "title": "Poverty Rate (%)",      "format": ".1f"}
-        ]
-      }
-    }
-  ]
+  "height": 400,
+  "data": {
+    "values": [
+      {"state": "Selangor",          "inflation": 3.32},
+      {"state": "Pulau Pinang",      "inflation": 2.65},
+      {"state": "W.P. Putrajaya",    "inflation": 2.41},
+      {"state": "Pahang",            "inflation": 2.02},
+      {"state": "Sarawak",           "inflation": 1.88},
+      {"state": "Terengganu",        "inflation": 1.80},
+      {"state": "Johor",             "inflation": 1.74},
+      {"state": "Perlis",            "inflation": 1.71},
+      {"state": "Sabah",             "inflation": 1.56},
+      {"state": "W.P. Labuan",       "inflation": 1.41},
+      {"state": "W.P. Kuala Lumpur", "inflation": 1.34},
+      {"state": "Negeri Sembilan",   "inflation": 1.17},
+      {"state": "Melaka",            "inflation": 1.06},
+      {"state": "Kelantan",          "inflation": 0.80},
+      {"state": "Kedah",             "inflation": 0.66},
+      {"state": "Perak",             "inflation": 0.62}
+    ]
+  },
+  "mark": {"type": "bar", "cornerRadiusEnd": 4},
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "field": "inflation",
+      "type": "quantitative",
+      "title": "Food CPI Inflation, YoY (%)",
+      "axis": {"grid": false}
+    },
+    "color": {
+      "field": "inflation",
+      "type": "quantitative",
+      "scale": {"scheme": "orangered"},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "state",     "title": "State"},
+      {"field": "inflation", "title": "Food Inflation (%)", "format": ".2f"}
+    ]
+  }
 }
