@@ -1,53 +1,44 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Household Food Expenditure by Income Group",
-    "subtitle": "Share of monthly spending on food at home vs eating out, by income group",
+    "text": "Average Household Expenditure by State (2022)",
+    "subtitle": "Monthly mean expenditure (RM) — states sorted by expenditure level",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 320,
+  "height": 380,
   "data": {"url": "data/hies_state.csv"},
-  "transform": [
+  "layer": [
     {
-      "filter": "datum.variable == 'food_home' || datum.variable == 'food_away'"
-    },
-    {
-      "calculate": "datum.variable == 'food_home' ? 'Food at Home' : 'Eating Out'",
-      "as": "category"
+      "mark": {"type": "bar", "cornerRadiusEnd": 4},
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null
+        },
+        "x": {
+          "field": "expenditure_mean",
+          "type": "quantitative",
+          "title": "Mean Monthly Expenditure (RM)",
+          "axis": {"grid": false}
+        },
+        "color": {
+          "field": "poverty",
+          "type": "quantitative",
+          "scale": {"scheme": "orangered"},
+          "legend": {"title": "Poverty Rate (%)"}
+        },
+        "tooltip": [
+          {"field": "state",            "title": "State"},
+          {"field": "expenditure_mean", "title": "Mean Expenditure (RM)", "format": ",.0f"},
+          {"field": "income_mean",      "title": "Mean Income (RM)",      "format": ",.0f"},
+          {"field": "poverty",          "title": "Poverty Rate (%)",      "format": ".1f"}
+        ]
+      }
     }
-  ],
-  "mark": {"type": "bar", "cornerRadiusEnd": 3},
-  "encoding": {
-    "x": {
-      "field": "income_group",
-      "type": "nominal",
-      "title": "Income Group",
-      "axis": {"labelAngle": 0},
-      "sort": ["Bottom 40%", "Middle 40%", "Top 20%"]
-    },
-    "y": {
-      "field": "expenditure",
-      "type": "quantitative",
-      "title": "Monthly Expenditure (RM)",
-      "stack": "normalize",
-      "axis": {"format": "%"}
-    },
-    "color": {
-      "field": "category",
-      "type": "nominal",
-      "scale": {
-        "domain": ["Food at Home", "Eating Out"],
-        "range": ["#f4a261", "#c0392b"]
-      },
-      "legend": {"title": null, "orient": "top-left"}
-    },
-    "tooltip": [
-      {"field": "income_group", "title": "Income Group"},
-      {"field": "category", "title": "Type"},
-      {"field": "expenditure", "title": "Expenditure (RM)", "format": ".0f"}
-    ]
-  }
+  ]
 }
