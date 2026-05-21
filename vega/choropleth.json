@@ -8,24 +8,42 @@
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 400,
-  "projection": {"type": "equirectangular"},
+  "height": 420,
+  "projection": {"type": "mercator"},
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/dosm-malaysia/data-open/main/datasets/geo/administrative/state.geojson",
-        "format": {"type": "json", "property": "features"}
+        "url": "https://raw.githubusercontent.com/clen0011-cell/fit2179-dv2/main/malaysia.topojson",
+        "format": {"type": "topojson", "feature": "state"}
       },
       "transform": [
         {
-          "lookup": "properties.state",
+          "lookup": "properties.name",
           "from": {
-            "data": {"url": "data/cpi_state_inflation.csv"},
+            "data": {
+              "values": [
+                {"state": "Johor",           "inflation": 1.8},
+                {"state": "Kedah",           "inflation": 0.6},
+                {"state": "Kelantan",        "inflation": 1.2},
+                {"state": "Melaka",          "inflation": 1.5},
+                {"state": "Negeri Sembilan", "inflation": 1.4},
+                {"state": "Pahang",          "inflation": 1.9},
+                {"state": "Perak",           "inflation": 0.5},
+                {"state": "Perlis",          "inflation": 1.7},
+                {"state": "Pulau Pinang",    "inflation": 2.7},
+                {"state": "Sabah",           "inflation": 1.6},
+                {"state": "Sarawak",         "inflation": 1.8},
+                {"state": "Selangor",        "inflation": 3.3},
+                {"state": "Terengganu",      "inflation": 1.9},
+                {"state": "W.P. Kuala Lumpur","inflation": 1.5},
+                {"state": "W.P. Labuan",     "inflation": 1.6},
+                {"state": "W.P. Putrajaya",  "inflation": 2.5}
+              ]
+            },
             "key": "state",
-            "fields": ["inflation_yoy"]
+            "fields": ["inflation"]
           }
-        },
-        {"filter": "datum.inflation_yoy != null"}
+        }
       ],
       "mark": {
         "type": "geoshape",
@@ -34,14 +52,14 @@
       },
       "encoding": {
         "color": {
-          "field": "inflation_yoy",
+          "field": "inflation",
           "type": "quantitative",
-          "scale": {"scheme": "orangered"},
+          "scale": {"scheme": "orangered", "domain": [0, 3.5]},
           "legend": {"title": "Inflation %"}
         },
         "tooltip": [
-          {"field": "properties.state", "title": "State"},
-          {"field": "inflation_yoy", "title": "Food Inflation %", "format": ".1f"}
+          {"field": "properties.name", "title": "State"},
+          {"field": "inflation", "title": "Food Inflation %", "format": ".1f"}
         ]
       }
     }
