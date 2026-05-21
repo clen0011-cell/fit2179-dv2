@@ -11,8 +11,8 @@
   "height": 300,
   "data": {"url": "data/cpi_inflation.csv"},
   "transform": [
-    {"filter": "year(datum.date) == 2023"},
     {"filter": "datum.division != 'overall'"},
+    {"filter": "datum.date >= '2023-01-01' && datum.date <= '2023-12-31'"},
     {
       "lookup": "division",
       "from": {
