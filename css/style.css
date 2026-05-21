@@ -75,10 +75,11 @@ section {
   border: 1px solid #e8e0d4;
   border-radius: 8px;
   padding: 1.5rem;
-  min-height: 300px;
-  width: 100%;        /* ADD THIS */
-  overflow: hidden;   /* ADD THIS */
+  min-height: 400px;
+  width: 100%;
+  overflow: visible;
 }
+
 #linechart canvas,
 #linechart svg {
   width: 100% !important;
