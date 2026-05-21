@@ -8,43 +8,44 @@
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 350,
+  "height": 320,
   "data": {
     "values": [
-      {"category": "Food & Drinks", "weight": 29.5},
-      {"category": "Housing & Utilities", "weight": 23.8},
-      {"category": "Transport", "weight": 14.6},
+      {"category": "Food & Drinks",        "weight": 29.5},
+      {"category": "Housing & Utilities",  "weight": 23.8},
+      {"category": "Transport",            "weight": 14.6},
       {"category": "Restaurants & Hotels", "weight": 9.4},
-      {"category": "Health", "weight": 6.0},
-      {"category": "Education", "weight": 5.0},
-      {"category": "Furnishings", "weight": 4.2},
-      {"category": "Recreation", "weight": 3.5},
-      {"category": "Clothing", "weight": 2.1},
-      {"category": "Communication", "weight": 1.9}
+      {"category": "Health",               "weight": 6.0},
+      {"category": "Education",            "weight": 5.0},
+      {"category": "Furnishings",          "weight": 4.2},
+      {"category": "Recreation",           "weight": 3.5},
+      {"category": "Clothing",             "weight": 2.1},
+      {"category": "Communication",        "weight": 1.9}
     ]
   },
-  "mark": "rect",
-  "transform": [
-    {
-      "treemap": true,
-      "field": "weight",
-      "as": ["x0", "y0", "x1", "y1"]
-    }
-  ],
+  "mark": {"type": "bar", "cornerRadiusEnd": 4},
   "encoding": {
-    "x": {"field": "x0", "type": "quantitative", "axis": null},
-    "y": {"field": "y0", "type": "quantitative", "axis": null},
-    "x2": {"field": "x1"},
-    "y2": {"field": "y1"},
-    "color": {
+    "y": {
       "field": "category",
       "type": "nominal",
-      "scale": {"scheme": "warmgreys"},
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "field": "weight",
+      "type": "quantitative",
+      "title": "Share of CPI Basket (%)",
+      "axis": {"grid": false}
+    },
+    "color": {
+      "field": "weight",
+      "type": "quantitative",
+      "scale": {"scheme": "orangered"},
       "legend": null
     },
     "tooltip": [
       {"field": "category", "title": "Category"},
-      {"field": "weight", "title": "Weight in basket (%)", "format": ".1f"}
+      {"field": "weight",   "title": "Basket Share (%)", "format": ".1f"}
     ]
   }
 }
