@@ -22,8 +22,8 @@
     {
       "mark": {"type": "rule", "color": "#e8e0d4", "strokeWidth": 2},
       "encoding": {
-        "y":  {"field": "Area", "type": "nominal", "sort": "-x", "title": null},
-        "x":  {"value": 0},
+        "y": {"field": "Area", "type": "nominal", "sort": "-x", "title": null},
+        "x": {"value": 80},
         "x2": {"field": "avg_value", "type": "quantitative"}
       }
     },
@@ -35,7 +35,8 @@
           "field": "avg_value",
           "type": "quantitative",
           "title": "Avg Food CPI Index (2015 = 100)",
-          "axis": {"grid": false}
+          "axis": {"grid": false},
+          "scale": {"zero": false}
         },
         "color": {
           "condition": {"test": "datum.Area == 'Malaysia'", "value": "#c0392b"},
@@ -46,7 +47,7 @@
           "value": 150
         },
         "tooltip": [
-          {"field": "Area",      "title": "Country"},
+          {"field": "Area", "title": "Country"},
           {"field": "avg_value", "title": "Food CPI Index", "format": ".1f"}
         ]
       }
