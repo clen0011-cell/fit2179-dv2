@@ -79,12 +79,6 @@ section {
 .chart-wide { grid-column: span 2; }
 .chart-text { padding: 1rem 0; color: #555; line-height: 1.7; }
 
-#smallmultiples .vega-embed,
-#smallmultiples canvas,
-#smallmultiples svg {
-  max-width: 100% !important;
-  overflow: hidden !important;
-}
 
 /* ── Footer ── */
 footer {
