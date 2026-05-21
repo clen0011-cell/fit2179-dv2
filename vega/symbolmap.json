@@ -73,7 +73,7 @@
         "color": {
           "field": "avg_value",
           "type": "quantitative",
-          "scale": {"scheme": "orangered"},
+          "scale": {"scheme": "blues"},
           "legend": null
         },
         "tooltip": [
