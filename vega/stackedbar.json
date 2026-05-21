@@ -44,7 +44,7 @@
     "color": {
       "field": "inflation",
       "type": "quantitative",
-      "scale": {"scheme": "orangered"},
+      "scale": {"scheme": "purples"},
       "legend": null
     },
     "tooltip": [
