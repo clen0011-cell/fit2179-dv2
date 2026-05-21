@@ -13,7 +13,7 @@
     "type": "mercator",
     "center": [108, 4],
     "scale": 1800
-  }
+  },
   "layer": [
     {
       "data": {
