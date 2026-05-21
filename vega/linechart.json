@@ -20,7 +20,7 @@
       "groupby": ["year"]
     },
     {"calculate": "datetime(datum.year, 0, 1)", "as": "year_date"}
-  ]
+  ],
   "mark": {
     "type": "line",
     "color": "#c0392b",
