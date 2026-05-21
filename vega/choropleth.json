@@ -8,8 +8,12 @@
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 420,
-  "projection": {"type": "mercator"},
+  "height": 400,
+  "projection": {
+    "type": "mercator",
+    "center": [108, 4],
+    "scale": 1800
+  }
   "layer": [
     {
       "data": {
