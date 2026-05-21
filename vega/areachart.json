@@ -39,7 +39,7 @@
       "type": "nominal",
       "scale": {
         "domain": ["Food at Home", "Eating Out"],
-        "range": ["#f4a261", "#c0392b"]
+        "range": ["#56B4E9", "#E69F00"]
       },
       "legend": {"title": null, "orient": "top-left"}
     },
