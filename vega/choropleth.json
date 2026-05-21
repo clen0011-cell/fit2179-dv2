@@ -20,7 +20,9 @@
         {
           "lookup": "properties.Name",
           "from": {
-            "data": {"url": "data/cpi_state_2023.csv"},
+            "data": {
+              "url": "https://clen0011-cell.github.io/fit2179-dv2/data/cpi_state_2023.csv"
+            },
             "key": "topo_name",
             "fields": ["inflation_yoy", "state"]
           }
