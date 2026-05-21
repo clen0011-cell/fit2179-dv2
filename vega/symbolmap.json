@@ -44,7 +44,7 @@
                 {"Area": "Malaysia",    "lat": 4.2105,  "lon": 101.9758},
                 {"Area": "Thailand",    "lat": 15.8700, "lon": 100.9925},
                 {"Area": "Indonesia",   "lat": -0.7893, "lon": 113.9213},
-                {"Area": "Philippines", "lat": 12.8797, "lon": 121.7740},
+                {"Area": "Philippines", "lat": 12.8797, "lon": 122.5},
                 {"Area": "Singapore",   "lat": 1.3521,  "lon": 103.8198}
               ]
             },
