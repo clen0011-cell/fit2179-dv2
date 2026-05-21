@@ -28,7 +28,7 @@
     "height": 100,
     "mark": {
       "type": "line",
-      "color": "#c0392b",
+      "color": "#D55E00",
       "strokeWidth": 2
     },
     "encoding": {
