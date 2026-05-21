@@ -9,7 +9,7 @@
   },
   "width": "container",
   "height": 300,
-  "data": {"url": "data/cpi_annual.csv"},
+  "data": {"url": "data/cpi_national.csv"},
   "transform": [
     {"filter": "datum.division == '01' || datum.division == '11'"},
     {"filter": "datum.year == 2015 || datum.year == 2024"},
