@@ -1,76 +1,51 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "How Much Prices Have Shifted: 2015 vs 2023",
-    "subtitle": "Food CPI index per category — gap shows how much prices rose",
+    "text": "How Much Prices Have Shifted: 2015 vs 2024",
+    "subtitle": "Each line shows the gap in food CPI index between 2015 and 2024",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
   "width": "container",
   "height": 300,
-  "data": {"url": "data/cpi_national.csv"},
+  "data": {"url": "data/cpi_annual.csv"},
   "transform": [
-    {"filter": "datum.division != 'overall'"},
-    {"filter": "year(datum.date) == 2015 || year(datum.date) == 2023"},
-    {"calculate": "year(datum.date)", "as": "year"},
+    {"filter": "datum.division == '01' || datum.division == '11'"},
+    {"filter": "datum.year == 2015 || datum.year == 2024"},
     {
-      "lookup": "division",
-      "from": {
-        "data": {
-          "values": [
-            {"division": "01", "label": "Food & Drinks"},
-            {"division": "02", "label": "Alcohol & Tobacco"},
-            {"division": "03", "label": "Clothing"},
-            {"division": "04", "label": "Housing"},
-            {"division": "05", "label": "Furnishings"},
-            {"division": "06", "label": "Health"},
-            {"division": "07", "label": "Transport"},
-            {"division": "08", "label": "Communication"},
-            {"division": "09", "label": "Recreation"},
-            {"division": "10", "label": "Education"},
-            {"division": "11", "label": "Restaurants"},
-            {"division": "12", "label": "Insurance"},
-            {"division": "13", "label": "Misc"}
-          ]
-        },
-        "key": "division",
-        "fields": ["label"]
-      }
-    },
-    {
-      "aggregate": [{"op": "mean", "field": "index", "as": "avg_index"}],
-      "groupby": ["label", "year"]
+      "calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'",
+      "as": "category"
     },
     {"calculate": "toString(datum.year)", "as": "yearStr"}
   ],
   "layer": [
     {
-      "mark": {"type": "line", "color": "#ddd", "strokeWidth": 2},
+      "mark": {"type": "line", "color": "#ccc", "strokeWidth": 2},
       "encoding": {
-        "y": {"field": "label", "type": "nominal", "title": null, "sort": "-x"},
-        "x": {"field": "avg_index", "type": "quantitative", "title": "CPI Index (2010 = 100)"},
-        "detail": {"field": "label"}
+        "x": {"field": "index", "type": "quantitative", "title": "CPI Index"},
+        "y": {"field": "category", "type": "nominal", "title": null},
+        "detail": {"field": "category"}
       }
     },
     {
       "mark": {"type": "point", "filled": true, "size": 120},
       "encoding": {
-        "y": {"field": "label", "type": "nominal", "sort": "-x"},
-        "x": {"field": "avg_index", "type": "quantitative"},
+        "x": {"field": "index", "type": "quantitative"},
+        "y": {"field": "category", "type": "nominal"},
         "color": {
           "field": "yearStr",
           "type": "nominal",
           "scale": {
-            "domain": ["2015", "2023"],
+            "domain": ["2015", "2024"],
             "range": ["#f4a261", "#c0392b"]
           },
           "legend": {"title": "Year", "orient": "top-right"}
         },
         "tooltip": [
-          {"field": "label",     "title": "Category"},
-          {"field": "yearStr",   "title": "Year"},
-          {"field": "avg_index", "title": "CPI Index", "format": ".1f"}
+          {"field": "category", "title": "Category"},
+          {"field": "yearStr", "title": "Year"},
+          {"field": "index", "title": "CPI Index", "format": ".1f"}
         ]
       }
     }
