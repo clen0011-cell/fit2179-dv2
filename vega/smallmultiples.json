@@ -15,7 +15,7 @@
   "facet": {
     "field": "state",
     "type": "nominal",
-    "columns": 4,
+    "columns": 2,
     "header": {
       "titleFontSize": 0,
       "labelFontSize": 11,
