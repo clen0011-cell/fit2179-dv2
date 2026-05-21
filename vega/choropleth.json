@@ -29,13 +29,8 @@
               "format": {"type": "csv"}
             },
             "key": "state",
-            "fields": ["inflation_yoy"],
-            "as": ["inflation_yoy"]
-          },
-          "default": "0"
-        },
-        {
-          "filter": "datum.division == '01' && datum.date == '2023-06-01'"
+            "fields": ["inflation_yoy"]
+          }
         }
       ],
       "mark": {
