@@ -23,8 +23,8 @@
     }
   },
   "spec": {
-    "width": 160,
-    "height": 60,
+    "width": 180,
+    "height": 70,
     "mark": {
       "type": "line",
       "color": "#c0392b",
@@ -50,5 +50,5 @@
     }
   },
   "resolve": {"scale": {"y": "independent"}},
-  "spacing": 15
+  "spacing": 10
 }
