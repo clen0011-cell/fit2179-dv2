@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Food Inflation Rate by Country (2023)",
+    "subtitle": "Annual % change in food consumer price index across Southeast Asia",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 280,
+  "data": {"url": "data/fao_sea.csv"},
+  "transform": [
+    {"filter": "datum.Year == 2023"},
+    {"filter": "datum.Element == 'Food Consumer Price Index'"}
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#e8e0d4",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "Area",
+          "type": "nominal",
+          "title": null,
+          "sort": "-x"
+        },
+        "x": {"value": 0},
+        "x2": {"field": "Value", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150
+      },
+      "encoding": {
+        "y": {
+          "field": "Area",
+          "type": "nominal",
+          "title": null,
+          "sort": "-x"
+        },
+        "x": {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Food CPI Index",
+          "axis": {"grid": false}
+        },
+        "color": {
+          "condition": {
+            "test": "datum.Area == 'Malaysia'",
+            "value": "#c0392b"
+          },
+          "value": "#f4a261"
+        },
+        "size": {
+          "condition": {
+            "test": "datum.Area == 'Malaysia'",
+            "value": 200
+          },
+          "value": 120
+        },
+        "tooltip": [
+          {"field": "Area", "title": "Country"},
+          {"field": "Value", "title": "Food CPI Index", "format": ".1f"},
+          {"field": "Year", "title": "Year"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 11
+      },
+      "encoding": {
+        "y": {
+          "field": "Area",
+          "type": "nominal",
+          "sort": "-x"
+        },
+        "x": {
+          "field": "Value",
+          "type": "quantitative"
+        },
+        "text": {"field": "Area"},
+        "color": {
+          "condition": {
+            "test": "datum.Area == 'Malaysia'",
+            "value": "#c0392b"
+          },
+          "value": "#888"
+        }
+      }
+    }
+  ]
+}
