@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Which Foods Got More Expensive?",
-    "subtitle": "Annual % change in price by food category, 2024",
+    "subtitle": "Annual % change in food CPI by category, 2023",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -11,7 +11,7 @@
   "height": 300,
   "data": {"url": "data/cpi_inflation.csv"},
   "transform": [
-    {"filter": "datum.year == 2024"},
+    {"filter": "year(datum.date) == 2023"},
     {"filter": "datum.division != 'overall'"},
     {
       "lookup": "division",
@@ -29,31 +29,28 @@
             {"division": "09", "label": "Recreation"},
             {"division": "10", "label": "Education"},
             {"division": "11", "label": "Restaurants & Hotels"},
-            {"division": "12", "label": "Misc Goods & Services"}
+            {"division": "12", "label": "Insurance & Finance"},
+            {"division": "13", "label": "Misc Goods & Services"}
           ]
         },
         "key": "division",
         "fields": ["label"]
       }
-    },
-    {"filter": "datum.division == '01' || datum.division == '11'"}
+    }
   ],
-  "mark": {
-    "type": "bar",
-    "cornerRadiusEnd": 4
-  },
+  "mark": {"type": "bar", "cornerRadiusEnd": 4},
   "encoding": {
+    "y": {
+      "field": "label",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
     "x": {
       "field": "inflation",
       "type": "quantitative",
       "title": "Inflation (%)",
       "axis": {"grid": false}
-    },
-    "y": {
-      "field": "label",
-      "type": "nominal",
-      "title": null,
-      "sort": "-x"
     },
     "color": {
       "field": "inflation",
@@ -63,7 +60,7 @@
     },
     "tooltip": [
       {"field": "label", "title": "Category"},
-      {"field": "inflation", "title": "Inflation %", "format": ".1f"}
+      {"field": "inflation", "title": "Inflation %", "format": ".2f"}
     ]
   }
 }
