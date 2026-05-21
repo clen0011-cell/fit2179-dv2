@@ -16,7 +16,7 @@
   ],
   "mark": {
     "type": "line",
-    "color": "#c0392b",
+    "color": "#E69F00",
     "strokeWidth": 2.5
   },
   "encoding": {
