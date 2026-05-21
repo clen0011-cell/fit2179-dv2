@@ -8,7 +8,7 @@
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 380,
+  "height": 400,
   "projection": {
     "type": "equirectangular",
     "center": [115, 5],
@@ -30,7 +30,7 @@
     {
       "data": {"url": "data/fao_sea.csv"},
       "transform": [
-        {"filter": "datum.Year == 2023"},
+        {"filter": "datum.Year == '2023'"},
         {"filter": "datum.Item == 'Consumer Prices, Food Indices (2015 = 100)'"},
         {
           "aggregate": [{"op": "mean", "field": "Value", "as": "avg_value"}],
@@ -51,7 +51,8 @@
             "key": "Area",
             "fields": ["lat", "lon"]
           }
-        }
+        },
+        {"filter": "datum.lat != null"}
       ],
       "mark": {
         "type": "circle",
@@ -72,10 +73,10 @@
           "field": "avg_value",
           "type": "quantitative",
           "scale": {"scheme": "orangered"},
-          "legend": {"title": "Food CPI Index"}
+          "legend": null
         },
         "tooltip": [
-          {"field": "Area",      "title": "Country"},
+          {"field": "Area", "title": "Country"},
           {"field": "avg_value", "title": "Avg Food CPI (2023)", "format": ".1f"}
         ]
       }
