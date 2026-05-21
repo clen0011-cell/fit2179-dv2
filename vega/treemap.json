@@ -40,7 +40,7 @@
     "color": {
       "field": "weight",
       "type": "quantitative",
-      "scale": {"scheme": "orangered"},
+      "scale": {"scheme": "greens"},
       "legend": null
     },
     "tooltip": [
