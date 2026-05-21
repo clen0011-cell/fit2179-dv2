@@ -1,100 +1,64 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Food Inflation Rate by Country (2023)",
-    "subtitle": "Annual % change in food consumer price index across Southeast Asia",
+    "text": "Food Price Index by Country (2023)",
+    "subtitle": "Average annual food CPI across Southeast Asia. Malaysia highlighted in red.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 280,
+  "height": 250,
   "data": {"url": "data/fao_sea.csv"},
   "transform": [
     {"filter": "datum.Year == 2023"},
-    {"filter": "datum.Element == 'Food Consumer Price Index'"}
+    {"filter": "datum.Item == 'Consumer Prices, Food Indices (2015 = 100)'"},
+    {
+      "aggregate": [{"op": "mean", "field": "Value", "as": "avg_value"}],
+      "groupby": ["Area"]
+    }
   ],
   "layer": [
     {
-      "mark": {
-        "type": "rule",
-        "color": "#e8e0d4",
-        "strokeWidth": 2
-      },
+      "mark": {"type": "rule", "color": "#e8e0d4", "strokeWidth": 2},
       "encoding": {
-        "y": {
-          "field": "Area",
-          "type": "nominal",
-          "title": null,
-          "sort": "-x"
-        },
-        "x": {"value": 0},
-        "x2": {"field": "Value", "type": "quantitative"}
+        "y":  {"field": "Area", "type": "nominal", "sort": "-x", "title": null},
+        "x":  {"value": 0},
+        "x2": {"field": "avg_value", "type": "quantitative"}
       }
     },
     {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 150
-      },
+      "mark": {"type": "point", "filled": true, "size": 180},
       "encoding": {
-        "y": {
-          "field": "Area",
-          "type": "nominal",
-          "title": null,
-          "sort": "-x"
-        },
+        "y": {"field": "Area", "type": "nominal", "sort": "-x", "title": null},
         "x": {
-          "field": "Value",
+          "field": "avg_value",
           "type": "quantitative",
-          "title": "Food CPI Index",
+          "title": "Avg Food CPI Index (2015 = 100)",
           "axis": {"grid": false}
         },
         "color": {
-          "condition": {
-            "test": "datum.Area == 'Malaysia'",
-            "value": "#c0392b"
-          },
+          "condition": {"test": "datum.Area == 'Malaysia'", "value": "#c0392b"},
           "value": "#f4a261"
         },
         "size": {
-          "condition": {
-            "test": "datum.Area == 'Malaysia'",
-            "value": 200
-          },
-          "value": 120
+          "condition": {"test": "datum.Area == 'Malaysia'", "value": 250},
+          "value": 150
         },
         "tooltip": [
-          {"field": "Area", "title": "Country"},
-          {"field": "Value", "title": "Food CPI Index", "format": ".1f"},
-          {"field": "Year", "title": "Year"}
+          {"field": "Area",      "title": "Country"},
+          {"field": "avg_value", "title": "Food CPI Index", "format": ".1f"}
         ]
       }
     },
     {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 8,
-        "fontSize": 11
-      },
+      "mark": {"type": "text", "align": "left", "dx": 10, "fontSize": 12},
       "encoding": {
-        "y": {
-          "field": "Area",
-          "type": "nominal",
-          "sort": "-x"
-        },
-        "x": {
-          "field": "Value",
-          "type": "quantitative"
-        },
+        "y": {"field": "Area", "type": "nominal", "sort": "-x"},
+        "x": {"field": "avg_value", "type": "quantitative"},
         "text": {"field": "Area"},
         "color": {
-          "condition": {
-            "test": "datum.Area == 'Malaysia'",
-            "value": "#c0392b"
-          },
+          "condition": {"test": "datum.Area == 'Malaysia'", "value": "#c0392b"},
           "value": "#888"
         }
       }
