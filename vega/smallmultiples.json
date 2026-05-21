@@ -16,6 +16,7 @@
     "field": "state",
     "type": "nominal",
     "columns": 2,
+    "rows": 2,
     "header": {
       "titleFontSize": 0,
       "labelFontSize": 11,
