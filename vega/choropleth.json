@@ -41,7 +41,7 @@
         "color": {
           "field": "inflation_yoy",
           "type": "quantitative",
-          "scale": {"scheme": "orangered"},
+          "scale": {"scheme": "purples"},
           "legend": {"title": "Inflation %"}
         },
         "tooltip": [
