@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Inflation by Malaysian State",
-    "subtitle": "Annual % change in food CPI (2023–2024)",
+    "subtitle": "Annual % change in food CPI, 2023. Source: DOSM",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -18,30 +18,18 @@
       },
       "transform": [
         {
-          "lookup": "properties.Name",
+          "calculate": "datum.properties.Name == 'Penang' ? 'Pulau Pinang' : datum.properties.Name == 'Kuala Lumpur' ? 'W.P. Kuala Lumpur' : datum.properties.Name == 'Labuan' ? 'W.P. Labuan' : datum.properties.Name == 'Putrajaya' ? 'W.P. Putrajaya' : datum.properties.Name",
+          "as": "csv_state"
+        },
+        {
+          "lookup": "csv_state",
           "from": {
             "data": {
-              "values": [
-                {"name": "Johor",        "inflation": 1.8},
-                {"name": "Kedah",        "inflation": 0.6},
-                {"name": "Kelantan",     "inflation": 1.2},
-                {"name": "Melaka",       "inflation": 1.5},
-                {"name": "Negeri Sembilan","inflation": 1.4},
-                {"name": "Pahang",       "inflation": 1.9},
-                {"name": "Perak",        "inflation": 0.5},
-                {"name": "Perlis",       "inflation": 1.7},
-                {"name": "Penang",       "inflation": 2.7},
-                {"name": "Sabah",        "inflation": 1.6},
-                {"name": "Sarawak",      "inflation": 1.8},
-                {"name": "Selangor",     "inflation": 3.3},
-                {"name": "Terengganu",   "inflation": 1.9},
-                {"name": "Kuala Lumpur", "inflation": 1.5},
-                {"name": "Labuan",       "inflation": 1.6},
-                {"name": "Putrajaya",    "inflation": 2.5}
-              ]
+              "url": "data/cpi_state_inflation.csv",
+              "format": {"type": "csv"}
             },
-            "key": "name",
-            "fields": ["inflation"]
+            "key": "state",
+            "fields": ["inflation_yoy"]
           }
         }
       ],
@@ -52,14 +40,14 @@
       },
       "encoding": {
         "color": {
-          "field": "inflation",
+          "field": "inflation_yoy",
           "type": "quantitative",
-          "scale": {"scheme": "orangered", "domain": [0, 3.5]},
+          "scale": {"scheme": "orangered"},
           "legend": {"title": "Inflation %"}
         },
         "tooltip": [
           {"field": "properties.Name", "title": "State"},
-          {"field": "inflation", "title": "Food Inflation %", "format": ".1f"}
+          {"field": "inflation_yoy", "title": "Food Inflation %", "format": ".1f"}
         ]
       }
     }
