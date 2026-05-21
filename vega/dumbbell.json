@@ -68,8 +68,8 @@
           "legend": {"title": "Year", "orient": "top-right"}
         },
         "tooltip": [
-          {"field": "label", "title": "Category"},
-          {"field": "yearStr", "title": "Year"},
+          {"field": "label",     "title": "Category"},
+          {"field": "yearStr",   "title": "Year"},
           {"field": "avg_index", "title": "CPI Index", "format": ".1f"}
         ]
       }
