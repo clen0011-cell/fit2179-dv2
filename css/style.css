@@ -79,6 +79,14 @@ section {
 .chart-wide { grid-column: span 2; }
 .chart-text { padding: 1rem 0; color: #555; line-height: 1.7; }
 
+.chart-caption {
+  max-width: 75ch;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
 
 /* ── Footer ── */
 footer {
