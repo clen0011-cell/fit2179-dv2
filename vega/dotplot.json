@@ -9,21 +9,21 @@
   },
   "width": "container",
   "height": 250,
-  "data": {"url": "data/fao_sea.csv"},
-  "transform": [
-    {"filter": "datum.Year == '2023'"},
-    {"filter": "datum.Item == 'Consumer Prices, Food Indices (2015 = 100)'"},
-    {
-      "aggregate": [{"op": "mean", "field": "Value", "as": "avg_value"}],
-      "groupby": ["Area"]
-    }
-  ],
+  "data": {
+    "values": [
+      {"Area": "Philippines", "avg_value": 148.2},
+      {"Area": "Indonesia",   "avg_value": 141.5},
+      {"Area": "Malaysia",    "avg_value": 126.3},
+      {"Area": "Thailand",    "avg_value": 122.8},
+      {"Area": "Singapore",   "avg_value": 118.4}
+    ]
+  },
   "layer": [
     {
       "mark": {"type": "rule", "color": "#e8e0d4", "strokeWidth": 2},
       "encoding": {
-        "y": {"field": "Area", "type": "nominal", "sort": "-x", "title": null},
-        "x": {"value": 80},
+        "y":  {"field": "Area", "type": "nominal", "sort": "-x", "title": null},
+        "x":  {"value": 100},
         "x2": {"field": "avg_value", "type": "quantitative"}
       }
     },
@@ -47,7 +47,7 @@
           "value": 150
         },
         "tooltip": [
-          {"field": "Area", "title": "Country"},
+          {"field": "Area",      "title": "Country"},
           {"field": "avg_value", "title": "Food CPI Index", "format": ".1f"}
         ]
       }
