@@ -2,14 +2,18 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Inflation Across Southeast Asia",
-    "subtitle": "Food CPI index (2023). Circle size = inflation level.",
+    "subtitle": "Average Food CPI index (2023). Circle size = price level. Source: FAO",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
   "width": "container",
   "height": 380,
-  "projection": {"type": "equirectangular"},
+  "projection": {
+    "type": "equirectangular",
+    "center": [115, 5],
+    "scale": 700
+  },
   "layer": [
     {
       "data": {
@@ -27,50 +31,52 @@
       "data": {"url": "data/fao_sea.csv"},
       "transform": [
         {"filter": "datum.Year == 2023"},
-        {"filter": "datum.Element == 'Food Consumer Price Index'"},
+        {"filter": "datum.Item == 'Consumer Prices, Food Indices (2015 = 100)'"},
+        {
+          "aggregate": [{"op": "mean", "field": "Value", "as": "avg_value"}],
+          "groupby": ["Area"]
+        },
         {
           "lookup": "Area",
           "from": {
             "data": {
               "values": [
-                {"Area": "Malaysia",     "latitude": 4.2105,  "longitude": 101.9758},
-                {"Area": "Thailand",     "latitude": 15.8700, "longitude": 100.9925},
-                {"Area": "Indonesia",    "latitude": -0.7893, "longitude": 113.9213},
-                {"Area": "Philippines",  "latitude": 12.8797, "longitude": 121.7740},
-                {"Area": "Singapore",    "latitude": 1.3521,  "longitude": 103.8198},
-                {"Area": "Viet Nam",     "latitude": 14.0583, "longitude": 108.2772}
+                {"Area": "Malaysia",    "lat": 4.2105,  "lon": 101.9758},
+                {"Area": "Thailand",    "lat": 15.8700, "lon": 100.9925},
+                {"Area": "Indonesia",   "lat": -0.7893, "lon": 113.9213},
+                {"Area": "Philippines", "lat": 12.8797, "lon": 121.7740},
+                {"Area": "Singapore",   "lat": 1.3521,  "lon": 103.8198}
               ]
             },
             "key": "Area",
-            "fields": ["latitude", "longitude"]
+            "fields": ["lat", "lon"]
           }
         }
       ],
       "mark": {
         "type": "circle",
-        "opacity": 0.8,
+        "opacity": 0.85,
         "stroke": "#fff",
-        "strokeWidth": 1
+        "strokeWidth": 1.5
       },
       "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"},
-        "latitude":  {"field": "latitude",  "type": "quantitative"},
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude":  {"field": "lat", "type": "quantitative"},
         "size": {
-          "field": "Value",
+          "field": "avg_value",
           "type": "quantitative",
-          "scale": {"range": [200, 2500]},
+          "scale": {"range": [300, 3000]},
           "legend": {"title": "Food CPI Index"}
         },
         "color": {
-          "field": "Value",
+          "field": "avg_value",
           "type": "quantitative",
           "scale": {"scheme": "orangered"},
           "legend": {"title": "Food CPI Index"}
         },
         "tooltip": [
-          {"field": "Area",  "title": "Country"},
-          {"field": "Year",  "title": "Year"},
-          {"field": "Value", "title": "Food CPI Index", "format": ".1f"}
+          {"field": "Area",      "title": "Country"},
+          {"field": "avg_value", "title": "Avg Food CPI (2023)", "format": ".1f"}
         ]
       }
     }
