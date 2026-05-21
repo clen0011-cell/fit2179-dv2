@@ -1,70 +1,55 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Which Foods Got More Expensive?",
-    "subtitle": "Annual % change in food CPI by category, 2023",
-    "anchor": "start",
-    "fontSize": 15,
-    "subtitleFontSize": 12
+    "text": "Food Price Inflation by Malaysian State",
+    "subtitle": "Annual % change in food CPI (2023–2024)",
+    "anchor": "start"
   },
   "width": "container",
-  "height": 320,
-  "data": {"url": "data/cpi_inflation.csv"},
-  "transform": [
-    {"filter": "datum.date >= '2023-01-01' && datum.date <= '2023-12-31'"},
-    {"filter": "datum.division != 'overall'"},
-    {
-      "aggregate": [{"op": "mean", "field": "inflation", "as": "avg_inflation"}],
-      "groupby": ["division"]
-    },
-    {
-      "lookup": "division",
-      "from": {
-        "data": {
-          "values": [
-            {"division": "01", "label": "Food & Non-Alcoholic Drinks"},
-            {"division": "02", "label": "Alcoholic Drinks & Tobacco"},
-            {"division": "03", "label": "Clothing & Footwear"},
-            {"division": "04", "label": "Housing & Utilities"},
-            {"division": "05", "label": "Furnishings"},
-            {"division": "06", "label": "Health"},
-            {"division": "07", "label": "Transport"},
-            {"division": "08", "label": "Communication"},
-            {"division": "09", "label": "Recreation"},
-            {"division": "10", "label": "Education"},
-            {"division": "11", "label": "Restaurants & Hotels"},
-            {"division": "12", "label": "Insurance & Finance"},
-            {"division": "13", "label": "Misc Goods & Services"}
-          ]
-        },
-        "key": "division",
-        "fields": ["label"]
-      }
-    }
-  ],
+  "height": 400,
+  "data": {
+    "values": [
+      {"state": "Selangor",          "inflation": 3.32},
+      {"state": "Pulau Pinang",      "inflation": 2.65},
+      {"state": "W.P. Putrajaya",    "inflation": 2.41},
+      {"state": "Pahang",            "inflation": 2.02},
+      {"state": "Sarawak",           "inflation": 1.88},
+      {"state": "Terengganu",        "inflation": 1.80},
+      {"state": "Johor",             "inflation": 1.74},
+      {"state": "Perlis",            "inflation": 1.71},
+      {"state": "Sabah",             "inflation": 1.56},
+      {"state": "W.P. Labuan",       "inflation": 1.41},
+      {"state": "W.P. Kuala Lumpur", "inflation": 1.34},
+      {"state": "Negeri Sembilan",   "inflation": 1.17},
+      {"state": "Melaka",            "inflation": 1.06},
+      {"state": "Kelantan",          "inflation": 0.80},
+      {"state": "Kedah",             "inflation": 0.66},
+      {"state": "Perak",             "inflation": 0.62}
+    ]
+  },
   "mark": {"type": "bar", "cornerRadiusEnd": 4},
   "encoding": {
     "y": {
-      "field": "label",
+      "field": "state",
       "type": "nominal",
       "sort": "-x",
       "title": null
     },
     "x": {
-      "field": "avg_inflation",
+      "field": "inflation",
       "type": "quantitative",
-      "title": "Inflation (%)",
+      "title": "Food CPI Inflation, YoY (%)",
       "axis": {"grid": false}
     },
     "color": {
-      "field": "avg_inflation",
+      "field": "inflation",
       "type": "quantitative",
       "scale": {"scheme": "orangered"},
       "legend": null
     },
     "tooltip": [
-      {"field": "label", "title": "Category"},
-      {"field": "avg_inflation", "title": "Avg Inflation %", "format": ".2f"}
+      {"field": "state",     "title": "State"},
+      {"field": "inflation", "title": "Food Inflation (%)", "format": ".2f"}
     ]
   }
 }
