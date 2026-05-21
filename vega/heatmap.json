@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "padding": {"left": 120, "right": 20, "top": 10, "bottom": 10},
   "title": {
     "text": "Food Inflation Across States Over Time",
     "subtitle": "Annual % change in food CPI (division 01) by state",
