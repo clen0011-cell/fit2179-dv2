@@ -1,19 +1,17 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Malaysia Food CPI, 2010–2025",
-    "subtitle": "Base year = 2010. Higher values mean higher prices.",
+    "text": "Two Decades of Rising Food Prices in Malaysia",
+    "subtitle": "Monthly food CPI index (base 2010 = 100). Source: DOSM",
+    "anchor": "start",
     "fontSize": 15,
-    "subtitleFontSize": 12,
-    "anchor": "start"
+    "subtitleFontSize": 12
   },
   "width": "container",
   "height": 300,
-  "data": {
-    "url": "data/cpi_national.csv"
-  },
+  "data": {"url": "data/cpi_national.csv"},
   "transform": [
-    {"filter": "datum.division == '01'"}
+    {"filter": "datum.division === '01'"}
   ],
   "mark": {
     "type": "line",
@@ -29,11 +27,12 @@
     "y": {
       "field": "index",
       "type": "quantitative",
-      "title": "Food Price Index"
+      "title": "Food Price Index (2010 = 100)",
+      "scale": {"zero": false}
     },
     "tooltip": [
-      {"field": "date", "type": "temporal", "title": "Date"},
-      {"field": "index", "type": "quantitative", "title": "CPI"}
+      {"field": "date",  "type": "temporal",    "title": "Date"},
+      {"field": "index", "type": "quantitative", "title": "Food CPI", "format": ".1f"}
     ]
   }
 }
