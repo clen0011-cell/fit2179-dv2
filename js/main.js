@@ -1,13 +1,37 @@
+// Wrap every embed in its own try-catch so one crash doesn't kill the rest
 const embedOpts = { actions: false, renderer: 'svg' };
 
-vegaEmbed('#linechart',      'vega/linechart.json',      embedOpts);
-vegaEmbed('#choropleth',     'vega/choropleth.json',     embedOpts);
-vegaEmbed('#barchart',       'vega/barchart.json',       embedOpts);
-vegaEmbed('#treemap',        'vega/treemap.json',        embedOpts);
-vegaEmbed('#heatmap',        'vega/heatmap.json',        embedOpts);
-vegaEmbed('#smallmultiples', 'vega/smallmultiples.json', embedOpts);
-vegaEmbed('#areachart',      'vega/areachart.json',      embedOpts);
-vegaEmbed('#dumbbell',       'vega/dumbbell.json',       embedOpts);
-vegaEmbed('#stackedbar',     'vega/stackedbar.json',     embedOpts);
-vegaEmbed('#symbolmap',      'vega/symbolmap.json',      embedOpts);
-vegaEmbed('#dotplot',        'vega/dotplot.json',        embedOpts);
+async function embedAll() {
+  const charts = [
+    ['#linechart',      'vega/linechart.json'],
+    ['#barchart',       'vega/barchart.json'],
+    ['#treemap',        'vega/treemap.json'],
+    ['#choropleth',     'vega/choropleth.json'],
+    ['#heatmap',        'vega/heatmap.json'],
+    ['#areachart',      'vega/areachart.json'],
+    ['#dumbbell',       'vega/dumbbell.json'],
+    ['#stackedbar',     'vega/stackedbar.json'],
+    ['#symbolmap',      'vega/symbolmap.json'],
+    ['#dotplot',        'vega/dotplot.json']
+  ];
+
+  for (const [id, url] of charts) {
+    try {
+      await vegaEmbed(id, url, embedOpts);
+    } catch(e) {
+      console.error('Failed to load ' + url + ':', e);
+    }
+  }
+
+  // Small multiples separately with fixed width
+  try {
+    await vegaEmbed('#smallmultiples', 'vega/smallmultiples.json', {
+      actions: false,
+      renderer: 'svg'
+    });
+  } catch(e) {
+    console.error('Failed smallmultiples:', e);
+  }
+}
+
+embedAll();
