@@ -1,15 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Food Price Trends Across All States",
-    "subtitle": "Monthly food CPI index (2010 = 100) per state",
+    "text": "Food Price Trends: Key States Compared",
+    "subtitle": "Monthly food CPI index (2010 = 100)",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
   "data": {"url": "data/cpi_state.csv"},
   "transform": [
-    {"filter": "datum.division == '01'"}
+    {"filter": "datum.division == '01'"},
+    {"filter": "datum.state == 'Selangor' || datum.state == 'Perak' || datum.state == 'Sarawak' || datum.state == 'W.P. Kuala Lumpur'"}
   ],
   "facet": {
     "field": "state",
@@ -18,27 +19,29 @@
     "header": {
       "titleFontSize": 0,
       "labelFontSize": 11,
-      "labelFontWeight": "bold"
+      "labelFontWeight": "bold",
+      "labelColor": "#444"
     }
   },
   "spec": {
-    "width": 160,
-    "height": 80,
+    "width": 180,
+    "height": 100,
     "mark": {
       "type": "line",
       "color": "#c0392b",
-      "strokeWidth": 1.5
+      "strokeWidth": 2
     },
     "encoding": {
       "x": {
         "field": "date",
         "type": "temporal",
-        "axis": {"labels": false, "ticks": false, "title": null, "grid": false}
+        "axis": null
       },
       "y": {
         "field": "index",
         "type": "quantitative",
-        "axis": {"title": null, "grid": false}
+        "axis": {"tickCount": 3, "title": null},
+        "scale": {"zero": false}
       },
       "tooltip": [
         {"field": "state", "title": "State"},
@@ -46,5 +49,7 @@
         {"field": "index", "title": "Food CPI", "format": ".1f"}
       ]
     }
-  }
+  },
+  "resolve": {"scale": {"y": "independent"}},
+  "spacing": 20
 }
