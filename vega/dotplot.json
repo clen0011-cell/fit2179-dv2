@@ -9,22 +9,12 @@
   },
   "width": "container",
   "height": 260,
-  "data": {"url": "data/fao_sea.csv"},
-  "transform": [
-    {"filter": {"field": "Year", "equal": "2023"}},
-    {"filter": {"field": "Item", "equal": "Consumer Prices, Food Indices (2015 = 100)"}},
-    {"filter": "datum.Value != ''"},
-    {"calculate": "toNumber(datum.Value)", "as": "cpi_value"},
-    {
-      "aggregate": [{"op": "mean", "field": "cpi_value", "as": "avg_cpi"}],
-      "groupby": ["Area"]
-    }
-  ],
+  "data": {"url": "data/fao_avg_2023.csv"},
   "layer": [
     {
       "mark": {"type": "rule", "color": "#e8e0d4", "strokeWidth": 2},
       "encoding": {
-        "y":  {"field": "Area", "type": "nominal", "sort": "-x", "title": null},
+        "y":  {"field": "country", "type": "nominal", "sort": "-x", "title": null},
         "x":  {"datum": 100},
         "x2": {"field": "avg_cpi"}
       }
@@ -32,7 +22,7 @@
     {
       "mark": {"type": "point", "filled": true, "size": 200},
       "encoding": {
-        "y": {"field": "Area", "type": "nominal", "sort": "-x", "title": null},
+        "y": {"field": "country", "type": "nominal", "sort": "-x", "title": null},
         "x": {
           "field": "avg_cpi",
           "type": "quantitative",
@@ -41,15 +31,15 @@
           "axis": {"grid": false}
         },
         "color": {
-          "condition": {"test": "datum.Area == 'Malaysia'", "value": "#c0392b"},
+          "condition": {"test": "datum.country == 'Malaysia'", "value": "#c0392b"},
           "value": "#f4a261"
         },
         "size": {
-          "condition": {"test": "datum.Area == 'Malaysia'", "value": 280},
+          "condition": {"test": "datum.country == 'Malaysia'", "value": 280},
           "value": 160
         },
         "tooltip": [
-          {"field": "Area",    "title": "Country"},
+          {"field": "country", "title": "Country"},
           {"field": "avg_cpi", "title": "Food CPI Index (2023)", "format": ".1f"}
         ]
       }
@@ -57,11 +47,11 @@
     {
       "mark": {"type": "text", "align": "left", "dx": 10, "fontSize": 12},
       "encoding": {
-        "y": {"field": "Area", "type": "nominal", "sort": "-x"},
+        "y": {"field": "country", "type": "nominal", "sort": "-x"},
         "x": {"field": "avg_cpi", "type": "quantitative"},
-        "text": {"field": "Area"},
+        "text": {"field": "country"},
         "color": {
-          "condition": {"test": "datum.Area == 'Malaysia'", "value": "#c0392b"},
+          "condition": {"test": "datum.country == 'Malaysia'", "value": "#c0392b"},
           "value": "#888"
         }
       }
