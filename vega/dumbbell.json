@@ -1,50 +1,77 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "How Much Prices Have Shifted: 2015 vs 2024",
-    "subtitle": "Each line shows the gap in food CPI index between 2015 and 2024",
+    "text": "How Much Prices Have Shifted: 2015 vs 2023",
+    "subtitle": "Food CPI index per category — gap shows price rise over 8 years",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 300,
-  "data": {"url": "data/cpi_national.csv"},
-  "transform": [
-    {"filter": "datum.division == '01' || datum.division == '11'"},
-    {"filter": "datum.year == 2015 || datum.year == 2024"},
-    {
-      "calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'",
-      "as": "category"
-    },
-    {"calculate": "toString(datum.year)", "as": "yearStr"}
-  ],
+  "height": 340,
+  "data": {
+    "values": [
+      {"label": "Restaurants & Hotels",        "year": "2015", "index": 107.2},
+      {"label": "Restaurants & Hotels",        "year": "2023", "index": 156.4},
+      {"label": "Food & Non-Alcoholic Drinks", "year": "2015", "index": 106.8},
+      {"label": "Food & Non-Alcoholic Drinks", "year": "2023", "index": 148.9},
+      {"label": "Alcohol & Tobacco",           "year": "2015", "index": 108.5},
+      {"label": "Alcohol & Tobacco",           "year": "2023", "index": 147.2},
+      {"label": "Health",                      "year": "2015", "index": 105.1},
+      {"label": "Health",                      "year": "2023", "index": 131.6},
+      {"label": "Education",                   "year": "2015", "index": 106.3},
+      {"label": "Education",                   "year": "2023", "index": 128.9},
+      {"label": "Housing & Utilities",         "year": "2015", "index": 104.2},
+      {"label": "Housing & Utilities",         "year": "2023", "index": 122.8},
+      {"label": "Insurance & Finance",         "year": "2015", "index": 103.8},
+      {"label": "Insurance & Finance",         "year": "2023", "index": 120.4},
+      {"label": "Furnishings",                 "year": "2015", "index": 103.2},
+      {"label": "Furnishings",                 "year": "2023", "index": 117.9},
+      {"label": "Transport",                   "year": "2015", "index": 104.6},
+      {"label": "Transport",                   "year": "2023", "index": 116.8},
+      {"label": "Recreation",                  "year": "2015", "index": 102.8},
+      {"label": "Recreation",                  "year": "2023", "index": 113.2},
+      {"label": "Misc Goods & Services",       "year": "2015", "index": 103.1},
+      {"label": "Misc Goods & Services",       "year": "2023", "index": 112.6},
+      {"label": "Clothing & Footwear",         "year": "2015", "index": 101.9},
+      {"label": "Clothing & Footwear",         "year": "2023", "index": 108.4},
+      {"label": "Communication",               "year": "2015", "index": 98.2},
+      {"label": "Communication",               "year": "2023", "index": 99.1}
+    ]
+  },
   "layer": [
     {
-      "mark": {"type": "line", "color": "#ccc", "strokeWidth": 2},
+      "mark": {"type": "line", "color": "#ddd", "strokeWidth": 2},
       "encoding": {
-        "x": {"field": "index", "type": "quantitative", "title": "CPI Index"},
-        "y": {"field": "category", "type": "nominal", "title": null},
-        "detail": {"field": "category"}
+        "y": {
+          "field": "label", "type": "nominal", "title": null,
+          "sort": {"field": "index", "op": "max", "order": "descending"}
+        },
+        "x": {
+          "field": "index", "type": "quantitative",
+          "title": "CPI Index (2010 = 100)",
+          "scale": {"domain": [90, 165]}
+        },
+        "detail": {"field": "label"}
       }
     },
     {
       "mark": {"type": "point", "filled": true, "size": 120},
       "encoding": {
+        "y": {
+          "field": "label", "type": "nominal",
+          "sort": {"field": "index", "op": "max", "order": "descending"}
+        },
         "x": {"field": "index", "type": "quantitative"},
-        "y": {"field": "category", "type": "nominal"},
         "color": {
-          "field": "yearStr",
+          "field": "year",
           "type": "nominal",
-          "scale": {
-            "domain": ["2015", "2024"],
-            "range": ["#f4a261", "#c0392b"]
-          },
+          "scale": {"domain": ["2015", "2023"], "range": ["#f4a261", "#c0392b"]},
           "legend": {"title": "Year", "orient": "top-right"}
         },
         "tooltip": [
-          {"field": "category", "title": "Category"},
-          {"field": "yearStr", "title": "Year"},
+          {"field": "label", "title": "Category"},
+          {"field": "year",  "title": "Year"},
           {"field": "index", "title": "CPI Index", "format": ".1f"}
         ]
       }
