@@ -36,7 +36,7 @@ section {
 /* ── Stat Cards ── */
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -44,7 +44,7 @@ section {
 .stat-card {
   background: #fff;
   border: 1px solid #e8e0d4;
-  border-radius: 3Px;
+  border-radius: 8px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -68,6 +68,16 @@ section {
   align-items: start;
 }
 
+.chart-container {
+  background: #fff;
+  border: 1px solid #e8e0d4;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 300px;
+}
+
+.chart-wide { grid-column: span 2; }
+.chart-text { padding: 1rem 0; color: #555; line-height: 1.7; }
 .hero-banner {
   background: #c0392b;
   margin: 0 -2rem;
@@ -92,29 +102,6 @@ section {
   max-width: 60ch;
   line-height: 1.6;
 }
-.chart-container {
-  background: #fff;
-  border: 1px solid #e8e0d4;
-  border-radius: 8px;
-  padding: 1.5rem;
-  min-height: 300px;
-}
-
-
-
-
-.chart-wide { grid-column: span 2; }
-.chart-text { padding: 1rem 0; color: #555; line-height: 1.7; }
-
-.chart-caption {
-  max-width: 75ch;
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-top: 1rem;
-}
-
-
 /* ── Footer ── */
 footer {
   padding: 2rem 0;
