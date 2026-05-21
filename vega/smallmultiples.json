@@ -7,6 +7,7 @@
     "fontSize": 15,
     "subtitleFontSize": 12
   },
+  "width": "container",
   "data": {"url": "data/cpi_state.csv"},
   "transform": [
     {"filter": "datum.division == '01'"},
@@ -16,7 +17,6 @@
     "field": "state",
     "type": "nominal",
     "columns": 2,
-    "rows": 2,
     "header": {
       "titleFontSize": 0,
       "labelFontSize": 11,
@@ -25,8 +25,8 @@
     }
   },
   "spec": {
-    "width": 180,
-    "height": 100,
+    "width": 220,
+    "height": 120,
     "mark": {
       "type": "line",
       "color": "#0d40a5",
