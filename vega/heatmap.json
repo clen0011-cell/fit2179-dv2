@@ -36,7 +36,7 @@
     "color": {
       "field": "avg_inflation",
       "type": "quantitative",
-      "scale": {"scheme": "reds", "domain": [0, 8]}
+      "scale": {"scheme": "reds", "domain": [0, 8]},
       "legend": {"title": "Inflation %"}
     },
     "tooltip": [
