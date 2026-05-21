@@ -85,6 +85,10 @@ section {
   width: 100% !important;
 }
 
+#smallmultiples {
+  max-width: 550px;
+}
+
 .chart-wide { grid-column: span 2; }
 .chart-text { padding: 1rem 0; color: #555; line-height: 1.7; }
 .hero-banner {
