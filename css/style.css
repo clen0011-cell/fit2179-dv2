@@ -44,7 +44,7 @@ section {
 .stat-card {
   background: #fff;
   border: 1px solid #e8e0d4;
-  border-radius: 8px;
+  border-radius: 3Px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
