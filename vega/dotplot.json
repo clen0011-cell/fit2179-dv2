@@ -11,7 +11,7 @@
   "height": 250,
   "data": {"url": "data/fao_sea.csv"},
   "transform": [
-    {"filter": "datum.Year == 2023"},
+    {"filter": "datum.Year == '2023'"},
     {"filter": "datum.Item == 'Consumer Prices, Food Indices (2015 = 100)'"},
     {
       "aggregate": [{"op": "mean", "field": "Value", "as": "avg_value"}],
