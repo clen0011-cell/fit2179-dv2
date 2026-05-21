@@ -13,27 +13,34 @@
     "url": "data/cpi_national.csv"
   },
   "transform": [
-    {"filter": "datum.division == '01'"}
+    {"filter": "datum.division == '01'"},
+    {"calculate": "year(datum.date)", "as": "year"},
+    {
+      "aggregate": [{"op": "mean", "field": "index", "as": "avg_index"}],
+      "groupby": ["year"]
+    },
+    {"calculate": "new Date(datum.year, 0, 1)", "as": "year_date"}
   ],
   "mark": {
     "type": "line",
     "color": "#c0392b",
-    "strokeWidth": 2.5
+    "strokeWidth": 2.5,
+    "point": true
   },
   "encoding": {
     "x": {
-      "field": "date",
+      "field": "year_date",
       "type": "temporal",
       "title": "Year"
     },
     "y": {
-      "field": "index",
+      "field": "avg_index",
       "type": "quantitative",
       "title": "Food Price Index"
     },
     "tooltip": [
-      {"field": "date", "type": "temporal", "title": "Date"},
-      {"field": "index", "type": "quantitative", "title": "CPI"}
+      {"field": "year", "title": "Year", "type": "nominal"},
+      {"field": "avg_index", "title": "Avg CPI", "format": ".1f"}
     ]
   }
 }
