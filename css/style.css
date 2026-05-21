@@ -92,10 +92,14 @@ section {
   max-width: 60ch;
   line-height: 1.6;
 }
-
 .chart-container {
+  background: #fff;
+  border: 1px solid #e8e0d4;
+  border-radius: 8px;
+  padding: 1.5rem;
   min-height: 350px;
 }
+
 
 .chart-container .vega-embed {
   width: 100% !important;
