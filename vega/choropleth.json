@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Inflation by Malaysian State",
-    "subtitle": "Annual % change in food CPI (2023–2024)",
+    "subtitle": "Annual % change in food CPI, 2023. Source: DOSM",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -14,35 +14,23 @@
     {
       "data": {
         "url": "https://raw.githubusercontent.com/clen0011-cell/fit2179-dv2/main/malaysia.topojson",
-        "format": {"type": "topojson", "feature": "state"}
+        "format": {"type": "topojson", "feature": "states"}
       },
       "transform": [
         {
-          "lookup": "properties.name",
+          "calculate": "datum.properties.Name == 'Penang' ? 'Pulau Pinang' : datum.properties.Name == 'Kuala Lumpur' ? 'W.P. Kuala Lumpur' : datum.properties.Name == 'Labuan' ? 'W.P. Labuan' : datum.properties.Name == 'Putrajaya' ? 'W.P. Putrajaya' : datum.properties.Name",
+          "as": "csv_state"
+        },
+        {
+          "lookup": "csv_state",
           "from": {
-            "data": {
-              "values": [
-                {"state": "Johor",           "inflation": 1.8},
-                {"state": "Kedah",           "inflation": 0.6},
-                {"state": "Kelantan",        "inflation": 1.2},
-                {"state": "Melaka",          "inflation": 1.5},
-                {"state": "Negeri Sembilan", "inflation": 1.4},
-                {"state": "Pahang",          "inflation": 1.9},
-                {"state": "Perak",           "inflation": 0.5},
-                {"state": "Perlis",          "inflation": 1.7},
-                {"state": "Pulau Pinang",    "inflation": 2.7},
-                {"state": "Sabah",           "inflation": 1.6},
-                {"state": "Sarawak",         "inflation": 1.8},
-                {"state": "Selangor",        "inflation": 3.3},
-                {"state": "Terengganu",      "inflation": 1.9},
-                {"state": "W.P. Kuala Lumpur","inflation": 1.5},
-                {"state": "W.P. Labuan",     "inflation": 1.6},
-                {"state": "W.P. Putrajaya",  "inflation": 2.5}
-              ]
-            },
+            "data": {"url": "data/cpi_state_inflation.csv"},
             "key": "state",
-            "fields": ["inflation"]
+            "fields": ["inflation_yoy"]
           }
+        },
+        {
+          "filter": "datum.date >= '2023-01-01' && datum.date <= '2023-12-31'"
         }
       ],
       "mark": {
@@ -52,14 +40,20 @@
       },
       "encoding": {
         "color": {
-          "field": "inflation",
+          "field": "inflation_yoy",
           "type": "quantitative",
-          "scale": {"scheme": "orangered", "domain": [0, 3.5]},
+          "aggregate": "mean",
+          "scale": {"scheme": "orangered"},
           "legend": {"title": "Inflation %"}
         },
         "tooltip": [
-          {"field": "properties.name", "title": "State"},
-          {"field": "inflation", "title": "Food Inflation %", "format": ".1f"}
+          {"field": "properties.Name", "title": "State"},
+          {
+            "field": "inflation_yoy",
+            "title": "Food Inflation %",
+            "aggregate": "mean",
+            "format": ".1f"
+          }
         ]
       }
     }
