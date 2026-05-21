@@ -2,22 +2,22 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Index by Country (2023)",
-    "subtitle": "Average annual food CPI across Southeast Asia. Malaysia highlighted in red.",
+    "subtitle": "Average annual food CPI across Southeast Asia. Malaysia highlighted.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 250,
-  "data": {"url": "data/fao_sea.csv"},
-  "transform": [
-    {"filter": "datum.Year == '2023'"},
-    {"filter": "datum.Item == 'Consumer Prices, Food Indices (2015 = 100)'"},
-    {
-      "aggregate": [{"op": "mean", "field": "Value", "as": "avg_value"}],
-      "groupby": ["Area"]
-    }
-  ],
+  "height": 220,
+  "data": {
+    "values": [
+      {"Area": "Indonesia",   "avg_value": 138.3},
+      {"Area": "Philippines", "avg_value": 139.1},
+      {"Area": "Malaysia",    "avg_value": 127.4},
+      {"Area": "Singapore",   "avg_value": 122.8},
+      {"Area": "Thailand",    "avg_value": 115.7}
+    ]
+  },
   "layer": [
     {
       "mark": {"type": "rule", "color": "#e8e0d4", "strokeWidth": 2},
@@ -28,7 +28,7 @@
       }
     },
     {
-      "mark": {"type": "point", "filled": true, "size": 180},
+      "mark": {"type": "point", "filled": true},
       "encoding": {
         "y": {"field": "Area", "type": "nominal", "sort": "-x", "title": null},
         "x": {
@@ -47,7 +47,7 @@
           "value": 150
         },
         "tooltip": [
-          {"field": "Area", "title": "Country"},
+          {"field": "Area",      "title": "Country"},
           {"field": "avg_value", "title": "Food CPI Index", "format": ".1f"}
         ]
       }
