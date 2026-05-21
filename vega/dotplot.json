@@ -59,8 +59,7 @@
         "x": {"field": "avg_value", "type": "quantitative"},
         "text": {"field": "Area"},
         "color": {
-          "condition": {"test": "datum.Area == 'Malaysia'", "value": "#c0392b"},
-          "value": "#888"
+          "condition": {"test": "datum.Area == 'Malaysia'", "value": "#E69F00"}, "value": "#56B4E9"
         }
       }
     }
