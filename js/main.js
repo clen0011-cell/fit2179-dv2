@@ -1,4 +1,3 @@
-// Wrap every embed in its own try-catch so one crash doesn't kill the rest
 const embedOpts = { actions: false, renderer: 'svg' };
 
 async function embedAll() {
@@ -12,7 +11,8 @@ async function embedAll() {
     ['#dumbbell',       'vega/dumbbell.json'],
     ['#stackedbar',     'vega/stackedbar.json'],
     ['#symbolmap',      'vega/symbolmap.json'],
-    ['#dotplot',        'vega/dotplot.json']
+    ['#dotplot',        'vega/dotplot.json'],
+    ['#smallmultiples', 'vega/smallmultiples.json']
   ];
 
   for (const [id, url] of charts) {
@@ -21,16 +21,6 @@ async function embedAll() {
     } catch(e) {
       console.error('Failed to load ' + url + ':', e);
     }
-  }
-
-  // Small multiples separately with fixed width
-  try {
-    await vegaEmbed('#smallmultiples', 'vega/smallmultiples.json', {
-      actions: false,
-      renderer: 'svg'
-    });
-  } catch(e) {
-    console.error('Failed smallmultiples:', e);
   }
 }
 
