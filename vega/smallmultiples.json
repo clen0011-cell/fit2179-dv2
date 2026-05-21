@@ -17,13 +17,14 @@
     "columns": 4,
     "header": {
       "titleFontSize": 0,
-      "labelFontSize": 11,
-      "labelFontWeight": "bold"
+      "labelFontSize": 10,
+      "labelFontWeight": "bold",
+      "labelColor": "#444"
     }
   },
   "spec": {
-    "width": 160,
-    "height": 80,
+    "width": 150,
+    "height": 70,
     "mark": {
       "type": "line",
       "color": "#c0392b",
@@ -33,12 +34,23 @@
       "x": {
         "field": "date",
         "type": "temporal",
-        "axis": {"labels": false, "ticks": false, "title": null, "grid": false}
+        "axis": {
+          "labels": false,
+          "ticks": false,
+          "title": null,
+          "grid": false,
+          "domain": false
+        }
       },
       "y": {
         "field": "index",
         "type": "quantitative",
-        "axis": {"title": null, "grid": false}
+        "axis": {
+          "title": null,
+          "grid": false,
+          "tickCount": 3
+        },
+        "scale": {"zero": false}
       },
       "tooltip": [
         {"field": "state", "title": "State"},
@@ -46,5 +58,6 @@
         {"field": "index", "title": "Food CPI", "format": ".1f"}
       ]
     }
-  }
+  },
+  "resolve": {"scale": {"y": "independent"}}
 }
