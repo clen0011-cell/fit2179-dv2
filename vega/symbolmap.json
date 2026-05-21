@@ -32,6 +32,7 @@
       "transform": [
         {"filter": "datum.Year == '2023'"},
         {"filter": "datum.Item == 'Consumer Prices, Food Indices (2015 = 100)'"},
+        {"filter": "datum.Value != ''"},
         {
           "aggregate": [{"op": "mean", "field": "Value", "as": "avg_value"}],
           "groupby": ["Area"]
@@ -76,7 +77,7 @@
           "legend": null
         },
         "tooltip": [
-          {"field": "Area", "title": "Country"},
+          {"field": "Area",      "title": "Country"},
           {"field": "avg_value", "title": "Avg Food CPI (2023)", "format": ".1f"}
         ]
       }
