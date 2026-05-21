@@ -43,7 +43,7 @@
     "color": {
       "field": "inflation",
       "type": "quantitative",
-      "scale": {"scheme": "orangered"},
+      "scale": {"scheme": "oranges"},
       "legend": null
     },
     "tooltip": [
