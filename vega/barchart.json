@@ -8,11 +8,15 @@
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 300,
+  "height": 320,
   "data": {"url": "data/cpi_inflation.csv"},
   "transform": [
-    {"filter": "datum.division != 'overall'"},
     {"filter": "datum.date >= '2023-01-01' && datum.date <= '2023-12-31'"},
+    {"filter": "datum.division != 'overall'"},
+    {
+      "aggregate": [{"op": "mean", "field": "inflation", "as": "avg_inflation"}],
+      "groupby": ["division"]
+    },
     {
       "lookup": "division",
       "from": {
@@ -47,20 +51,20 @@
       "title": null
     },
     "x": {
-      "field": "inflation",
+      "field": "avg_inflation",
       "type": "quantitative",
       "title": "Inflation (%)",
       "axis": {"grid": false}
     },
     "color": {
-      "field": "inflation",
+      "field": "avg_inflation",
       "type": "quantitative",
       "scale": {"scheme": "orangered"},
       "legend": null
     },
     "tooltip": [
       {"field": "label", "title": "Category"},
-      {"field": "inflation", "title": "Inflation %", "format": ".2f"}
+      {"field": "avg_inflation", "title": "Avg Inflation %", "format": ".2f"}
     ]
   }
 }
