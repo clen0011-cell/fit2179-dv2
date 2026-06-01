@@ -69,22 +69,22 @@
           {
             "lat": 4.5,
             "lon": 116.0,
-            "label": "Sabah → highest ~7%"
+            "label": "Sabah"
           },
           {
             "lat": 2.0,
             "lon": 112.0,
-            "label": "Sarawak → above 5%"
+            "label": "Sarawak"
           },
           {
             "lat": 3.2,
             "lon": 101.8,
-            "label": "KL → lowest ~3%"
+            "label": "Kuala Lumpur"
           },
           {
             "lat": 5.5,
             "lon": 103.5,
-            "label": "Kelantan → above 5%"
+            "label": "Kelantan"
           }
         ]
       },
