@@ -11,22 +11,35 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    h2 {
-      font-family: 'Playfair Display', serif;
-    }
-    h3 {
-      font-family: 'Source Sans 3', sans-serif;
-      font-weight: 600;
-    }
+    h2 { font-family: 'Playfair Display', serif; }
+    h3 { font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
+
     .chart-caption,
-    .section-intro,
-    p.body-copy {
-      max-width: 52ch;
+    .section-intro {
       line-height: 1.65;
+      max-width: 52ch;
     }
-    #comparison .comparison-heading {
+
+    /* Section heading row: h2 left, intro right, same baseline row */
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 2.5rem;
       margin-bottom: 1.2rem;
     }
+    .section-header h2 {
+      flex: 0 0 auto;
+      margin: 0;
+    }
+    .section-header .section-intro {
+      flex: 1 1 auto;
+      margin: 0;
+      padding-top: 0.25rem; /* optically align with cap height */
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    #comparison .comparison-heading { margin-bottom: 1.2rem; }
     #comparison .comparison-right h3 {
       font-family: 'Source Sans 3', sans-serif;
       font-weight: 600;
@@ -49,10 +62,12 @@ and what it means for your household.</p>
 
   <!-- SECTION 1: THE BIG PICTURE -->
   <section id="big-picture">
-    <h2>Two decades of food prices</h2>
-    <p class="section-intro">Malaysia's food prices stayed largely stable
+    <div class="section-header">
+      <h2>Two decades of food prices</h2>
+      <p class="section-intro">Malaysia's food prices stayed largely stable
 for a decade, until 2021, when global supply
 shocks changed everything.</p>
+    </div>
     <div class="chart-row" style="align-items: stretch;">
       <div id="linechart" class="chart-container"></div>
       <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
@@ -84,11 +99,13 @@ highest in two decades. By 2023, food costs
 
   <!-- SECTION 2: CATEGORY BREAKDOWN -->
   <section id="categories">
-    <h2>Not all food inflated equally</h2>
-    <p class="section-intro">Restaurants and hotels saw the steepest
-rises. The everyday grocery basket followed
-closely. Communication was the only category
-to fall below overall inflation.</p>
+    <div class="section-header">
+      <h2>Not all food inflated equally</h2>
+      <p class="section-intro">Restaurants and hotels saw the steepest rises.
+The everyday grocery basket followed closely.
+Communication was the only category to fall
+below overall inflation.</p>
+    </div>
     <div class="chart-row">
       <div id="barchart" class="chart-container"></div>
       <div id="treemap" class="chart-container"></div>
@@ -97,19 +114,20 @@ to fall below overall inflation.</p>
 
   <!-- SECTION 3: STATE MAP -->
   <section id="states">
-    <h2>Where you live matters</h2>
-    <p class="section-intro">Food costs vary widely across Malaysia.
+    <div class="section-header">
+      <h2>Where you live matters</h2>
+      <p class="section-intro">Food costs vary widely across Malaysia.
 Sabah and Sarawak felt the sharpest rises,
 while Perak and Kedah stayed comparatively
 affordable.</p>
-    <p style="font-size: 0.85rem; color: #888; margin-bottom: 1rem; font-family: 'Source Sans 3', sans-serif;">Malaysia is located in Southeast Asia,
-between latitudes 1N and 7N.</p>
+    </div>
+    <p style="font-size: 0.85rem; color: #888; margin-bottom: 1rem; font-family: 'Source Sans 3', sans-serif;">Malaysia is located in Southeast Asia, between latitudes 1°N and 7°N.</p>
 
     <div class="chart-row" style="align-items: stretch;">
       <div id="choropleth" class="chart-container"></div>
       <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem;">
         <h3>Sabah had the highest food inflation</h3>
-        <p class="section-intro" style="margin-bottom: 0;">
+        <p class="chart-caption" style="margin-bottom: 0;">
           In June 2023, year-on-year food inflation
 ranged from 3% to 7% across states.
 Sabah and Sarawak led; W.P. Kuala Lumpur
@@ -141,10 +159,12 @@ and Putrajaya remained the most contained.
 
   <!-- SECTION 4: EATING OUT VS HOME -->
   <section id="eating-out">
-    <h2>Eating out is getting further from reach</h2>
-    <p class="section-intro">The gap between cooking at home and eating
+    <div class="section-header">
+      <h2>Eating out is getting further from reach</h2>
+      <p class="section-intro">The gap between cooking at home and eating
 out has widened. This hits lower-income
 households hardest, regardless of state.</p>
+    </div>
     <div class="chart-row">
       <div id="areachart" class="chart-container"></div>
       <div id="scatterplot" class="chart-container"></div>
