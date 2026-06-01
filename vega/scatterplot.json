@@ -33,22 +33,36 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {"x": 4200, "y": 8600, "label": "Richer states spend more."},
-          {"x": 4200, "y": 8200, "label": "KL & Putrajaya → top both axes."},
-          {"x": 4200, "y": 7800, "label": "Kelantan → lowest; Sabah outlier."}
-        ]
+  "data": {
+    "values": [
+      {
+        "x": 4700,
+        "y": 8600,
+        "label": "Higher income → higher spending"
       },
-      "mark": {
-        "type": "text", "fontSize": 10.5, "color": "#555",
-        "align": "left", "fontStyle": "italic"
+      {
+        "x": 4700,
+        "y": 8100,
+        "label": "KL & Putrajaya lead both"
       },
-      "encoding": {
-        "x":    {"field": "x", "type": "quantitative"},
-        "y":    {"field": "y", "type": "quantitative"},
-        "text": {"field": "label"}
+      {
+        "x": 4700,
+        "y": 7600,
+        "label": "Sabah = notable outlier"
       }
-    }
+    ]
+  },
+  "mark": {
+    "type": "text",
+    "fontSize": 10.5,
+    "color": "#000000",
+    "align": "left"
+  },
+  "encoding": {
+    "x": {"field": "x", "type": "quantitative"},
+    "y": {"field": "y", "type": "quantitative"},
+    "text": {"field": "label"}
+  }
+}
   ]
 }
