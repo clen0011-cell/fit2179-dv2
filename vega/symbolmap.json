@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Inflation Across Southeast Asia",
-    "subtitle": "Average Food CPI index (2023). Circle size = price level. Source: FAO",
+    "subtitle": "Average Food CPI index (2023, base 2015 = 100). Circle size = price level. Source: FAO",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -16,14 +16,8 @@
   },
   "layer": [
     {
-      "data": {
-        "values": [{"x": 0}]
-      },
-      "mark": {
-        "type": "rect",
-        "fill": "#A8D8EA",
-        "opacity": 1
-      },
+      "data": {"values": [{"x": 0}]},
+      "mark": {"type": "rect", "fill": "#A8D8EA"},
       "encoding": {}
     },
     {
@@ -40,24 +34,6 @@
     },
     {
       "data": {"url": "data/fao_avg_2023.csv"},
-      "transform": [
-        {
-          "lookup": "country",
-          "from": {
-            "data": {
-              "values": [
-                {"country": "Malaysia",    "lat": 4.2105,  "lon": 101.9758},
-                {"country": "Thailand",    "lat": 15.8700, "lon": 100.9925},
-                {"country": "Indonesia",   "lat": -0.7893, "lon": 113.9213},
-                {"country": "Philippines", "lat": 12.8797, "lon": 122.5},
-                {"country": "Singapore",   "lat": 1.3521,  "lon": 103.8198}
-              ]
-            },
-            "key": "country",
-            "fields": ["lat", "lon"]
-          }
-        }
-      ],
       "mark": {
         "type": "circle",
         "opacity": 0.85,
@@ -70,7 +46,7 @@
         "size": {
           "field": "avg_cpi",
           "type": "quantitative",
-          "scale": {"range": [300, 3000]},
+          "scale": {"range": [200, 3000]},
           "legend": {"title": "Food CPI Index"}
         },
         "color": {
@@ -87,30 +63,17 @@
     },
     {
       "data": {"url": "data/fao_avg_2023.csv"},
-      "transform": [
-        {
-          "lookup": "country",
-          "from": {
-            "data": {
-              "values": [
-                {"country": "Malaysia",    "lat": 4.2105,  "lon": 101.9758},
-                {"country": "Thailand",    "lat": 15.8700, "lon": 100.9925},
-                {"country": "Indonesia",   "lat": -0.7893, "lon": 113.9213},
-                {"country": "Philippines", "lat": 12.8797, "lon": 122.5},
-                {"country": "Singapore",   "lat": 1.3521,  "lon": 103.8198}
-              ]
-            },
-            "key": "country",
-            "fields": ["lat", "lon"]
-          }
-        }
-      ],
-      "mark": {"type": "text", "dy": -20, "fontSize": 11, "fontWeight": "bold"},
+      "mark": {
+        "type": "text",
+        "dy": -18,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#333"
+      },
       "encoding": {
         "longitude": {"field": "lon", "type": "quantitative"},
         "latitude":  {"field": "lat", "type": "quantitative"},
-        "text": {"field": "country"},
-        "color": {"value": "#333"}
+        "text": {"field": "country"}
       }
     }
   ]
