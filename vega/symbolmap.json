@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Inflation Across Southeast Asia",
-    "subtitle": "Average Food CPI (2022, base 2015=100). Size = price level.",
+    "subtitle": "Average Food Customer Price Index (2022, base 2015=100). Size = price level.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -100,7 +100,7 @@
           "field": "avg_cpi",
           "type": "quantitative",
           "scale": {"range": [300, 3000]},
-          "legend": {"title": "Food CPI Index"}
+          "legend": {"title": "Food Customer Price Index Index"}
         },
         "color": {
           "field": "avg_cpi",
@@ -112,7 +112,7 @@
           {"field": "country", "title": "Country"},
           {
             "field": "avg_cpi",
-            "title": "Average Food CPI (2022)",
+            "title": "Average Food Customer Price Index (2022)",
             "format": ".1f"
           }
         ]
@@ -213,7 +213,7 @@
           {
             "lon": 108.5,
             "lat": 23,
-            "label": "Laos & Myanmar → highest CPI"
+            "label": "Laos & Myanmar → highest Customer Price Index"
           },
           {
             "lon": 100.0,
