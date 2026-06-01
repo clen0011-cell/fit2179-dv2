@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Which Categories Beat Overall Inflation?",
-    "subtitle": "Difference between category inflation and overall CPI, 2023. Positive = above average. Source: DOSM",
+    "subtitle": "Difference between category inflation and overall CPI, 2023. Positive = above average.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
