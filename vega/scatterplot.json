@@ -120,7 +120,7 @@
       "mark": {
         "type": "text",
         "fontSize": 10.5,
-        "color": "#black",
+        "color": "black",
         "align": "left"
       },
       "encoding": {
