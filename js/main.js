@@ -7,12 +7,13 @@ async function embedAll() {
     ['#treemap',        'vega/treemap.json'],
     ['#choropleth',     'vega/choropleth.json'],
     ['#heatmap',        'vega/heatmap.json'],
+    ['#slopechart',     'vega/slopechart.json'],
+    ['#smallmultiples', 'vega/smallmultiples.json'],
     ['#areachart',      'vega/areachart.json'],
     ['#dumbbell',       'vega/dumbbell.json'],
-    ['#stackedbar',     'vega/stackedbar.json'],
+    ['#scatterplot',    'vega/scatterplot.json'],
     ['#symbolmap',      'vega/symbolmap.json'],
-    ['#dotplot',        'vega/dotplot.json'],
-    ['#smallmultiples', 'vega/smallmultiples.json']
+    ['#bumpchart',      'vega/bumpchart.json']
   ];
 
   for (const [id, url] of charts) {
