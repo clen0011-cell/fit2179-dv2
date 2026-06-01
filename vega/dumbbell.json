@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "How Much Prices Have Shifted Across All States: 2015 vs 2023",
-    "subtitle": "Food CPI index per category - gap shows price rise over 8 years.",
+    "subtitle": "Food Customer Price Index per category - gap shows price rise over 8 years.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -52,7 +52,7 @@
         "x": {
           "field": "index",
           "type": "quantitative",
-          "title": "CPI Index (2010 = 100)",
+          "title": "Customer Price Index (2010 = 100)",
           "scale": {"domain": [90, 170]}
         },
         "detail": {"field": "label"}
@@ -84,7 +84,7 @@
         "tooltip": [
           {"field": "label", "title": "Category"},
           {"field": "year",  "title": "Year"},
-          {"field": "index", "title": "CPI Index", "format": ".1f"}
+          {"field": "index", "title": "Customer Price Index", "format": ".1f"}
         ]
       }
     },
