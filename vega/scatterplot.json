@@ -37,17 +37,17 @@
         "values": [
           {
             "x": 7000,
-            "y": 8600,
+            "y": 8000,
             "label": "Higher income → higher spending"
           },
           {
             "x": 7000,
-            "y": 8350,
+            "y": 7750,
             "label": "KL & Putrajaya lead both"
           },
           {
             "x": 7000,
-            "y": 8100,
+            "y": 7500,
             "label": "Sabah = notable outlier"
           }
         ]
