@@ -42,7 +42,6 @@
       "data": {"values": [{"date": "2022-06-01"}]},
       "mark": {"type": "rule", "color": "#009E73", "strokeDash": [5, 4], "strokeWidth": 1.8},
       "encoding": {"x": {"field": "date", "type": "temporal"}}
-    }
       }
     },
     {
