@@ -83,7 +83,7 @@
         "dx": 10,
         "dy": 0,
         "fontSize": 11,
-        "color": "#black"
+        "color": "black"
       },
       "encoding": {
         "x": {"field": "date", "type": "temporal"},
