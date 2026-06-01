@@ -73,31 +73,31 @@
       }
     },
     {
-  "data": {
-    "values": [
-      {
-        "x": "2004-01-01",
-        "y": 1380,
-        "label": "2003: base year reset"
+      "data": {
+        "values": [
+          {
+            "x": "2004-01-01",
+            "y": 1380,
+            "label": "2003: base year reset"
+          },
+          {
+            "x": "2018-01-01",
+            "y": 1480,
+            "label": "restaurants accelerate post-COVID"
+          }
+        ]
       },
-      {
-        "x": "2018-01-01",
-        "y": 1480,
-        "label": "restaurants accelerate post-COVID"
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "color": "#000000",
+        "align": "left"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "temporal"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
       }
-    ]
-  },
-  "mark": {
-    "type": "text",
-    "fontSize": 10.5,
-    "color": "#000000",
-    "align": "left"
-  },
-  "encoding": {
-    "x": {"field": "x", "type": "temporal"},
-    "y": {"field": "y", "type": "quantitative"},
-    "text": {"field": "label"}
-  }
-}
+    }
   ]
 }
