@@ -1,27 +1,89 @@
 {
-  "data": {
-    "values": [
-      {
-        "x": "2018-01-01",
-        "y": 130,
-        "label": "2020–21: COVID dip"
-      },
-      {
-        "x": "2016-01-01",
-        "y": 155,
-        "label": "gap widens post-pandemic"
-      }
-    ]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Eating Out vs Cooking at Home",
+    "subtitle": "Food CPI index: groceries vs restaurants & hotels.",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
   },
-  "mark": {
-    "type": "text",
-    "fontSize": 10.5,
-    "color": "#000000",
-    "align": "left"
-  },
+  "width": "container",
+  "height": 320,
+  "data": {"url": "data/cpi_national.csv"},
+  "transform": [
+    {"filter": "datum.division == '01' || datum.division == '11'"},
+    {"calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'", "as": "category"}
+  ],
+  "mark": {"type": "area", "opacity": 0.6, "line": true},
   "encoding": {
-    "x": {"field": "x", "type": "temporal"},
-    "y": {"field": "y", "type": "quantitative"},
-    "text": {"field": "label"}
-  }
+    "x": {"field": "date", "type": "temporal", "title": "Year"},
+    "y": {
+      "field": "index",
+      "type": "quantitative",
+      "title": "CPI Index (2010 = 100)",
+      "stack": null
+  "layer": [
+    {
+      "data": {"url": "data/cpi_national.csv"},
+      "transform": [
+        {"filter": "datum.division == '01' || datum.division == '11'"},
+        {"calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'", "as": "category"}
+      ],
+      "mark": {"type": "area", "opacity": 0.6, "line": true},
+      "encoding": {
+        "x": {"field": "date", "type": "temporal", "title": "Year"},
+        "y": {
+          "field": "index", "type": "quantitative",
+          "title": "CPI Index (2010 = 100)", "stack": null
+        },
+        "color": {
+          "field": "category", "type": "nominal",
+          "scale": {
+            "domain": ["Food at Home", "Eating Out"],
+            "range": ["#56B4E9", "#E69F00"]
+          },
+          "legend": {"title": null, "orient": "top-left"}
+        },
+        "tooltip": [
+          {"field": "date",     "type": "temporal", "title": "Date"},
+          {"field": "category", "title": "Type"},
+          {"field": "index",    "title": "CPI Index", "format": ".1f"}
+        ]
+      }
+    },
+    "color": {
+      "field": "category",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Food at Home", "Eating Out"],
+        "range": ["#56B4E9", "#E69F00"]
+    {
+      "data": {
+        "values": [
+          {
+            "x": "2018-01-01",
+            "y": 130,
+            "label": "2020–21: COVID dip"
+          },
+          {
+            "x": "2016-01-01",
+            "y": 155,
+            "label": "gap widens post-pandemic"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "color": "#000000",
+        "align": "left"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "temporal"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    }
+    }
+  ]
 }
