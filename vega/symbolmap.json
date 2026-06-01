@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Inflation Across Southeast Asia",
-    "subtitle": "Average Food CPI index (2023, base 2015 = 100). Circle size = price level. Source: FAO",
+    "subtitle": "Average Food CPI index (2023, base 2015 = 100). Circle size = price level. Source: FAO L",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
