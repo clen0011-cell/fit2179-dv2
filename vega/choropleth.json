@@ -93,8 +93,7 @@
           "mark": {
             "type": "text",
             "fontSize": 10,
-            "fontStyle": "italic",
-            "color": "white",
+            "color": "black",
             "stroke": "white",
             "strokeWidth": 3,
             "strokeOpacity": 1
