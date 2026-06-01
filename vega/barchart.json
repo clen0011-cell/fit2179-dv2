@@ -50,7 +50,7 @@
       "data": {
         "values": [
           {
-            "x": 0.5,
+            "x": 0.2,
             "label": "Restaurants & Hotels",
             "note": "highest above overall CPI"
           },
@@ -64,7 +64,7 @@
       "mark": {
         "type": "text",
         "fontSize": 10.5,
-        "color": "#000000",
+        "color": "#ffff",
         "align": "left",
         "dx": 6
       },
