@@ -9,19 +9,6 @@
   },
   "width": "container",
   "height": 320,
-  "data": {"url": "data/cpi_national.csv"},
-  "transform": [
-    {"filter": "datum.division == '01' || datum.division == '11'"},
-    {"calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'", "as": "category"}
-  ],
-  "mark": {"type": "area", "opacity": 0.6, "line": true},
-  "encoding": {
-    "x": {"field": "date", "type": "temporal", "title": "Year"},
-    "y": {
-      "field": "index",
-      "type": "quantitative",
-      "title": "CPI Index (2010 = 100)",
-      "stack": null
   "layer": [
     {
       "data": {"url": "data/cpi_national.csv"},
@@ -51,12 +38,6 @@
         ]
       }
     },
-    "color": {
-      "field": "category",
-      "type": "nominal",
-      "scale": {
-        "domain": ["Food at Home", "Eating Out"],
-        "range": ["#56B4E9", "#E69F00"]
     {
       "data": {
         "values": [
@@ -83,7 +64,6 @@
         "y": {"field": "y", "type": "quantitative"},
         "text": {"field": "label"}
       }
-    }
     }
   ]
 }
