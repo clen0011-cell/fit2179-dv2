@@ -12,23 +12,74 @@
   "data": {"url": "data/hies_state.csv"},
   "layer": [
     {
-      "mark": {"type": "point", "filled": true, "size": 80, "opacity": 0.6, "color": "#56B4E9"},
+      "mark": {
+        "type": "line",
+        "color": "#cccccc",
+        "strokeWidth": 1.5,
+        "strokeDash": [4, 3]
+      },
+      "transform": [
+        {
+          "regression": "expenditure_mean",
+          "on": "income_mean"
+        }
+      ],
       "encoding": {
         "x": {
-          "field": "income_mean", "type": "quantitative",
-          "title": "Mean Household Income (RM/month)",
-          "axis": {"grid": false}, "scale": {"zero": false}
+          "field": "income_mean",
+          "type": "quantitative",
+          "scale": {"zero": false}
         },
         "y": {
-          "field": "expenditure_mean", "type": "quantitative",
+          "field": "expenditure_mean",
+          "type": "quantitative",
+          "scale": {"zero": false}
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 80,
+        "opacity": 0.6,
+        "color": "#56B4E9"
+      },
+      "encoding": {
+        "x": {
+          "field": "income_mean",
+          "type": "quantitative",
+          "title": "Mean Household Income (RM/month)",
+          "axis": {"grid": false},
+          "scale": {"zero": false}
+        },
+        "y": {
+          "field": "expenditure_mean",
+          "type": "quantitative",
           "title": "Mean Household Expenditure (RM/month)",
-          "axis": {"grid": false}, "scale": {"zero": false}
+          "axis": {"grid": false},
+          "scale": {"zero": false}
         },
         "tooltip": [
-          {"field": "state",            "title": "State"},
-          {"field": "income_mean",      "title": "Mean Income (RM)",      "format": ",.0f"},
-          {"field": "expenditure_mean", "title": "Mean Expenditure (RM)", "format": ",.0f"},
-          {"field": "poverty",          "title": "Poverty Rate (%)",      "format": ".1f"}
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "income_mean",
+            "title": "Mean Income (RM)",
+            "format": ",.0f"
+          },
+          {
+            "field": "expenditure_mean",
+            "title": "Mean Expenditure (RM)",
+            "format": ",.0f"
+          },
+          {
+            "field": "poverty",
+            "title": "Poverty Rate (%)",
+            "format": ".1f"
+          }
         ]
       }
     },
