@@ -47,8 +47,8 @@
             "title": "Inflation %",
             "orient": "none",
             "legendX": 420,
-            "legendY": 40,
-            "gradientLength": 120,
+            "legendY": 260,
+            "gradientLength": 80,
             "titleFontSize": 11,
             "labelFontSize": 10
           }
