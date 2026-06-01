@@ -67,7 +67,12 @@
           "field": "year",
           "type": "nominal",
           "scale": {"domain": ["2015", "2023"], "range": ["#56B4E9", "#E69F00"]},
-          "legend": {"title": "Year", "orient": "top-right"}
+          "legend": {
+            "title": "Year",
+            "orient": "none",
+            "legendX": 400,
+            "legendY": 280
+          }
         },
         "tooltip": [
           {"field": "label", "title": "Category"},
