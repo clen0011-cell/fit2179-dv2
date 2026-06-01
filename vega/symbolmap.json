@@ -109,21 +109,39 @@
           }
         }
       ],
-      "mark": {
-        "type": "text",
-        "dy": -18,
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "color": "#111",
-        "stroke": "white",
-        "strokeWidth": 3,
-        "strokeOpacity": 0.9
-      },
-      "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude":  {"field": "lat", "type": "quantitative"},
-        "text": {"field": "country"}
-      }
+      "layer": [
+        {
+          "mark": {
+            "type": "text",
+            "dy": -18,
+            "fontSize": 11,
+            "fontWeight": "bold",
+            "color": "white",
+            "stroke": "white",
+            "strokeWidth": 4,
+            "strokeOpacity": 1
+          },
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude":  {"field": "lat", "type": "quantitative"},
+            "text":      {"field": "country"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dy": -18,
+            "fontSize": 11,
+            "fontWeight": "bold",
+            "color": "#111"
+          },
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude":  {"field": "lat", "type": "quantitative"},
+            "text":      {"field": "country"}
+          }
+        }
+      ]
     }
   ]
 }
