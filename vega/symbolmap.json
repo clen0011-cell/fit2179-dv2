@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Inflation Across Southeast Asia",
-    "subtitle": "Average Food CPI index (2022, base 2015 = 100). Circle size = price level. Source: FAO",
+    "subtitle": "Average Food CPI (2022, base 2015 = 100). Circle size = price level. Source: FAO",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -114,7 +114,10 @@
         "dy": -18,
         "fontSize": 11,
         "fontWeight": "bold",
-        "color": "#333"
+        "color": "#111",
+        "stroke": "white",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.9
       },
       "encoding": {
         "longitude": {"field": "lon", "type": "quantitative"},
