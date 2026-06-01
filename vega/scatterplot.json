@@ -12,38 +12,48 @@
   "data": {"url": "data/hies_state.csv"},
   "layer": [
     {
-      "transform": [
-        {
-          "sort": [{"field": "income_mean"}],
-          "as": "income_sorted",
-          "window": [{"op": "rank", "as": "rank"}]
-        }
-      ],
+      "data": {
+        "values": [
+          {"income_mean": 4686,  "expenditure_mean": 3514},
+          {"income_mean": 5184,  "expenditure_mean": 3810},
+          {"income_mean": 5617,  "expenditure_mean": 3924},
+          {"income_mean": 5703,  "expenditure_mean": 4138},
+          {"income_mean": 5972,  "expenditure_mean": 3873},
+          {"income_mean": 6108,  "expenditure_mean": 4628},
+          {"income_mean": 6230,  "expenditure_mean": 4529},
+          {"income_mean": 6352,  "expenditure_mean": 4762},
+          {"income_mean": 6555,  "expenditure_mean": 4459},
+          {"income_mean": 7524,  "expenditure_mean": 4198},
+          {"income_mean": 7914,  "expenditure_mean": 5592},
+          {"income_mean": 8013,  "expenditure_mean": 5340},
+          {"income_mean": 8016,  "expenditure_mean": 5421},
+          {"income_mean": 8072,  "expenditure_mean": 5357},
+          {"income_mean": 12396, "expenditure_mean": 6697},
+          {"income_mean": 13809, "expenditure_mean": 8903}
+        ]
+      },
       "mark": {
         "type": "line",
         "color": "#E69F00",
         "strokeWidth": 1.5,
-        "opacity": 0.5,
+        "opacity": 0.6,
         "interpolate": "monotone"
       },
       "encoding": {
         "x": {
           "field": "income_mean",
           "type": "quantitative",
-          "title": "Mean Household Income (RM/month)",
           "axis": {"grid": false},
           "scale": {"zero": false}
         },
         "y": {
           "field": "expenditure_mean",
           "type": "quantitative",
-          "title": "Mean Household Expenditure (RM/month)",
           "axis": {"grid": false},
           "scale": {"zero": false}
         },
         "order": {
           "field": "income_mean",
-          "type": "quantitative",
           "sort": "ascending"
         }
       }
@@ -60,12 +70,14 @@
         "x": {
           "field": "income_mean",
           "type": "quantitative",
+          "title": "Mean Household Income (RM/month)",
           "axis": {"grid": false},
           "scale": {"zero": false}
         },
         "y": {
           "field": "expenditure_mean",
           "type": "quantitative",
+          "title": "Mean Household Expenditure (RM/month)",
           "axis": {"grid": false},
           "scale": {"zero": false}
         },
