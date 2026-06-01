@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Which States Rose Fastest? (2020 → 2024)",
-    "subtitle": "Food CPI index per state — steeper slope = faster price rise. Source: DOSM",
+    "subtitle": "Food CPI index per state — steeper slope = faster price rise.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
