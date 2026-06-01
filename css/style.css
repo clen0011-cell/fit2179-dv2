@@ -4,11 +4,9 @@
   margin: 0;
   padding: 0;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   font-family: 'Source Sans 3', sans-serif;
   font-size: 16px;
@@ -24,27 +22,22 @@ h1, h2, h3 {
   line-height: 1.2;
   color: #1a1a1a;
 }
-
 h2 {
   font-size: 1.9rem;
   margin-bottom: 0.5rem;
 }
-
 h3 {
   font-size: 1.2rem;
   margin-bottom: 0.4rem;
 }
-
 p {
   max-width: 70ch;
 }
-
 a {
   color: #2c2c2c;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-
 a:hover {
   color: #D55E00;
 }
@@ -55,12 +48,10 @@ a:hover {
   padding: 5rem 2rem;
   margin-bottom: 0;
 }
-
 .hero-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
-
 .hero-banner h1 {
   color: #fff;
   font-size: 3rem;
@@ -68,11 +59,9 @@ a:hover {
   margin-bottom: 1.2rem;
   max-width: 20ch;
 }
-
 .hero-banner h1 span {
   color: #E69F00;
 }
-
 .hero-sub {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.1rem;
@@ -87,51 +76,40 @@ section {
   margin: 0 auto;
   border-bottom: 1px solid #bfd7e2;
 }
-
 section:last-of-type {
   border-bottom: none;
 }
 
-/* ── SECTION HEADER (UPDATED DARK BLUE CARD) ── */
+/* ── Section Header (dark blue card) ── */
 .section-header {
   display: flex;
   align-items: center;
   gap: 0;
-
   margin-bottom: 1.5rem;
-
-  background: #4F7F99; /* darker soft blue */
+  background: #4F7F99;
   border-radius: 12px;
   padding: 1.3rem 1.8rem;
 }
-
-/* title */
 .section-header h2 {
   flex: 0 0 auto;
   margin: 0;
   padding-right: 2rem;
-  color: #ffffff;   /* WHITE TEXT */
+  color: #ffffff;
 }
-
-/* separator line */
 .section-header .section-divider {
   width: 2px;
   align-self: stretch;
-  background: #ffffff;  /* WHITE */
+  background: #ffffff;
   flex-shrink: 0;
 }
-
-/* intro text */
 .section-header .section-intro {
   flex: 1 1 auto;
   margin: 0;
   padding-left: 2rem;
-  color: #ffffff;   /* WHITE TEXT */
+  color: #ffffff;
   max-width: none;
   line-height: 1.7;
 }
-
-/* fallback intro style (outside header) */
 .section-intro {
   color: #2c2c2c;
   font-size: 1rem;
@@ -149,29 +127,48 @@ section:last-of-type {
   max-width: 75ch;
 }
 
+/* All chart rows use stretch so both cells always match height */
 .chart-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  align-items: start;
+  align-items: stretch; /* ← key: every cell in a row is equal height */
 }
 
+/* Every chart container — fixed uniform height */
 .chart-container {
   background: #ffffff;
   border: 1px solid #c8dde6;
   border-radius: 8px;
   padding: 1.5rem;
-  min-height: 320px;
+  /* Uniform height: use the tallest chart size across the page */
+  min-height: 460px;
+  height: 460px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
+/* Vega-Embed fills the container */
 .chart-container .vega-embed {
   width: 100% !important;
+  flex: 1 1 auto;
 }
-
 .chart-container .vega-embed canvas,
 .chart-container .vega-embed svg {
   width: 100% !important;
+  height: 100% !important;
+}
+
+/* Sidebar companion panels (text next to a chart) should match */
+.chart-row > div:not(.chart-container) {
+  background: #ffffff;
+  border: 1px solid #c8dde6;
+  border-radius: 8px;
+  min-height: 460px;
+  height: 460px;
+  overflow: auto;
 }
 
 /* ── Footer ── */
@@ -182,17 +179,14 @@ footer {
   font-size: 0.85rem;
   line-height: 2;
 }
-
 footer a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-
 footer a:hover {
   color: #E69F00;
 }
-
 .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -203,30 +197,30 @@ footer a:hover {
   .hero-banner h1 {
     font-size: 2rem;
   }
-
   .chart-row {
     grid-template-columns: 1fr;
   }
-
+  /* On mobile let height be auto again */
+  .chart-container,
+  .chart-row > div:not(.chart-container) {
+    height: auto;
+    min-height: 320px;
+  }
   section {
     padding: 2.5rem 1rem;
   }
-
   .section-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
-
   .section-header h2 {
     padding-right: 0;
   }
-
   .section-header .section-divider {
     width: 100%;
     height: 2px;
   }
-
   .section-header .section-intro {
     padding-left: 0;
   }
