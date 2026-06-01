@@ -39,17 +39,15 @@
     {
       "data": {
         "values": [
-          {"x": 8500, "y": 5800, "label": "Wealthier states spend more —"},
-          {"x": 8500, "y": 5500, "label": "W.P. Putrajaya & KL top both axes."},
-          {"x": 8500, "y": 5100, "label": "Kelantan sits lowest on income"},
-          {"x": 8500, "y": 4800, "label": "and expenditure. Sabah spends"},
-          {"x": 8500, "y": 4500, "label": "less than its income would suggest."}
+          {"x": 4200, "y": 8600, "label": "Richer states spend more."},
+          {"x": 4200, "y": 8200, "label": "KL and Putrajaya top both axes."},
+          {"x": 4200, "y": 7800, "label": "Kelantan lowest; Sabah an outlier."}
         ]
       },
       "mark": {
         "type": "text",
         "fontSize": 10.5,
-        "color": "#555",
+        "color": "#222",
         "align": "left",
         "fontStyle": "italic"
       },
