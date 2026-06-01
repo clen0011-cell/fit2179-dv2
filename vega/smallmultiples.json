@@ -1,13 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Food Price Trends: Key States Compared",
-    "subtitle": "Monthly food CPI index (2010 = 100)",
+    "text": "Food Price Trends: Four Contrasting States",
+    "subtitle": "Monthly food CPI index (2010 = 100). Source: DOSM",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
-  "width": "container",
   "data": {"url": "data/cpi_state.csv"},
   "transform": [
     {"filter": "datum.division == '01'"},
@@ -19,25 +18,17 @@
     "columns": 2,
     "header": {
       "titleFontSize": 0,
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "labelFontWeight": "bold",
-      "labelColor": "#444"
+      "labelColor": "#333"
     }
   },
   "spec": {
     "width": 220,
     "height": 120,
-    "mark": {
-      "type": "line",
-      "color": "#56B4E9",
-      "strokeWidth": 2
-    },
+    "mark": {"type": "area", "color": "#0072B2", "opacity": 0.15, "line": {"color": "#0072B2", "strokeWidth": 2}},
     "encoding": {
-      "x": {
-        "field": "date",
-        "type": "temporal",
-        "axis": null
-      },
+      "x": {"field": "date", "type": "temporal", "axis": null},
       "y": {
         "field": "index",
         "type": "quantitative",
