@@ -4,48 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Rising Cost of Malaysian Food</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Vega-Lite -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- SECTION 1: HOOK -->
+  <!-- HERO BANNER -->
   <div class="hero-banner">
-  <div class="hero-inner">
-    <h1>The Rising Cost of Malaysian Food</h1>
-    <p class="hero-sub">Food prices in Malaysia have risen sharply since 2020. Here's what changed, where it hit hardest, and what it means for your household.</p>
+    <div class="hero-inner">
+      <h1>The Rising Cost of <span>Malaysian Food</span></h1>
+      <p class="hero-sub">Food prices in Malaysia have risen sharply since 2020. Here's what changed, where it hit hardest, and what it means for your household.</p>
+    </div>
   </div>
-</div>
 
-<section id="hook">
-  <div class="stat-row">
-    <div class="stat-card">
-      <span class="stat-num">+18%</span>
-      <span class="stat-label">Food inflation since 2020</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-num">RM 3.50</span>
-      <span class="stat-label">Avg nasi lemak in 2015</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-num">RM 6.00</span>
-      <span class="stat-label">Avg nasi lemak in 2024</span>
-    </div>
-    <div class="stat-card">
-      <span class="stat-num">#3</span>
-      <span class="stat-label">Highest food inflation in SEA, 2022</span>
-    </div>
-  </div>
-</section>
-  <!-- SECTION 2: THE BIG PICTURE -->
+  <!-- SECTION 1: THE BIG PICTURE -->
   <section id="big-picture">
     <h2>Two decades of food prices</h2>
     <p class="section-intro">Malaysia's food prices stayed largely stable for a decade — until 2021, when global supply shocks changed everything.</p>
@@ -53,52 +28,45 @@
     <p class="chart-caption">Between 2010 and 2020, food inflation stayed under 4% annually. The COVID-19 pandemic disrupted global supply chains, and the removal of government subsidies pushed prices to their highest sustained level in two decades. The food price index crossed 140 points in 2023 — meaning food costs 40% more on average than it did in 2010.</p>
   </section>
 
-  <!-- SECTION 3: CATEGORY BREAKDOWN -->
+  <!-- SECTION 2: CATEGORY BREAKDOWN -->
   <section id="categories">
     <h2>Not all food inflated equally</h2>
-    <p class="section-intro">Cooking oils, bread, and meat saw the steepest rises. Eating out became more expensive faster than buying groceries.</p>
+    <p class="section-intro">Restaurants and hotels saw the steepest price rises, followed closely by food and non-alcoholic drinks. Meanwhile, communication costs actually fell below average.</p>
     <div class="chart-row">
       <div id="barchart" class="chart-container"></div>
       <div id="treemap" class="chart-container"></div>
     </div>
   </section>
 
-  <!-- SECTION 4: STATE MAP -->
+  <!-- SECTION 3: STATE MAP -->
   <section id="states">
     <h2>Where you live matters</h2>
-    <p class="section-intro">Food costs are not the same across Malaysia. Urban states like Kuala Lumpur and Selangor face higher prices, while East Malaysian states show different patterns.</p>
-    <div class="chart-row">
-      <div id="choropleth" class="chart-container chart-wide"></div>
-    </div>
+    <p class="section-intro">Food costs are not the same across Malaysia. Selangor and Putrajaya saw the sharpest rises, while Perak and Kedah remained comparatively affordable.</p>
+    <div id="choropleth" class="chart-container chart-wide"></div>
     <div class="chart-row" style="margin-top: 2rem;">
-      <div id="heatmap" class="chart-container chart-wide"></div>
-  
+      <div id="heatmap" class="chart-container"></div>
+      <div id="slopechart" class="chart-container"></div>
     </div>
+    <div id="smallmultiples" class="chart-container chart-wide" style="margin-top: 2rem;"></div>
   </section>
 
-  <!-- SECTION 5: EATING OUT VS HOME -->
+  <!-- SECTION 4: EATING OUT VS HOME -->
   <section id="eating-out">
     <h2>Eating out is getting further from reach</h2>
     <p class="section-intro">The gap between cooking at home and eating out has widened significantly — a trend that affects lower-income households the most.</p>
-    <div class="chart-row">
-      <div id="areachart" class="chart-container chart-wide"></div>
-    </div>
+    <div id="areachart" class="chart-container chart-wide"></div>
     <div class="chart-row" style="margin-top: 2rem;">
       <div id="dumbbell" class="chart-container"></div>
-      <div id="stackedbar" class="chart-container"></div>
+      <div id="scatterplot" class="chart-container"></div>
     </div>
   </section>
 
-  <!-- SECTION 6: SEA COMPARISON -->
+  <!-- SECTION 5: SEA COMPARISON -->
   <section id="comparison">
     <h2>How Malaysia compares in Southeast Asia</h2>
     <p class="section-intro">Malaysia's food inflation sits in the middle of the regional pack — lower than the Philippines and Indonesia, but higher than Singapore.</p>
-    <div class="chart-row">
-      <div id="symbolmap" class="chart-container chart-wide"></div>
-    </div>
-    <div class="chart-row" style="margin-top: 2rem;">
-      <div id="dotplot" class="chart-container chart-wide"></div>
-    </div>
+    <div id="symbolmap" class="chart-container chart-wide"></div>
+    <div id="bumpchart" class="chart-container chart-wide" style="margin-top: 2rem;"></div>
   </section>
 
   <!-- FOOTER -->
