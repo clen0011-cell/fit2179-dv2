@@ -8,7 +8,7 @@
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 400,
+  "height": 420,
   "projection": {
     "type": "equirectangular",
     "center": [115, 5],
@@ -17,43 +17,46 @@
   "layer": [
     {
       "data": {
+        "values": [{"x": 0}]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": "#A8D8EA",
+        "opacity": 1
+      },
+      "encoding": {}
+    },
+    {
+      "data": {
         "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
         "format": {"type": "topojson", "feature": "countries"}
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#e8e0d4",
-        "stroke": "#fff",
+        "fill": "#d4e8c2",
+        "stroke": "#aaa",
         "strokeWidth": 0.5
       }
     },
     {
-      "data": {"url": "data/fao_sea.csv"},
+      "data": {"url": "data/fao_avg_2023.csv"},
       "transform": [
-        {"filter": "datum.Year == '2023'"},
-        {"filter": "datum.Item == 'Consumer Prices, Food Indices (2015 = 100)'"},
-        {"filter": "datum.Value != ''"},
         {
-          "aggregate": [{"op": "mean", "field": "Value", "as": "avg_value"}],
-          "groupby": ["Area"]
-        },
-        {
-          "lookup": "Area",
+          "lookup": "country",
           "from": {
             "data": {
               "values": [
-                {"Area": "Malaysia",    "lat": 4.2105,  "lon": 101.9758},
-                {"Area": "Thailand",    "lat": 15.8700, "lon": 100.9925},
-                {"Area": "Indonesia",   "lat": -0.7893, "lon": 113.9213},
-                {"Area": "Philippines", "lat": 12.8797, "lon": 122.5},
-                {"Area": "Singapore",   "lat": 1.3521,  "lon": 103.8198}
+                {"country": "Malaysia",    "lat": 4.2105,  "lon": 101.9758},
+                {"country": "Thailand",    "lat": 15.8700, "lon": 100.9925},
+                {"country": "Indonesia",   "lat": -0.7893, "lon": 113.9213},
+                {"country": "Philippines", "lat": 12.8797, "lon": 122.5},
+                {"country": "Singapore",   "lat": 1.3521,  "lon": 103.8198}
               ]
             },
-            "key": "Area",
+            "key": "country",
             "fields": ["lat", "lon"]
           }
-        },
-        {"filter": "datum.lat != null"}
+        }
       ],
       "mark": {
         "type": "circle",
@@ -65,21 +68,49 @@
         "longitude": {"field": "lon", "type": "quantitative"},
         "latitude":  {"field": "lat", "type": "quantitative"},
         "size": {
-          "field": "avg_value",
+          "field": "avg_cpi",
           "type": "quantitative",
           "scale": {"range": [300, 3000]},
           "legend": {"title": "Food CPI Index"}
         },
         "color": {
-          "field": "avg_value",
+          "field": "avg_cpi",
           "type": "quantitative",
-          "scale": {"scheme": "teals"},
+          "scale": {"scheme": "oranges"},
           "legend": null
         },
         "tooltip": [
-          {"field": "Area",      "title": "Country"},
-          {"field": "avg_value", "title": "Avg Food CPI (2023)", "format": ".1f"}
+          {"field": "country", "title": "Country"},
+          {"field": "avg_cpi", "title": "Avg Food CPI (2023)", "format": ".1f"}
         ]
+      }
+    },
+    {
+      "data": {"url": "data/fao_avg_2023.csv"},
+      "transform": [
+        {
+          "lookup": "country",
+          "from": {
+            "data": {
+              "values": [
+                {"country": "Malaysia",    "lat": 4.2105,  "lon": 101.9758},
+                {"country": "Thailand",    "lat": 15.8700, "lon": 100.9925},
+                {"country": "Indonesia",   "lat": -0.7893, "lon": 113.9213},
+                {"country": "Philippines", "lat": 12.8797, "lon": 122.5},
+                {"country": "Singapore",   "lat": 1.3521,  "lon": 103.8198}
+              ]
+            },
+            "key": "country",
+            "fields": ["lat", "lon"]
+          }
+        }
+      ],
+      "mark": {"type": "text", "dy": -20, "fontSize": 11, "fontWeight": "bold"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude":  {"field": "lat", "type": "quantitative"},
+        "text": {"field": "country"},
+        "color": {"value": "#333"}
       }
     }
   ]
