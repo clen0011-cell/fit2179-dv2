@@ -163,7 +163,7 @@
                   "lat": 15.8700, "lon": 100.9925
                 },
                 {
-                  "country": "Viet Nam",
+                  "country": "VietNam",
                   "lat": 14.0583, "lon": 108.2772
                 }
               ]
@@ -211,12 +211,12 @@
       "data": {
         "values": [
           {
-            "lon": 96.0,
+            "lon": 56.0,
             "lat": 7.5,
             "label": "Laos & Myanmar → highest CPI"
           },
           {
-            "lon": 103.5,
+            "lon": 96.0,
             "lat": -2.5,
             "label": "Singapore & Brunei → lowest"
           }
