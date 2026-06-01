@@ -24,20 +24,29 @@
       max-width: 52ch;
     }
 
+    /* Section heading row: h2 left, vertical rule, intro right */
     .section-header {
       display: flex;
-      align-items: flex-start;
-      gap: 2.5rem;
+      align-items: center;
+      gap: 0;
       margin-bottom: 1.2rem;
     }
     .section-header h2 {
       flex: 0 0 auto;
       margin: 0;
+      padding-right: 2.5rem;
+    }
+    .section-header .section-divider {
+      width: 1px;
+      align-self: stretch;
+      background-color: #c8bfb0;
+      flex-shrink: 0;
+      margin: 0.15rem 0;
     }
     .section-header .section-intro {
       flex: 1 1 auto;
       margin: 0;
-      padding-top: 0.3rem;
+      padding-left: 2.5rem;
       font-size: 0.95rem;
       color: #555;
     }
@@ -67,6 +76,7 @@ and what it means for your household.</p>
   <section id="big-picture">
     <div class="section-header">
       <h2>Two decades of food prices</h2>
+      <div class="section-divider"></div>
       <p class="section-intro">Malaysia's food prices stayed largely stable
 for a decade, until 2021, when global supply
 shocks changed everything.</p>
@@ -104,6 +114,7 @@ highest in two decades. By 2023, food costs
   <section id="categories">
     <div class="section-header">
       <h2>Not all food inflated equally</h2>
+      <div class="section-divider"></div>
       <p class="section-intro">Restaurants and hotels saw the steepest rises.
 The everyday grocery basket followed closely.
 Communication was the only category to fall
@@ -119,12 +130,12 @@ below overall inflation.</p>
   <section id="states">
     <div class="section-header">
       <h2>Where you live matters</h2>
+      <div class="section-divider"></div>
       <p class="section-intro">Food costs vary widely across Malaysia.
 Sabah and Sarawak felt the sharpest rises,
 while Perak and Kedah stayed comparatively
 affordable.</p>
     </div>
-    <p style="font-size: 0.85rem; color: #888; margin-bottom: 1rem; font-family: 'Source Sans 3', sans-serif;">Malaysia is located in Southeast Asia, between latitudes 1°N and 7°N.</p>
 
     <div class="chart-row" style="align-items: stretch;">
       <div id="choropleth" class="chart-container"></div>
@@ -164,6 +175,7 @@ and Putrajaya remained the most contained.
   <section id="eating-out">
     <div class="section-header">
       <h2>Eating out is getting further from reach</h2>
+      <div class="section-divider"></div>
       <p class="section-intro">The gap between cooking at home and eating
 out has widened. This hits lower-income
 households hardest, regardless of state.</p>
