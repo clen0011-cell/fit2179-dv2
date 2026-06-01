@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Which States Rose Fastest? (2020 → 2024)",
+    "subtitle": "Food CPI index per state — steeper slope = faster price rise. Source: DOSM",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 420,
+  "data": {"url": "data/cpi_state.csv"},
+  "transform": [
+    {"filter": "datum.division == '01'"},
+    {"calculate": "year(datum.date)", "as": "year"},
+    {"filter": "datum.year == 2020 || datum.year == 2024"},
+    {
+      "aggregate": [{"op": "mean", "field": "index", "as": "avg_index"}],
+      "groupby": ["state", "year"]
+    },
+    {"calculate": "toString(datum.year)", "as": "yearStr"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "strokeWidth": 1.5, "opacity": 0.6},
+      "encoding": {
+        "x": {
+          "field": "yearStr",
+          "type": "ordinal",
+          "title": null,
+          "axis": {"labelFontSize": 13, "labelFontWeight": "bold"}
+        },
+        "y": {
+          "field": "avg_index",
+          "type": "quantitative",
+          "title": "Food CPI Index",
+          "scale": {"zero": false}
+        },
+        "detail": {"field": "state"},
+        "color": {
+          "condition": {
+            "test": "datum.state == 'Selangor' || datum.state == 'W.P. Putrajaya'",
+            "value": "#D55E00"
+          },
+          "value": "#ccc"
+        }
+      }
+    },
+    {
+      "transform": [{"filter": "datum.yearStr == '2024'"}],
+      "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 9},
+      "encoding": {
+        "x": {"field": "yearStr", "type": "ordinal"},
+        "y": {"field": "avg_index", "type": "quantitative"},
+        "text": {"field": "state"},
+        "color": {
+          "condition": {
+            "test": "datum.state == 'Selangor' || datum.state == 'W.P. Putrajaya'",
+            "value": "#D55E00"
+          },
+          "value": "#999"
+        }
+      }
+    },
+    {
+      "transform": [{"filter": "datum.yearStr == '2020'"}],
+      "mark": {"type": "text", "align": "right", "dx": -5, "fontSize": 9},
+      "encoding": {
+        "x": {"field": "yearStr", "type": "ordinal"},
+        "y": {"field": "avg_index", "type": "quantitative"},
+        "text": {"field": "state"},
+        "color": {
+          "condition": {
+            "test": "datum.state == 'Selangor' || datum.state == 'W.P. Putrajaya'",
+            "value": "#D55E00"
+          },
+          "value": "#999"
+        }
+      }
+    }
+  ]
+}
