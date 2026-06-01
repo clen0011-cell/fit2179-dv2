@@ -20,11 +20,7 @@
       "as": "poverty_group"
     }
   ],
-  "mark": {
-    "type": "circle",
-    "opacity": 0.85,
-    "size": 80
-  },
+  "mark": {"type": "circle", "opacity": 0.85, "size": 80},
   "encoding": {
     "x": {
       "field": "dot_index",
@@ -48,7 +44,7 @@
       "legend": {
         "title": "Poverty Level",
         "orient": "none",
-        "legendX": 300,
+        "legendX": 200,
         "legendY": 10
       }
     },
