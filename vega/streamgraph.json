@@ -18,23 +18,27 @@
         "data": {
           "values": [
             {"division": "01", "label": "Food & Drinks"},
-            {"division": "02", "label": "Alcohol & Tobacco"},
-            {"division": "03", "label": "Clothing"},
             {"division": "04", "label": "Housing"},
-            {"division": "05", "label": "Furnishings"},
-            {"division": "06", "label": "Health"},
             {"division": "07", "label": "Transport"},
-            {"division": "08", "label": "Communication"},
-            {"division": "09", "label": "Recreation"},
-            {"division": "10", "label": "Education"},
             {"division": "11", "label": "Restaurants"},
-            {"division": "12", "label": "Insurance"},
-            {"division": "13", "label": "Misc"}
+            {"division": "02", "label": "Other"},
+            {"division": "03", "label": "Other"},
+            {"division": "05", "label": "Other"},
+            {"division": "06", "label": "Other"},
+            {"division": "08", "label": "Other"},
+            {"division": "09", "label": "Other"},
+            {"division": "10", "label": "Other"},
+            {"division": "12", "label": "Other"},
+            {"division": "13", "label": "Other"}
           ]
         },
         "key": "division",
         "fields": ["label"]
       }
+    },
+    {
+      "aggregate": [{"op": "sum", "field": "index", "as": "index"}],
+      "groupby": ["date", "label"]
     }
   ],
   "mark": {"type": "area", "interpolate": "monotone"},
@@ -56,18 +60,14 @@
       "field": "label",
       "type": "nominal",
       "scale": {
-        "domain": [
-          "Food & Drinks", "Housing", "Transport", "Restaurants",
-          "Health", "Education", "Communication", "Recreation",
-          "Furnishings", "Clothing", "Insurance", "Alcohol & Tobacco", "Misc"
-        ],
-        "range": [
-          "#4e79a7", "#f28e2b", "#59a14f", "#e15759",
-          "#76b7b2", "#edc948", "#b07aa1", "#ff9da7",
-          "#9c755f", "#bab0ac", "#86bcb6", "#ffbe7d", "#d4a6c8"
-        ]
+        "domain": ["Food & Drinks", "Housing", "Transport", "Restaurants", "Other"],
+        "range": ["#4e79a7", "#f28e2b", "#59a14f", "#e15759", "#d3d3d3"]
       },
       "legend": {"title": "Category", "orient": "right"}
+    },
+    "order": {
+      "field": "label",
+      "sort": ["Food & Drinks", "Housing", "Transport", "Restaurants", "Other"]
     },
     "tooltip": [
       {"field": "date",  "type": "temporal", "title": "Date"},
