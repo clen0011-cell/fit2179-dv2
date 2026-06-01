@@ -47,32 +47,32 @@
       }
     },
     {
-  "data": {
-    "values": [
-      {
-        "x": 1.1,
-        "label": "Restaurants & Hotels",
-        "note": "highest above overall CPI"
+      "data": {
+        "values": [
+          {
+            "x": 1.1,
+            "label": "Restaurants & Hotels",
+            "note": "highest above overall CPI"
+          },
+          {
+            "x": -1.8,
+            "label": "Communication",
+            "note": "largest decline vs CPI"
+          }
+        ]
       },
-      {
-        "x": -1.8,
-        "label": "Communication",
-        "note": "largest decline vs CPI"
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "color": "#000000",
+        "align": "left",
+        "dx": 6
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "label", "type": "nominal"},
+        "text": {"field": "note"}
       }
-    ]
-  },
-  "mark": {
-    "type": "text",
-    "fontSize": 10.5,
-    "color": "#000000",
-    "align": "left",
-    "dx": 6
-  },
-  "encoding": {
-    "x": {"field": "x", "type": "quantitative"},
-    "y": {"field": "label", "type": "nominal"},
-    "text": {"field": "note"}
-  }
-}
+    }
   ]
 }
