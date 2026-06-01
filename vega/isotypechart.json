@@ -47,22 +47,32 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {"dot_index": 2, "state": "W.P. Putrajaya", "label": "← lowest"},
-          {"dot_index": 84, "state": "Sabah",          "label": "← highest"}
-        ]
+  "data": {
+    "values": [
+      {
+        "dot_index": 5,
+        "state": "W.P. Putrajaya",
+        "label": "lowest poverty"
       },
-      "mark": {
-        "type": "text", "fontSize": 10.5, "color": "#888",
-        "align": "left", "fontStyle": "italic", "dx": 4
-      },
-      "encoding": {
-        "x": {"field": "dot_index", "type": "ordinal"},
-        "y": {"field": "state",     "type": "nominal",
-              "sort": {"field": "dot_index", "op": "max", "order": "descending"}},
-        "text": {"field": "label"}
+      {
+        "dot_index": 70,
+        "state": "Sabah",
+        "label": "highest poverty"
       }
-    }
+    ]
+  },
+  "mark": {
+    "type": "text",
+    "fontSize": 10.5,
+    "color": "#000000",
+    "align": "left",
+    "dx": 6
+  },
+  "encoding": {
+    "x": {"field": "dot_index", "type": "ordinal"},
+    "y": {"field": "state", "type": "nominal"},
+    "text": {"field": "label"}
+  }
+}
   ]
 }
