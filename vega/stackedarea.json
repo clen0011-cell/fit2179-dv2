@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "How Each Category Drove Price Growth Over Time",
-    "subtitle": "Stacked food CPI index by category, 2010–2024. Source: DOSM",
+    "subtitle": "Stacked CPI index by category, 2010–2024. Source: DOSM",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -49,13 +49,24 @@
       "field": "index",
       "type": "quantitative",
       "title": "CPI Index",
-      "stack": "center",
-      "axis": null
+      "stack": "zero",
+      "axis": {"grid": false}
     },
     "color": {
       "field": "label",
       "type": "nominal",
-      "scale": {"scheme": "tableau20"},
+      "scale": {
+        "domain": [
+          "Food & Drinks", "Housing", "Transport", "Restaurants",
+          "Health", "Education", "Communication", "Recreation",
+          "Furnishings", "Clothing", "Insurance", "Alcohol & Tobacco", "Misc"
+        ],
+        "range": [
+          "#4e79a7", "#f28e2b", "#59a14f", "#e15759",
+          "#76b7b2", "#edc948", "#b07aa1", "#ff9da7",
+          "#9c755f", "#bab0ac", "#86bcb6", "#ffbe7d", "#d4a6c8"
+        ]
+      },
       "legend": {"title": "Category", "orient": "right"}
     },
     "tooltip": [
