@@ -46,9 +46,9 @@
     {
       "data": {
         "values": [
-          {"date": "2008-01-01", "index": 130, "label": "Global food crisis"},
-          {"date": "2020-03-01", "index": 148, "label": "COVID-19"},
-          {"date": "2022-06-01", "index": 155, "label": "Subsidy cuts"}
+          {"date": "2008-01-01", "index": 130, "label" - "Global food crisis"},
+          {"date": "2020-03-01", "index": 148, "label" - "COVID-19"},
+          {"date": "2022-06-01", "index": 155, "label" - "Subsidy cuts"}
         ]
       },
       "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 10},
