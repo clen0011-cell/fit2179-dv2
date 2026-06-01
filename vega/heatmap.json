@@ -53,7 +53,10 @@
         "type": "text",
         "fontSize": 11,
         "dy": -15,
-        "color": "black"
+        "color": "black",
+        "stroke": "white",
+        "strokeWidth": 3,
+        "strokeOpacity": 1
       },
       "encoding": {
         "x": {"field": "year", "type": "ordinal"},
