@@ -12,12 +12,19 @@
   "data": {"url": "data/hies_state.csv"},
   "layer": [
     {
+      "transform": [
+        {
+          "regression": "expenditure_mean",
+          "on": "income_mean",
+          "method": "linear"
+        }
+      ],
       "mark": {
         "type": "line",
         "color": "#E69F00",
         "strokeWidth": 1.5,
-        "opacity": 0.5,
-        "interpolate": "monotone"
+        "strokeDash": [4, 3],
+        "opacity": 0.7
       },
       "encoding": {
         "x": {
@@ -33,10 +40,6 @@
           "title": "Mean Household Expenditure (RM/month)",
           "axis": {"grid": false},
           "scale": {"zero": false}
-        },
-        "order": {
-          "field": "income_mean",
-          "type": "quantitative"
         }
       }
     },
