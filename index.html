@@ -9,56 +9,6 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <link rel="stylesheet" href="css/style.css">
-
-  <style>
-    body {
-      background-color: #DCEEF4;
-    }
-
-    h2 { font-family: 'Playfair Display', serif; }
-    h3 { font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
-
-    .chart-caption,
-    .section-intro {
-      line-height: 1.65;
-      max-width: 52ch;
-    }
-
-    /* Section heading row: h2 left, vertical rule, intro right */
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      margin-bottom: 1.2rem;
-    }
-    .section-header h2 {
-      flex: 0 0 auto;
-      margin: 0;
-      padding-right: 2.5rem;
-    }
-    .section-header .section-divider {
-      width: 1px;
-      align-self: stretch;
-     
-      flex-shrink: 0;
-      margin: 0.15rem 0;
-    }
-    .section-header .section-intro {
-      flex: 1 1 auto;
-      margin: 0;
-      padding-left: 2.5rem;
-      font-size: 0.95rem;
-      
-    }
-
-    #comparison .comparison-heading { margin-bottom: 1.2rem; }
-    #comparison .comparison-right h3 {
-      font-family: 'Source Sans 3', sans-serif;
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 0.6rem;
-    }
-  </style>
 </head>
 <body>
 
@@ -67,8 +17,8 @@
     <div class="hero-inner">
       <h1>The Rising Cost of <span>Malaysian Food</span></h1>
       <p class="hero-sub">Food prices in Malaysia have risen sharply since 2020.
-Here is what changed, where it hit hardest,
-and what it means for your household.</p>
+        Here is what changed, where it hit hardest,
+        and what it means for your household.</p>
     </div>
   </div>
 
@@ -78,32 +28,38 @@ and what it means for your household.</p>
       <h2>Two decades of food prices</h2>
       <div class="section-divider"></div>
       <p class="section-intro">Malaysia's food prices stayed largely stable
-for a decade, until 2021, when global supply
-shocks changed everything.</p>
+        for a decade, until 2021, when global supply
+        shocks changed everything.</p>
     </div>
     <div class="chart-row" style="align-items: stretch;">
       <div id="linechart" class="chart-container"></div>
-      <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
-        <h3>Four decades of rising prices, accelerating fast</h3>
+      <div style="padding: 1.5rem; display: flex; flex-direction: column;
+                  justify-content: center; gap: 1rem;">
+        <h3>Prices accelerated after 2020</h3>
         <p class="chart-caption" style="margin-top: 0;">
-          Between 2010 and 2020, food inflation held
-below 4% annually. COVID-19 disrupted supply
-chains; subsidy removal pushed prices to their
-highest in two decades. By 2023, food costs
-40% more than it did in 2010.
+          Before 2020, food inflation held below 4% a year.
+          The pandemic and subsidy cuts pushed the index
+          past 140 in 2023, up 40% from 2010.
         </p>
-        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+        <div style="display: flex; flex-direction: column;
+                    gap: 0.5rem; margin-top: 0.5rem;">
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <div style="width: 24px; border-top: 2px dashed #E69F00; flex-shrink: 0;"></div>
-            <span style="font-size: 0.9rem; color: #555; font-family: 'Source Sans 3', sans-serif;">2008 — Global food crisis</span>
+            <div style="width: 24px; border-top: 2px dashed #E69F00;
+                        flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">
+              2008 — Global food crisis</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <div style="width: 24px; border-top: 2px dashed #CC79A7; flex-shrink: 0;"></div>
-            <span style="font-size: 0.9rem; color: #555; font-family: 'Source Sans 3', sans-serif;">2020 — COVID-19 pandemic</span>
+            <div style="width: 24px; border-top: 2px dashed #CC79A7;
+                        flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">
+              2020 — COVID-19 pandemic</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <div style="width: 24px; border-top: 2px dashed #009E73; flex-shrink: 0;"></div>
-            <span style="font-size: 0.9rem; color: #555; font-family: 'Source Sans 3', sans-serif;">2022 — Subsidy removal</span>
+            <div style="width: 24px; border-top: 2px dashed #009E73;
+                        flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">
+              2022 — Subsidy removal</span>
           </div>
         </div>
       </div>
@@ -113,12 +69,12 @@ highest in two decades. By 2023, food costs
   <!-- SECTION 2: CATEGORY BREAKDOWN -->
   <section id="categories">
     <div class="section-header">
-      <h2>Not only food inflated</h2>
+      <h2>Not all food inflated equally</h2>
       <div class="section-divider"></div>
       <p class="section-intro">Restaurants and hotels saw the steepest rises.
-The everyday grocery basket followed closely.
-Communication was the only category to fall
-below overall inflation.</p>
+        The everyday grocery basket followed closely.
+        Communication was the only category below
+        overall inflation.</p>
     </div>
     <div class="chart-row">
       <div id="barchart" class="chart-container"></div>
@@ -132,36 +88,44 @@ below overall inflation.</p>
       <h2>Where you live matters</h2>
       <div class="section-divider"></div>
       <p class="section-intro">Food costs vary widely across Malaysia.
-Sabah and Sarawak felt the sharpest rises,
-while Perak and Kedah stayed comparatively
-affordable.</p>
+        Sabah and Sarawak felt the sharpest rises,
+        while Perak and Kedah stayed comparatively
+        affordable.</p>
     </div>
 
     <div class="chart-row" style="align-items: stretch;">
       <div id="choropleth" class="chart-container"></div>
-      <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem;">
+      <div style="padding: 1.5rem; display: flex; flex-direction: column;
+                  justify-content: center; gap: 1.2rem;">
         <h3>Sabah had the highest food inflation</h3>
         <p class="chart-caption" style="margin-bottom: 0;">
           In June 2023, year-on-year food inflation
-ranged from 3% to 7% across states.
-Sabah and Sarawak led; W.P. Kuala Lumpur
-and Putrajaya remained the most contained.
+          ranged from 3% to 7% across states.
+          Sabah and Sarawak led; W.P. Kuala Lumpur
+          and Putrajaya remained the most contained.
         </p>
         <div style="display: flex; flex-direction: column; gap: 0.6rem;">
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <div style="width: 14px; height: 14px; border-radius: 2px; background: #7f2704; flex-shrink: 0;"></div>
-            <span style="font-size: 0.95rem; color: #2c2c2c; font-family: 'Source Sans 3', sans-serif;"><strong>Sabah</strong> — highest at ~7%</span>
+            <div style="width: 14px; height: 14px; border-radius: 2px;
+                        background: #7f2704; flex-shrink: 0;"></div>
+            <span style="font-size: 0.95rem; color: #2c2c2c;">
+              <strong>Sabah</strong> — highest at ~7%</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <div style="width: 14px; height: 14px; border-radius: 2px; background: #d94701; flex-shrink: 0;"></div>
-            <span style="font-size: 0.95rem; color: #2c2c2c; font-family: 'Source Sans 3', sans-serif;"><strong>Sarawak and Kelantan</strong> — above 5%</span>
+            <div style="width: 14px; height: 14px; border-radius: 2px;
+                        background: #d94701; flex-shrink: 0;"></div>
+            <span style="font-size: 0.95rem; color: #2c2c2c;">
+              <strong>Sarawak and Kelantan</strong> — above 5%</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <div style="width: 14px; height: 14px; border-radius: 2px; background: #fdbe85; flex-shrink: 0;"></div>
-            <span style="font-size: 0.95rem; color: #2c2c2c; font-family: 'Source Sans 3', sans-serif;"><strong>W.P. KL and Putrajaya</strong> — lowest at ~3%</span>
+            <div style="width: 14px; height: 14px; border-radius: 2px;
+                        background: #fdbe85; flex-shrink: 0;"></div>
+            <span style="font-size: 0.95rem; color: #2c2c2c;">
+              <strong>W.P. KL and Putrajaya</strong> — lowest at ~3%</span>
           </div>
         </div>
-        <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem; font-family: 'Source Sans 3', sans-serif;">Source: DOSM, June 2023</p>
+        <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
+          Source: DOSM, June 2023</p>
       </div>
     </div>
 
@@ -177,8 +141,8 @@ and Putrajaya remained the most contained.
       <h2>Eating out is getting further from reach</h2>
       <div class="section-divider"></div>
       <p class="section-intro">The gap between cooking at home and eating
-out has widened. This hits lower-income
-households hardest, regardless of state.</p>
+        out has widened. This hits lower-income
+        households hardest, regardless of state.</p>
     </div>
     <div class="chart-row">
       <div id="areachart" class="chart-container"></div>
@@ -190,48 +154,66 @@ households hardest, regardless of state.</p>
     </div>
     <div class="chart-row" style="margin-top: 2rem; align-items: stretch;">
       <div id="bumpchart" class="chart-container"></div>
-      <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
+      <div style="padding: 1.5rem; display: flex; flex-direction: column;
+                  justify-content: center; gap: 1rem;">
         <h3>Rankings shift, but East Malaysia stays expensive</h3>
         <p class="chart-caption" style="margin-top: 0;">
           Sabah and Sarawak have consistently ranked
-highest for food prices. W.P. Kuala Lumpur
-has climbed in recent years, reflecting the
-urban cost-of-living squeeze in the capital.
+          highest for food prices. W.P. Kuala Lumpur
+          has climbed in recent years, reflecting the
+          urban cost-of-living squeeze in the capital.
         </p>
-        <p style="font-size: 0.85rem; color: #888; font-family: 'Source Sans 3', sans-serif;">Highlighted: Selangor, W.P. Kuala Lumpur,
-Sabah, Kelantan</p>
+        <p style="font-size: 0.85rem; color: #888;">
+          Highlighted: Selangor, W.P. Kuala Lumpur,
+          Sabah, Kelantan</p>
       </div>
     </div>
   </section>
 
   <!-- SECTION 5: SEA COMPARISON -->
-  <section id="section-header">
-    <h2>How Malaysia compares in Southeast Asia</h2>
+  <section id="comparison">
+    <div class="section-header">
+      <h2>How Malaysia compares in Southeast Asia</h2>
+      <div class="section-divider"></div>
+      <p class="section-intro">Malaysia sits in the middle of the regional pack,
+        behind the Philippines, Indonesia and Myanmar,
+        but ahead of Singapore, Thailand and Brunei.</p>
+    </div>
     <div class="chart-row" style="align-items: stretch;">
       <div id="symbolmap" class="chart-container"></div>
-      <div class="comparison-right" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
-        <h3>Middle of the regional pack</h3>
+      <div style="padding: 1.5rem; display: flex; flex-direction: column;
+                  justify-content: center; gap: 1rem;">
+        <h3>Laos and Myanmar lead on food price levels</h3>
         <p class="section-intro" style="margin-bottom: 0;">
-          Malaysia's food inflation sits below the
-Philippines, Indonesia and Myanmar, but
-above Singapore, Thailand and Brunei.
+          Lao PDR recorded the highest average food CPI in 2022,
+          driven by currency depreciation and import costs.
+          Singapore and Brunei remain the most affordable.
+          Malaysia's index of 121 sits near the regional median.
         </p>
-        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+        <div style="display: flex; flex-direction: column;
+                    gap: 0.5rem; margin-top: 0.5rem;">
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <div style="width: 14px; height: 14px; border-radius: 50%; background: #7f2704; flex-shrink: 0;"></div>
-            <span style="font-size: 0.9rem; color: #555; font-family: 'Source Sans 3', sans-serif;">Lao PDR and Myanmar — highest CPI</span>
+            <div style="width: 14px; height: 14px; border-radius: 50%;
+                        background: #7f2704; flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">
+              Lao PDR and Myanmar — highest CPI</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <div style="width: 14px; height: 14px; border-radius: 50%; background: #f16913; flex-shrink: 0;"></div>
-            <span style="font-size: 0.9rem; color: #555; font-family: 'Source Sans 3', sans-serif;">Philippines and Indonesia — above average</span>
+            <div style="width: 14px; height: 14px; border-radius: 50%;
+                        background: #f16913; flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">
+              Philippines and Indonesia — above average</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.8rem;">
-            <div style="width: 14px; height: 14px; border-radius: 50%; background: #fdd0a2; flex-shrink: 0;"></div>
-            <span style="font-size: 0.9rem; color: #555; font-family: 'Source Sans 3', sans-serif;">Singapore, Thailand and Brunei — lowest</span>
+            <div style="width: 14px; height: 14px; border-radius: 50%;
+                        background: #fdd0a2; flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">
+              Singapore, Thailand and Brunei — lowest</span>
           </div>
         </div>
-        <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem; font-family: 'Source Sans 3', sans-serif;">Circle size = average food CPI (base 2015 = 100).
-Source: FAO, 2022</p>
+        <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
+          Circle size = average food CPI (base 2015 = 100).
+          Source: FAO, 2022</p>
       </div>
     </div>
   </section>
@@ -240,14 +222,21 @@ Source: FAO, 2022</p>
   <footer>
     <div class="footer-inner">
       <p><strong>The Rising Cost of Malaysian Food</strong></p>
-      <p>By Caroline Gracia Lendrian, 35170352 · May 2026 · FIT2179 Data Visualisation, Monash University Malaysia</p>
+      <p>By Caroline Gracia Lendrian, 35170352 &middot; May 2026 &middot;
+        FIT2179 Data Visualisation, Monash University Malaysia</p>
       <p>
         Data sources:
-        <a href="https://data.gov.my" target="_blank">Department of Statistics Malaysia — data.gov.my</a> ·
-        <a href="https://www.fao.org/faostat" target="_blank">FAO FAOSTAT — faostat.fao.org</a>
+        <a href="https://data.gov.my" target="_blank">
+          Department of Statistics Malaysia</a> &middot;
+        <a href="https://www.fao.org/faostat" target="_blank">
+          FAO FAOSTAT</a>
       </p>
-      <p>Visualisations built with <a href="https://vega.github.io/vega-lite/" target="_blank">Vega-Lite</a>. Page styled with custom CSS.</p>
-      <p>AI tools (Claude by Anthropic) were used to assist with code generation and grammar checking.</p>
+      <p>Visualisations built with
+        <a href="https://vega.github.io/vega-lite/" target="_blank">
+          Vega-Lite</a>.
+        Page styled with custom CSS.</p>
+      <p>AI tools (Claude by Anthropic) were used to assist with
+        code generation and grammar checking.</p>
     </div>
   </footer>
 
