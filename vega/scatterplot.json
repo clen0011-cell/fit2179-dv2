@@ -39,31 +39,23 @@
     {
       "data": {
         "values": [
-          {"state": "Kelantan",          "income_mean": 4885,  "expenditure_mean": 3505},
-          {"state": "Sabah",             "income_mean": 6171,  "expenditure_mean": 3342},
-          {"state": "W.P. Putrajaya",    "income_mean": 13473, "expenditure_mean": 8897},
-          {"state": "W.P. Kuala Lumpur", "income_mean": 13325, "expenditure_mean": 7823}
+          {"x": 8500, "y": 5800, "label": "Wealthier states spend more —"},
+          {"x": 8500, "y": 5500, "label": "W.P. Putrajaya & KL top both axes."},
+          {"x": 8500, "y": 5100, "label": "Kelantan sits lowest on income"},
+          {"x": 8500, "y": 4800, "label": "and expenditure. Sabah spends"},
+          {"x": 8500, "y": 4500, "label": "less than its income would suggest."}
         ]
       },
-      "mark": {"type": "point", "filled": true, "size": 120, "opacity": 1, "color": "#D55E00"},
-      "encoding": {
-        "x": {"field": "income_mean",      "type": "quantitative"},
-        "y": {"field": "expenditure_mean", "type": "quantitative"}
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {"income_mean": 5800,  "expenditure_mean": 3800,  "label": "Kelantan — lowest income & expenditure"},
-          {"income_mean": 11000, "expenditure_mean": 3200,  "label": "Sabah — low expenditure despite mid income"},
-          {"income_mean": 11500, "expenditure_mean": 8700,  "label": "W.P. Putrajaya — highest income & spend"},
-          {"income_mean": 11500, "expenditure_mean": 8200,  "label": "W.P. Kuala Lumpur"}
-        ]
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "color": "#555",
+        "align": "left",
+        "fontStyle": "italic"
       },
-      "mark": {"type": "text", "fontSize": 10, "color": "#D55E00", "align": "left"},
       "encoding": {
-        "x":    {"field": "income_mean",      "type": "quantitative"},
-        "y":    {"field": "expenditure_mean", "type": "quantitative"},
+        "x":    {"field": "x", "type": "quantitative"},
+        "y":    {"field": "y", "type": "quantitative"},
         "text": {"field": "label"}
       }
     }
