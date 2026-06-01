@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "How State Food Price Rankings Have Shifted",
-    "subtitle": "Annual rank of each state's food CPI (1 = highest prices). Source: DOSM",
+    "subtitle": "Annual rank of each state's food CPI (1 = highest prices).",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
