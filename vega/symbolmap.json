@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Inflation Across Southeast Asia",
-    "subtitle": "Average Food CPI (2022, base 2015 = 100). Circle size = price level.",
+    "subtitle": "Avg Food CPI (2022, base 2015=100). Size = price level.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -40,16 +40,46 @@
           "from": {
             "data": {
               "values": [
-                {"country": "Brunei Darussalam",               "lat": 4.5353,  "lon": 114.7277},
-                {"country": "Cambodia",                         "lat": 12.5657, "lon": 104.9910},
-                {"country": "Indonesia",                        "lat": -0.7893, "lon": 113.9213},
-                {"country": "Lao People's Democratic Republic", "lat": 19.8563, "lon": 102.4955},
-                {"country": "Malaysia",                         "lat": 4.2105,  "lon": 101.9758},
-                {"country": "Myanmar",                          "lat": 19.1633, "lon": 96.0785},
-                {"country": "Philippines",                      "lat": 12.8797, "lon": 122.5000},
-                {"country": "Singapore",                        "lat": 1.3521,  "lon": 103.8198},
-                {"country": "Thailand",                         "lat": 15.8700, "lon": 100.9925},
-                {"country": "VietNam",                         "lat": 14.0583, "lon": 108.2772}
+                {
+                  "country": "Brunei Darussalam",
+                  "lat": 4.5353, "lon": 114.7277
+                },
+                {
+                  "country": "Cambodia",
+                  "lat": 12.5657, "lon": 104.9910
+                },
+                {
+                  "country": "Indonesia",
+                  "lat": -0.7893, "lon": 113.9213
+                },
+                {
+                  "country": "Lao People's Democratic Republic",
+                  "lat": 19.8563, "lon": 102.4955
+                },
+                {
+                  "country": "Malaysia",
+                  "lat": 4.2105, "lon": 101.9758
+                },
+                {
+                  "country": "Myanmar",
+                  "lat": 19.1633, "lon": 96.0785
+                },
+                {
+                  "country": "Philippines",
+                  "lat": 12.8797, "lon": 122.5000
+                },
+                {
+                  "country": "Singapore",
+                  "lat": 1.3521, "lon": 103.8198
+                },
+                {
+                  "country": "Thailand",
+                  "lat": 15.8700, "lon": 100.9925
+                },
+                {
+                  "country": "VietNam",
+                  "lat": 14.0583, "lon": 108.2772
+                }
               ]
             },
             "key": "country",
@@ -80,7 +110,11 @@
         },
         "tooltip": [
           {"field": "country", "title": "Country"},
-          {"field": "avg_cpi", "title": "Avg Food CPI (2022)", "format": ".1f"}
+          {
+            "field": "avg_cpi",
+            "title": "Avg Food CPI (2022)",
+            "format": ".1f"
+          }
         ]
       }
     },
@@ -92,16 +126,46 @@
           "from": {
             "data": {
               "values": [
-                {"country": "Brunei Darussalam",               "lat": 4.5353,  "lon": 114.7277},
-                {"country": "Cambodia",                         "lat": 12.5657, "lon": 104.9910},
-                {"country": "Indonesia",                        "lat": -0.7893, "lon": 113.9213},
-                {"country": "Lao People's Democratic Republic", "lat": 19.8563, "lon": 102.4955},
-                {"country": "Malaysia",                         "lat": 4.2105,  "lon": 101.9758},
-                {"country": "Myanmar",                          "lat": 19.1633, "lon": 96.0785},
-                {"country": "Philippines",                      "lat": 12.8797, "lon": 122.5000},
-                {"country": "Singapore",                        "lat": 1.3521,  "lon": 103.8198},
-                {"country": "Thailand",                         "lat": 15.8700, "lon": 100.9925},
-                {"country": "Viet Nam",                         "lat": 14.0583, "lon": 108.2772}
+                {
+                  "country": "Brunei Darussalam",
+                  "lat": 4.5353, "lon": 114.7277
+                },
+                {
+                  "country": "Cambodia",
+                  "lat": 12.5657, "lon": 104.9910
+                },
+                {
+                  "country": "Indonesia",
+                  "lat": -0.7893, "lon": 113.9213
+                },
+                {
+                  "country": "Lao People's Democratic Republic",
+                  "lat": 19.8563, "lon": 102.4955
+                },
+                {
+                  "country": "Malaysia",
+                  "lat": 4.2105, "lon": 101.9758
+                },
+                {
+                  "country": "Myanmar",
+                  "lat": 19.1633, "lon": 96.0785
+                },
+                {
+                  "country": "Philippines",
+                  "lat": 12.8797, "lon": 122.5000
+                },
+                {
+                  "country": "Singapore",
+                  "lat": 1.3521, "lon": 103.8198
+                },
+                {
+                  "country": "Thailand",
+                  "lat": 15.8700, "lon": 100.9925
+                },
+                {
+                  "country": "Viet Nam",
+                  "lat": 14.0583, "lon": 108.2772
+                }
               ]
             },
             "key": "country",
@@ -142,28 +206,34 @@
           }
         }
       ]
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 96.0,
+            "lat": 7.5,
+            "label": "Laos & Myanmar → highest CPI"
+          },
+          {
+            "lon": 103.5,
+            "lat": -2.5,
+            "label": "Singapore & Brunei → lowest"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "fontStyle": "italic",
+        "color": "#444",
+        "align": "left"
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude":  {"field": "lat", "type": "quantitative"},
+        "text":      {"field": "label"}
+      }
     }
   ]
-  {
-    "data": {
-      "values": [
-        {
-          "lon": 102.5,
-          "lat": 4.2,
-          "label": "Peninsular states generally show lower food inflation"
-        }
-      ]
-    },
-    "mark": {
-      "type": "text",
-      "fontWeight": "bold",
-      "fontSize": 11,
-      "color": "#444"
-    },
-    "encoding": {
-      "longitude": {"field": "lon"},
-      "latitude": {"field": "lat"},
-      "text": {"field": "label"}
-    }
-  }
 }
