@@ -11,8 +11,8 @@
   "height": 420,
   "projection": {
     "type": "equirectangular",
-    "center": [112, 10],
-    "scale": 1100
+    "center": [110, 12],
+    "scale": 750
   },
   "layer": [
     {
