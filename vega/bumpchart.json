@@ -89,7 +89,7 @@
         "align": "left",
         "dx": 6,
         "fontSize": 10.5,
-        "color": "#00000"
+        "color": "black"
       },
       "encoding": {
         "x": {"field": "year", "type": "ordinal"},
