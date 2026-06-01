@@ -55,7 +55,7 @@
         "dy": -15,
         "color": "black",
         "stroke": "white",
-        "strokeWidth": 1,
+        "strokeWidth": 0.2,
         "strokeOpacity": 1
       },
       "encoding": {
