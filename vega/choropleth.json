@@ -67,23 +67,23 @@
       "data": {
         "values": [
           {
-            "lat": 5.3,
-            "lon": 117.8,
+            "lat": 4.5,
+            "lon": 116.0,
             "label": "Sabah → highest ~7%"
           },
           {
-            "lat": 2.5,
-            "lon": 113.5,
+            "lat": 2.0,
+            "lon": 112.0,
             "label": "Sarawak → above 5%"
           },
           {
-            "lat": 3.1,
-            "lon": 101.5,
+            "lat": 3.2,
+            "lon": 101.8,
             "label": "KL → lowest ~3%"
           },
           {
-            "lat": 6.1,
-            "lon": 102.2,
+            "lat": 5.5,
+            "lon": 103.5,
             "label": "Kelantan → above 5%"
           }
         ]
@@ -94,7 +94,7 @@
             "type": "text",
             "fontSize": 10,
             "fontStyle": "italic",
-            "color": "black",
+            "color": "white",
             "stroke": "white",
             "strokeWidth": 3,
             "strokeOpacity": 1
@@ -110,7 +110,7 @@
             "type": "text",
             "fontSize": 10,
             "fontStyle": "italic",
-            "color": "#black"
+            "color": "#000"
           },
           "encoding": {
             "latitude": {"field": "lat", "type": "quantitative"},
