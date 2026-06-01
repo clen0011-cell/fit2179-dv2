@@ -163,7 +163,7 @@
                   "lat": 15.8700, "lon": 100.9925
                 },
                 {
-                  "country": "Vietnam",
+                  "country": "VietNam",
                   "lat": 14.0583, "lon": 108.2772
                 }
               ]
@@ -211,23 +211,13 @@
       "data": {
         "values": [
           {
-            "lon": 88.5,
-            "lat": 22.0,
-            "label": "→ highest CPI"
+            "lon": 108.5,
+            "lat": 23.0,
+            "label": "Laos & Myanmar → highest CPI"
           },
           {
-            "lon": 88.5,
-            "lat": 20.5,
-            "label": "Laos & Myanmar"
-          },
-          {
-            "lon": 105.5,
-            "lat": -5.5,
-            "label": "Indonesia → above avg"
-          },
-          {
-            "lon": 100.0,
-            "lat": -1.0,
+            "lon": 108.5,
+            "lat": 21.5,
             "label": "Singapore & Brunei → lowest"
           }
         ]
