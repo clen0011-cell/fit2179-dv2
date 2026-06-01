@@ -211,14 +211,9 @@
       "data": {
         "values": [
           {
-            "lon": 88.5,
-            "lat": 22.0,
-            "label": "→ highest CPI"
-          },
-          {
             "lon": 108.5,
             "lat": 23,
-            "label": "Laos & Myanmar"
+            "label": "Laos & Myanmar → highest CPI"
           },
           {
             "lon": 100.0,
