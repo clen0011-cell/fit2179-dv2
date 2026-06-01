@@ -34,7 +34,7 @@
       },
       "mark": {
         "type": "line",
-        "color": "#E69F00",
+        "color": "#00000",
         "strokeWidth": 1.5,
         "opacity": 0.6,
         "interpolate": "monotone"
