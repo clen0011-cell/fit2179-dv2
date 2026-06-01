@@ -12,7 +12,7 @@
   "data": {"url": "data/hies_state.csv"},
   "layer": [
     {
-      "mark": {"type": "point", "filled": true, "size": 100, "opacity": 0.75},
+      "mark": {"type": "point", "filled": true, "size": 80, "opacity": 0.6, "color": "#90bcd4"},
       "encoding": {
         "x": {
           "field": "income_mean",
@@ -28,18 +28,6 @@
           "axis": {"grid": false},
           "scale": {"zero": false}
         },
-        "color": {
-          "field": "poverty",
-          "type": "quantitative",
-          "scale": {"scheme": "blues"},
-          "legend": {"title": "Poverty Rate (%)"}
-        },
-        "size": {
-          "field": "poverty",
-          "type": "quantitative",
-          "scale": {"range": [60, 400]},
-          "legend": null
-        },
         "tooltip": [
           {"field": "state",            "title": "State"},
           {"field": "income_mean",      "title": "Mean Income (RM)",      "format": ",.0f"},
@@ -51,37 +39,33 @@
     {
       "data": {
         "values": [
-          {"state": "Kelantan",         "income_mean": 4885,  "expenditure_mean": 3505, "label": "Kelantan\n(Lowest income)", "ax": -10, "ay": -25},
-          {"state": "Sabah",            "income_mean": 6171,  "expenditure_mean": 3342, "label": "Sabah\n(Lowest expenditure)", "ax": 10, "ay": 25},
-          {"state": "W.P. Putrajaya",   "income_mean": 13473, "expenditure_mean": 8897, "label": "W.P. Putrajaya\n(Highest income & spend)", "ax": -15, "ay": -25},
-          {"state": "W.P. Kuala Lumpur","income_mean": 13325, "expenditure_mean": 7823, "label": "W.P. Kuala Lumpur", "ax": -15, "ay": 20}
+          {"state": "Kelantan",          "income_mean": 4885,  "expenditure_mean": 3505},
+          {"state": "Sabah",             "income_mean": 6171,  "expenditure_mean": 3342},
+          {"state": "W.P. Putrajaya",    "income_mean": 13473, "expenditure_mean": 8897},
+          {"state": "W.P. Kuala Lumpur", "income_mean": 13325, "expenditure_mean": 7823}
         ]
       },
-      "layer": [
-        {
-          "mark": {"type": "point", "filled": true, "size": 130, "opacity": 1, "color": "#D55E00"},
-          "encoding": {
-            "x": {"field": "income_mean",      "type": "quantitative"},
-            "y": {"field": "expenditure_mean", "type": "quantitative"}
-          }
-        },
-        {
-          "mark": {
-            "type": "text",
-            "fontSize": 10,
-            "fontWeight": "bold",
-            "color": "#D55E00",
-            "lineBreak": "\n"
-          },
-          "encoding": {
-            "x":    {"field": "income_mean",      "type": "quantitative"},
-            "y":    {"field": "expenditure_mean", "type": "quantitative"},
-            "text": {"field": "label"},
-            "dx":   {"field": "ax"},
-            "dy":   {"field": "ay"}
-          }
-        }
-      ]
+      "mark": {"type": "point", "filled": true, "size": 120, "opacity": 1, "color": "#D55E00"},
+      "encoding": {
+        "x": {"field": "income_mean",      "type": "quantitative"},
+        "y": {"field": "expenditure_mean", "type": "quantitative"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"income_mean": 5800,  "expenditure_mean": 3800,  "label": "Kelantan — lowest income & expenditure"},
+          {"income_mean": 11000, "expenditure_mean": 3200,  "label": "Sabah — low expenditure despite mid income"},
+          {"income_mean": 11500, "expenditure_mean": 8700,  "label": "W.P. Putrajaya — highest income & spend"},
+          {"income_mean": 11500, "expenditure_mean": 8200,  "label": "W.P. Kuala Lumpur"}
+        ]
+      },
+      "mark": {"type": "text", "fontSize": 10, "color": "#D55E00", "align": "left"},
+      "encoding": {
+        "x":    {"field": "income_mean",      "type": "quantitative"},
+        "y":    {"field": "expenditure_mean", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
     }
   ]
 }
