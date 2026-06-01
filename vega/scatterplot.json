@@ -8,112 +8,165 @@
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 360,
   "data": {"url": "data/hies_state.csv"},
-  "layer": [
+  "vconcat": [
     {
-      "mark": {
-        "type": "line",
-        "color": "#cccccc",
-        "strokeWidth": 1.5,
-        "strokeDash": [4, 3]
+      "height": 300,
+      "layer": [
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 80,
+            "opacity": 0.6,
+            "color": "#56B4E9"
+          },
+          "encoding": {
+            "x": {
+              "field": "income_mean",
+              "type": "quantitative",
+              "title": "Mean Household Income (RM/month)",
+              "axis": {"grid": false},
+              "scale": {"zero": false}
+            },
+            "y": {
+              "field": "expenditure_mean",
+              "type": "quantitative",
+              "title": "Mean Household Expenditure (RM/month)",
+              "axis": {"grid": false},
+              "scale": {"zero": false}
+            },
+            "tooltip": [
+              {"field": "state", "title": "State"},
+              {
+                "field": "income_mean",
+                "title": "Mean Income (RM)",
+                "format": ",.0f"
+              },
+              {
+                "field": "expenditure_mean",
+                "title": "Mean Expenditure (RM)",
+                "format": ",.0f"
+              },
+              {
+                "field": "poverty",
+                "title": "Poverty Rate (%)",
+                "format": ".1f"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "x": 7000,
+                "y": 8000,
+                "label": "Higher income → higher spending"
+              },
+              {
+                "x": 7000,
+                "y": 7750,
+                "label": "KL & Putrajaya lead both"
+              },
+              {
+                "x": 7000,
+                "y": 7500,
+                "label": "Sabah = notable outlier"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "fontSize": 10.5,
+            "color": "#000000",
+            "align": "left"
+          },
+          "encoding": {
+            "x": {"field": "x", "type": "quantitative"},
+            "y": {"field": "y", "type": "quantitative"},
+            "text": {"field": "label"}
+          }
+        }
+      ]
+    },
+    {
+      "height": 200,
+      "title": {
+        "text": "Income vs Expenditure by State",
+        "subtitle": "States sorted by mean income.",
+        "anchor": "start",
+        "fontSize": 13,
+        "subtitleFontSize": 11
       },
       "transform": [
         {
-          "regression": "expenditure_mean",
-          "on": "income_mean"
+          "fold": ["income_mean", "expenditure_mean"],
+          "as": ["measure", "value"]
+        },
+        {
+          "calculate": "datum.measure == 'income_mean' ? 'Mean Income' : 'Mean Expenditure'",
+          "as": "measure_label"
         }
       ],
       "encoding": {
         "x": {
-          "field": "income_mean",
-          "type": "quantitative",
-          "scale": {"zero": false}
-        },
-        "y": {
-          "field": "expenditure_mean",
-          "type": "quantitative",
-          "scale": {"zero": false}
+          "field": "state",
+          "type": "nominal",
+          "title": null,
+          "sort": {"field": "income_mean", "order": "ascending"},
+          "axis": {
+            "labelAngle": -40,
+            "labelFontSize": 9,
+            "grid": false
+          }
         }
-      }
-    },
-    {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 80,
-        "opacity": 0.6,
-        "color": "#56B4E9"
       },
-      "encoding": {
-        "x": {
-          "field": "income_mean",
-          "type": "quantitative",
-          "title": "Mean Household Income (RM/month)",
-          "axis": {"grid": false},
-          "scale": {"zero": false}
-        },
-        "y": {
-          "field": "expenditure_mean",
-          "type": "quantitative",
-          "title": "Mean Household Expenditure (RM/month)",
-          "axis": {"grid": false},
-          "scale": {"zero": false}
-        },
-        "tooltip": [
-          {
-            "field": "state",
-            "title": "State"
+      "layer": [
+        {
+          "mark": {
+            "type": "line",
+            "point": true,
+            "strokeWidth": 1.5
           },
-          {
-            "field": "income_mean",
-            "title": "Mean Income (RM)",
-            "format": ",.0f"
-          },
-          {
-            "field": "expenditure_mean",
-            "title": "Mean Expenditure (RM)",
-            "format": ",.0f"
-          },
-          {
-            "field": "poverty",
-            "title": "Poverty Rate (%)",
-            "format": ".1f"
+          "encoding": {
+            "y": {
+              "field": "value",
+              "type": "quantitative",
+              "title": "RM/month",
+              "axis": {"grid": false},
+              "scale": {"zero": false}
+            },
+            "color": {
+              "field": "measure_label",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "Mean Income",
+                  "Mean Expenditure"
+                ],
+                "range": ["#56B4E9", "#E69F00"]
+              },
+              "legend": {
+                "title": null,
+                "orient": "top-left"
+              }
+            },
+            "tooltip": [
+              {"field": "state", "title": "State"},
+              {
+                "field": "measure_label",
+                "title": "Measure"
+              },
+              {
+                "field": "value",
+                "title": "RM/month",
+                "format": ",.0f"
+              }
+            ]
           }
-        ]
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 7000,
-            "y": 8000,
-            "label": "Higher income → higher spending"
-          },
-          {
-            "x": 7000,
-            "y": 7750,
-            "label": "KL & Putrajaya lead both"
-          },
-          {
-            "x": 7000,
-            "y": 7500,
-            "label": "Sabah = notable outlier"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "fontSize": 10.5,
-        "color": "#000000",
-        "align": "left"
-      },
-      "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "quantitative"},
-        "text": {"field": "label"}
-      }
+        }
+      ]
     }
   ]
 }
