@@ -48,4 +48,26 @@
       }
     }
   ]
+  {
+    "data": {
+      "values": [
+        {
+          "lon": 114.5,
+          "lat": 4.8,
+          "label": "Higher inflation observed in East Malaysia"
+        }
+      ]
+    },
+    "mark": {
+      "type": "text",
+      "fontWeight": "bold",
+      "fontSize": 11,
+      "color": "#444"
+    },
+    "encoding": {
+      "longitude": {"field": "lon", "type": "quantitative"},
+      "latitude": {"field": "lat", "type": "quantitative"},
+      "text": {"field": "label"}
+    }
+  }
 }
