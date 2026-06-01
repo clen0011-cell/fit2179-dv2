@@ -9,33 +9,51 @@
   },
   "width": "container",
   "height": 320,
-  "data": {"url": "data/cpi_national.csv"},
-  "transform": [
-    {"filter": "datum.division == '01' || datum.division == '11'"},
-    {"calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'", "as": "category"}
-  ],
-  "mark": {"type": "area", "opacity": 0.6, "line": true},
-  "encoding": {
-    "x": {"field": "date", "type": "temporal", "title": "Year"},
-    "y": {
-      "field": "index",
-      "type": "quantitative",
-      "title": "CPI Index (2010 = 100)",
-      "stack": null
+  "layer": [
+    {
+      "data": {"url": "data/cpi_national.csv"},
+      "transform": [
+        {"filter": "datum.division == '01' || datum.division == '11'"},
+        {"calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'", "as": "category"}
+      ],
+      "mark": {"type": "area", "opacity": 0.6, "line": true},
+      "encoding": {
+        "x": {"field": "date", "type": "temporal", "title": "Year"},
+        "y": {
+          "field": "index", "type": "quantitative",
+          "title": "CPI Index (2010 = 100)", "stack": null
+        },
+        "color": {
+          "field": "category", "type": "nominal",
+          "scale": {
+            "domain": ["Food at Home", "Eating Out"],
+            "range": ["#56B4E9", "#E69F00"]
+          },
+          "legend": {"title": null, "orient": "top-left"}
+        },
+        "tooltip": [
+          {"field": "date",     "type": "temporal", "title": "Date"},
+          {"field": "category", "title": "Type"},
+          {"field": "index",    "title": "CPI Index", "format": ".1f"}
+        ]
+      }
     },
-    "color": {
-      "field": "category",
-      "type": "nominal",
-      "scale": {
-        "domain": ["Food at Home", "Eating Out"],
-        "range": ["#56B4E9", "#E69F00"]
+    {
+      "data": {
+        "values": [
+          {"x": "2020-04-01", "y": 148, "label": "2020–21: COVID dip"},
+          {"x": "2022-06-01", "y": 158, "label": "gap widens post-pandemic"}
+        ]
       },
-      "legend": {"title": null, "orient": "top-left"}
-    },
-    "tooltip": [
-      {"field": "date", "type": "temporal", "title": "Date"},
-      {"field": "category", "title": "Type"},
-      {"field": "index", "title": "CPI Index", "format": ".1f"}
-    ]
-  }
+      "mark": {
+        "type": "text", "fontSize": 10.5, "color": "#888",
+        "align": "left", "fontStyle": "italic"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "temporal"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    }
+  ]
 }
