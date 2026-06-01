@@ -127,23 +127,22 @@ section:last-of-type {
   max-width: 75ch;
 }
 
-/* All chart rows use stretch so both cells always match height */
+/* All chart rows stretch so both cells always match height */
 .chart-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  align-items: stretch; /* ← key: every cell in a row is equal height */
+  align-items: stretch;
 }
 
-/* Every chart container — fixed uniform height */
+/* Chart containers — uniform size */
 .chart-container {
   background: #ffffff;
   border: 1px solid #c8dde6;
   border-radius: 8px;
   padding: 1.5rem;
-  /* Uniform height: use the tallest chart size across the page */
-  min-height: 460px;
-  height: 460px;
+  min-height: 560px;
+  height: 560px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -161,14 +160,15 @@ section:last-of-type {
   height: 100% !important;
 }
 
-/* Sidebar companion panels (text next to a chart) should match */
+/* Sidebar companion panels — transparent, no border */
 .chart-row > div:not(.chart-container) {
-  background: #ffffff;
-  border: 1px solid #c8dde6;
-  border-radius: 8px;
-  min-height: 460px;
-  height: 460px;
+  min-height: 560px;
+  height: 560px;
   overflow: auto;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 1.5rem;
 }
 
 /* ── Footer ── */
@@ -200,7 +200,6 @@ footer a:hover {
   .chart-row {
     grid-template-columns: 1fr;
   }
-  /* On mobile let height be auto again */
   .chart-container,
   .chart-row > div:not(.chart-container) {
     height: auto;
