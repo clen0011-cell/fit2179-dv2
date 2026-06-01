@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Which Foods Got More Expensive?",
-    "subtitle": "Average annual food CPI inflation by category, 2023",
+    "text": "Which Categories Beat Overall Inflation?",
+    "subtitle": "Difference between category inflation and overall CPI, 2023. Positive = above average. Source: DOSM",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -11,22 +11,22 @@
   "height": 320,
   "data": {
     "values": [
-      {"label": "Food & Non-Alcoholic Drinks", "inflation": 4.83},
-      {"label": "Alcoholic Drinks & Tobacco",  "inflation": 0.65},
-      {"label": "Clothing & Footwear",         "inflation": 0.23},
-      {"label": "Housing & Utilities",         "inflation": 1.66},
-      {"label": "Furnishings",                 "inflation": 1.20},
-      {"label": "Health",                      "inflation": 1.89},
-      {"label": "Transport",                   "inflation": 0.45},
-      {"label": "Communication",               "inflation": 0.10},
-      {"label": "Recreation",                  "inflation": 0.98},
-      {"label": "Education",                   "inflation": 2.10},
-      {"label": "Restaurants & Hotels",        "inflation": 5.21},
-      {"label": "Insurance & Finance",         "inflation": 3.40},
-      {"label": "Misc Goods & Services",       "inflation": 1.75}
+      {"label": "Restaurants & Hotels",        "diff": 2.01},
+      {"label": "Food & Non-Alcoholic Drinks", "diff": 1.63},
+      {"label": "Insurance & Finance",         "diff": 0.20},
+      {"label": "Education",                   "diff": -0.10},
+      {"label": "Health",                      "diff": -0.31},
+      {"label": "Misc Goods & Services",       "diff": -0.45},
+      {"label": "Housing & Utilities",         "diff": -0.54},
+      {"label": "Furnishings",                 "diff": -1.00},
+      {"label": "Recreation",                  "diff": -1.22},
+      {"label": "Transport",                   "diff": -1.75},
+      {"label": "Alcoholic Drinks & Tobacco",  "diff": -2.55},
+      {"label": "Clothing & Footwear",         "diff": -2.97},
+      {"label": "Communication",               "diff": -3.10}
     ]
   },
-  "mark": {"type": "bar", "cornerRadiusEnd": 4},
+  "mark": {"type": "bar", "cornerRadiusEnd": 3},
   "encoding": {
     "y": {
       "field": "label",
@@ -35,20 +35,18 @@
       "title": null
     },
     "x": {
-      "field": "inflation",
+      "field": "diff",
       "type": "quantitative",
-      "title": "Avg Inflation (%)",
-      "axis": {"grid": false}
+      "title": "Difference from overall CPI (%)",
+      "axis": {"grid": true}
     },
     "color": {
-      "field": "inflation",
-      "type": "quantitative",
-      "scale": {"scheme": "oranges"},
-      "legend": null
+      "condition": {"test": "datum.diff > 0", "value": "#D55E00"},
+      "value": "#0072B2"
     },
     "tooltip": [
-      {"field": "label",     "title": "Category"},
-      {"field": "inflation", "title": "Inflation %", "format": ".2f"}
+      {"field": "label", "title": "Category"},
+      {"field": "diff",  "title": "Diff from overall (%)", "format": ".2f"}
     ]
   }
 }
