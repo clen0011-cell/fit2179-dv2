@@ -39,17 +39,19 @@
       {"label": "Communication",               "year": "2023", "index": 99.1}
     ]
   },
-  "layer": 
-  [
+  "layer": [
     {
       "mark": {"type": "line", "color": "#ccc", "strokeWidth": 2},
       "encoding": {
         "y": {
-          "field": "label", "type": "nominal", "title": null,
+          "field": "label",
+          "type": "nominal",
+          "title": null,
           "sort": {"field": "index", "op": "max", "order": "descending"}
         },
         "x": {
-          "field": "index", "type": "quantitative",
+          "field": "index",
+          "type": "quantitative",
           "title": "CPI Index (2010 = 100)",
           "scale": {"domain": [90, 170]}
         },
@@ -60,14 +62,18 @@
       "mark": {"type": "point", "filled": true, "size": 120},
       "encoding": {
         "y": {
-          "field": "label", "type": "nominal",
+          "field": "label",
+          "type": "nominal",
           "sort": {"field": "index", "op": "max", "order": "descending"}
         },
         "x": {"field": "index", "type": "quantitative"},
         "color": {
           "field": "year",
           "type": "nominal",
-          "scale": {"domain": ["2015", "2023"], "range": ["#56B4E9", "#E69F00"]},
+          "scale": {
+            "domain": ["2015", "2023"],
+            "range": ["#56B4E9", "#E69F00"]
+          },
           "legend": {
             "title": "Year",
             "orient": "none",
@@ -83,34 +89,34 @@
       }
     },
     {
-      "data": 
-      {
-        "values": 
-        [
+      "data": {
+        "values": [
           {
-            "x": 135,
+            "x": 158,
             "y": "Restaurants & Hotels",
             "label": "↑ +49 pts, biggest jump"
           },
           {
-            "x": 104,
-            "y": "transport",
+            "x": 100,
+            "y": "Communication",
             "label": "barely moved (+1 pt)"
           }
         ]
       },
-      "mark": 
-      {
+      "mark": {
         "type": "text",
         "fontSize": 10.5,
         "color": "#000000",
         "align": "left",
-        "dx": 8
+        "dx": 6
       },
-      "encoding": 
-      {
+      "encoding": {
         "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "nominal"},
+        "y": {
+          "field": "y",
+          "type": "nominal",
+          "sort": {"field": "x", "op": "max", "order": "descending"}
+        },
         "text": {"field": "label"}
       }
     }
