@@ -14,7 +14,6 @@
     body {
       background-color: #DCEEF4;
     }
-
     h2 { font-family: 'Playfair Display', serif; }
     h3 { font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
 
@@ -22,33 +21,6 @@
     .section-intro {
       line-height: 1.65;
       max-width: 52ch;
-    }
-
-    /* Section heading row: h2 left, vertical rule, intro right */
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      margin-bottom: 1.2rem;
-    }
-    .section-header h2 {
-      flex: 0 0 auto;
-      margin: 0;
-      padding-right: 2.5rem;
-    }
-    .section-header .section-divider {
-      width: 1px;
-      align-self: stretch;
-     
-      flex-shrink: 0;
-      margin: 0.15rem 0;
-    }
-    .section-header .section-intro {
-      flex: 1 1 auto;
-      margin: 0;
-      padding-left: 2.5rem;
-      font-size: 0.95rem;
-      
     }
 
     #comparison .comparison-heading { margin-bottom: 1.2rem; }
@@ -81,7 +53,7 @@ and what it means for your household.</p>
 for a decade, until 2021, when global supply
 shocks changed everything.</p>
     </div>
-    <div class="chart-row" style="align-items: stretch;">
+    <div class="chart-row">
       <div id="linechart" class="chart-container"></div>
       <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
         <h3>Four decades of rising prices, accelerating fast</h3>
@@ -137,7 +109,7 @@ while Perak and Kedah stayed comparatively
 affordable.</p>
     </div>
 
-    <div class="chart-row" style="align-items: stretch;">
+    <div class="chart-row">
       <div id="choropleth" class="chart-container"></div>
       <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem;">
         <h3>Sabah had the highest food inflation</h3>
@@ -188,7 +160,7 @@ households hardest, regardless of state.</p>
       <div id="streamgraph" class="chart-container"></div>
       <div id="isotypechart" class="chart-container"></div>
     </div>
-    <div class="chart-row" style="margin-top: 2rem; align-items: stretch;">
+    <div class="chart-row" style="margin-top: 2rem;">
       <div id="bumpchart" class="chart-container"></div>
       <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
         <h3>Rankings shift, but East Malaysia stays expensive</h3>
@@ -207,7 +179,7 @@ Sabah, Kelantan</p>
   <!-- SECTION 5: SEA COMPARISON -->
   <section id="section-header">
     <h2>How Malaysia compares in Southeast Asia</h2>
-    <div class="chart-row" style="align-items: stretch;">
+    <div class="chart-row" style="margin-top: 1.5rem;">
       <div id="symbolmap" class="chart-container"></div>
       <div class="comparison-right" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
         <h3>Middle of the regional pack</h3>
