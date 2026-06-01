@@ -10,10 +10,10 @@
   "width": "container",
   "height": 420,
   "projection": {
-    "type": "equirectangular",
-    "center": [115, 5],
-    "scale": 700
-  },
+  "type": "equirectangular",
+  "center": [118, 5],
+  "scale": 1800
+},
   "layer": [
     {
       "data": {"values": [{"x": 0}]},
