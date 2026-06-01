@@ -32,7 +32,7 @@
       "title": "Share of CPI Basket (%)",
       "axis": {"grid": false}
     },
-    "color": {"value": "#0072B2"},
+    "color": {"value": "#4a7c6f"},
     "tooltip": [
       {"field": "category", "title": "Category"},
       {"field": "weight",   "title": "Basket Share (%)", "format": ".1f"}
