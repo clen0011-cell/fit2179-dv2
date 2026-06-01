@@ -144,4 +144,26 @@
       ]
     }
   ]
+  {
+    "data": {
+      "values": [
+        {
+          "lon": 102.5,
+          "lat": 4.2,
+          "label": "Peninsular states generally show lower food inflation"
+        }
+      ]
+    },
+    "mark": {
+      "type": "text",
+      "fontWeight": "bold",
+      "fontSize": 11,
+      "color": "#444"
+    },
+    "encoding": {
+      "longitude": {"field": "lon"},
+      "latitude": {"field": "lat"},
+      "text": {"field": "label"}
+    }
+  }
 }
