@@ -41,7 +41,7 @@
   },
   "layer": [
     {
-      "mark": {"type": "line", "color": "#ccc", "strokeWidth": 2},
+      "mark": {"type": "line", "color": "black", "strokeWidth": 2},
       "encoding": {
         "y": {
           "field": "label",
