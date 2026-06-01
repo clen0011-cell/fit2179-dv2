@@ -42,8 +42,35 @@
   <section id="states">
     <h2>Where you live matters</h2>
     <p class="section-intro">Food costs are not the same across Malaysia. Selangor and Putrajaya saw the sharpest rises, while Perak and Kedah remained comparatively affordable.</p>
-    <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.5rem;">📍 Malaysia is located in Southeast Asia, between latitudes 1°N and 7°N.</p>
-    <div id="choropleth" class="chart-container chart-wide"></div>
+    <p style="font-size: 0.85rem; color: #888; margin-bottom: 1rem;">📍 Malaysia is located in Southeast Asia, between latitudes 1°N and 7°N.</p>
+
+    <div class="chart-row" style="align-items: stretch;">
+      <div id="choropleth" class="chart-container"></div>
+      <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem;">
+        <h3>Sabah had the highest food inflation</h3>
+        <p class="section-intro" style="margin-bottom: 0;">
+          In June 2023, food prices across Malaysian states rose between 3% and 7% year-on-year.
+          Sabah and Sarawak saw the sharpest increases, while urban centres like
+          W.P. Kuala Lumpur and Putrajaya remained relatively contained.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 14px; height: 14px; border-radius: 2px; background: #7f2704; flex-shrink: 0;"></div>
+            <span style="font-size: 0.95rem; color: #2c2c2c;"><strong>Sabah</strong> — highest at ~7%</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 14px; height: 14px; border-radius: 2px; background: #d94701; flex-shrink: 0;"></div>
+            <span style="font-size: 0.95rem; color: #2c2c2c;"><strong>Sarawak & Kelantan</strong> — above 5%</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 14px; height: 14px; border-radius: 2px; background: #fdbe85; flex-shrink: 0;"></div>
+            <span style="font-size: 0.95rem; color: #2c2c2c;"><strong>W.P. KL & Putrajaya</strong> — lowest at ~3%</span>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">Source: DOSM, June 2023</p>
+      </div>
+    </div>
+
     <div class="chart-row" style="margin-top: 2rem;">
       <div id="heatmap" class="chart-container"></div>
       <div id="dumbbell" class="chart-container"></div>
