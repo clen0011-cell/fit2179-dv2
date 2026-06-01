@@ -18,7 +18,7 @@
       "projection": {
         "type": "mercator",
         "center": [109.5, 3.8],
-        "scale": 1600,
+        "scale": 1850,
         "translate": [250, 170]
       },
       "transform": [
@@ -51,21 +51,20 @@
       "data": {
         "values": [
           {
-            "lon": 114.5,
-            "lat": 4.8,
+            "x": 470,
+            "y": 250,
             "label": "Higher inflation observed in East Malaysia"
           }
         ]
       },
       "mark": {
         "type": "text",
-        "fontWeight": "bold",
         "fontSize": 11,
-        "color": "#444"
+        "color": "#00000"
       },
       "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"},
         "text": {"field": "label"}
       }
     }
