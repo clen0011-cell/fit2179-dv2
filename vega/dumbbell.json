@@ -76,7 +76,7 @@
           },
           "legend": {
             "title": "Year",
-            "orient": "none",
+            "orient": "right",
             "legendX": 400,
             "legendY": 280
           }
