@@ -69,28 +69,4 @@
         "text": {"field": "label"}
       }
     },
-    {
-      "data": {
-        "values": [
-          {
-            "lon1": 112.5,
-            "lat1": 5.8,
-            "lon2": 114.2,
-            "lat2": 4.9
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "strokeWidth": 1.5,
-        "color": "#444"
-      },
-      "encoding": {
-        "longitude": {"field": "lon1"},
-        "latitude": {"field": "lat1"},
-        "longitude2": {"field": "lon2"},
-        "latitude2": {"field": "lat2"}
-      }
-    }
-  ]
 }
