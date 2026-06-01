@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Food Price Inflation Across Southeast Asia",
-    "subtitle": "Avg Food CPI (2022, base 2015=100). Size = price level.",
+    "subtitle": "Average Food CPI (2022, base 2015=100). Size = price level.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -53,7 +53,7 @@
                   "lat": -0.7893, "lon": 113.9213
                 },
                 {
-                  "country": "Lao People's Democratic Republic",
+                  "country": "Laos",
                   "lat": 19.8563, "lon": 102.4955
                 },
                 {
@@ -112,7 +112,7 @@
           {"field": "country", "title": "Country"},
           {
             "field": "avg_cpi",
-            "title": "Avg Food CPI (2022)",
+            "title": "Average Food CPI (2022)",
             "format": ".1f"
           }
         ]
@@ -139,7 +139,7 @@
                   "lat": -0.7893, "lon": 113.9213
                 },
                 {
-                  "country": "Lao People's Democratic Republic",
+                  "country": "Laos",
                   "lat": 19.8563, "lon": 102.4955
                 },
                 {
@@ -218,7 +218,7 @@
           {
             "lon": 100.0,
             "lat": -1.0,
-            "label": "Singapore & Brunei → lowest"
+            "label": "Singapore, Thailand & Brunei → lowest"
           }
         ]
       },
