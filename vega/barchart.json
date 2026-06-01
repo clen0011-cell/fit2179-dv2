@@ -47,21 +47,32 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {"x": 0.3,  "label": "Restaurants & Hotels", "note": "only 2 above avg"},
-          {"x": -2.5, "label": "Communication",        "note": "comms fell most (–3.1%)"}
-        ]
+  "data": {
+    "values": [
+      {
+        "x": 1.1,
+        "label": "Restaurants & Hotels",
+        "note": "highest above overall CPI"
       },
-      "mark": {
-        "type": "text", "fontSize": 10.5, "color": "#888",
-        "align": "left", "fontStyle": "italic", "dx": 4
-      },
-      "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "label", "type": "nominal", "sort": "-x"},
-        "text": {"field": "note"}
+      {
+        "x": -1.8,
+        "label": "Communication",
+        "note": "largest decline vs CPI"
       }
-    }
+    ]
+  },
+  "mark": {
+    "type": "text",
+    "fontSize": 10.5,
+    "color": "#000000",
+    "align": "left",
+    "dx": 6
+  },
+  "encoding": {
+    "x": {"field": "x", "type": "quantitative"},
+    "y": {"field": "label", "type": "nominal"},
+    "text": {"field": "note"}
+  }
+}
   ]
 }
