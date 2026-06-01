@@ -36,4 +36,27 @@
       {"field": "avg_inflation", "title": "Food Inflation %", "format": ".1f"}
     ]
   }
+  {
+    "data": {
+      "values": [
+        {
+          "year": 2022,
+          "state": "Selangor",
+          "label": "Inflation spike period"
+        }
+      ]
+    },
+    "mark": {
+      "type": "text",
+      "fontWeight": "bold",
+      "fontSize": 11,
+      "dy": -15,
+      "color": "black"
+    },
+    "encoding": {
+      "x": {"field": "year", "type": "ordinal"},
+      "y": {"field": "state", "type": "nominal"},
+      "text": {"field": "label"}
+    }
+  }
 }
