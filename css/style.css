@@ -14,7 +14,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: #2c2c2c;
-  background: #faf8f4;
+  background: #DCEEF4;
   overflow-x: hidden;
 }
 
@@ -92,15 +92,49 @@ section {
   padding: 4rem 2rem;
   max-width: 1100px;
   margin: 0 auto;
-  border-bottom: 1px solid #e8e0d4;
+  border-bottom: 1px solid #bfd7e2;
 }
 
 section:last-of-type {
   border-bottom: none;
 }
 
+/* ── Section Headers ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  background: #6F9FB3;
+  border-radius: 10px;
+  padding: 1.25rem 1.75rem;
+}
+
+.section-header h2 {
+  flex: 0 0 auto;
+  margin: 0;
+  padding-right: 2rem;
+  color: #2c2c2c;
+}
+
+.section-header .section-divider {
+  width: 2px;
+  align-self: stretch;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.section-header .section-intro {
+  flex: 1 1 auto;
+  margin: 0;
+  padding-left: 2rem;
+  color: #2c2c2c;
+  max-width: none;
+  line-height: 1.7;
+}
+
 .section-intro {
-  color: #555;
+  color: #2c2c2c;
   font-size: 1rem;
   margin-bottom: 2rem;
   max-width: 65ch;
@@ -124,8 +158,8 @@ section:last-of-type {
 }
 
 .chart-container {
-  background: #fff;
-  border: 1px solid #e8e0d4;
+  background: #ffffff;
+  border: 1px solid #c8dde6;
   border-radius: 8px;
   padding: 1.5rem;
   min-height: 320px;
@@ -180,6 +214,7 @@ footer a:hover {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+
   .hero-banner h1 {
     font-size: 2rem;
   }
@@ -190,6 +225,25 @@ footer a:hover {
 
   .chart-wide {
     grid-column: span 1;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .section-header h2 {
+    padding-right: 0;
+  }
+
+  .section-header .section-divider {
+    width: 100%;
+    height: 2px;
+  }
+
+  .section-header .section-intro {
+    padding-left: 0;
   }
 
   section {
