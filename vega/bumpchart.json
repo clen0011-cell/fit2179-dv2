@@ -28,11 +28,7 @@
     {
       "mark": {"type": "line", "strokeWidth": 1.5, "point": true},
       "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal",
-          "title": "Year"
-        },
+        "x": {"field": "year", "type": "ordinal", "title": "Year"},
         "y": {
           "field": "rank",
           "type": "quantitative",
