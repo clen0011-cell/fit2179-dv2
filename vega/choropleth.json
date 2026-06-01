@@ -68,5 +68,6 @@
         "latitude": {"field": "lat", "type": "quantitative"},
         "text": {"field": "label"}
       }
-    },
+    }
+  ]
 }
