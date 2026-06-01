@@ -213,12 +213,12 @@
           {
             "lon": 108.5,
             "lat": 23,
-            "label": "Laos & Myanmar → highest Customer Price Index"
+            "label": "Myanmar → highest"
           },
           {
             "lon": 100.0,
             "lat": -1.0,
-            "label": "Singapore, Thailand & Brunei → lowest"
+            "label": "Brunei Darussalam → lowest"
           }
         ]
       },
