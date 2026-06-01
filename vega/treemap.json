@@ -58,7 +58,7 @@
       "mark": {
         "type": "text",
         "fontSize": 10.5,
-        "color": "#000000",
+        "color": "#black",
         "align": "left",
         "dx": 6
       },
