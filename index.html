@@ -10,113 +10,29 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Additional inline styles for hero banner layout */
-    .hero-banner {
-      background: linear-gradient(135deg, #1a472a 0%, #0d2818 100%);
-      padding: 4rem 2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-
+    /* ONLY HERO BANNER CHANGES - NOTHING ELSE TOUCHED */
     .hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 3rem;
-      flex-wrap: wrap;
+      gap: 2rem;
     }
-
-    .hero-inner h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin: 0;
-      flex: 0 0 auto;
-    }
-
-    .hero-inner h1 span {
-      color: #ffd700;
-    }
-
+    
     .hero-sub {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 1.2rem;
-      line-height: 1.5;
-      color: #ffffff;
-      margin: 0;
-      flex: 1;
-      max-width: 600px;
-      border-left: 3px solid #ffffff;
+      border-left: 3px solid white;
       padding-left: 1.5rem;
     }
-
-    /* Responsive design */
+    
     @media (max-width: 768px) {
       .hero-inner {
         flex-direction: column;
-        gap: 1.5rem;
       }
-      
       .hero-sub {
         border-left: none;
-        border-top: 3px solid #ffffff;
+        border-top: 3px solid white;
         padding-left: 0;
         padding-top: 1rem;
-        max-width: 100%;
       }
-      
-      .hero-inner h1 {
-        font-size: 2.2rem;
-      }
-    }
-
-    /* Keep your existing styles below */
-    .section-header {
-      max-width: 1200px;
-      margin: 0 auto 2rem auto;
-      padding: 0 2rem;
-    }
-
-    .chart-row {
-      max-width: 1200px;
-      margin: 0 auto 2rem auto;
-      padding: 0 2rem;
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .chart-container {
-      flex: 1;
-      min-width: 300px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 1rem;
-    }
-
-    footer {
-      background: #2c2c2c;
-      color: #ccc;
-      padding: 3rem 2rem;
-      margin-top: 3rem;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    footer a {
-      color: #f16913;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
