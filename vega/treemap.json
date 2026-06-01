@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "What Makes Up Malaysia's Price Basket?",
-    "subtitle": "Share of each category in the CPI basket, 2024",
+    "subtitle": "Share of each category in the CPI basket, 2024. Source: DOSM",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -25,24 +25,14 @@
   },
   "mark": {"type": "bar", "cornerRadiusEnd": 4},
   "encoding": {
-    "y": {
-      "field": "category",
-      "type": "nominal",
-      "sort": "-x",
-      "title": null
-    },
+    "y": {"field": "category", "type": "nominal", "sort": "-x", "title": null},
     "x": {
       "field": "weight",
       "type": "quantitative",
       "title": "Share of CPI Basket (%)",
       "axis": {"grid": false}
     },
-    "color": {
-      "field": "weight",
-      "type": "quantitative",
-      "scale": {"scheme": "purples"},
-      "legend": null
-    },
+    "color": {"value": "#0072B2"},
     "tooltip": [
       {"field": "category", "title": "Category"},
       {"field": "weight",   "title": "Basket Share (%)", "format": ".1f"}
