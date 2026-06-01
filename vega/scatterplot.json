@@ -14,22 +14,22 @@
     {
       "data": {
         "values": [
-          {"income_mean": 4686,  "expenditure_mean": 3514},
-          {"income_mean": 5184,  "expenditure_mean": 3810},
-          {"income_mean": 5617,  "expenditure_mean": 3924},
-          {"income_mean": 5703,  "expenditure_mean": 4138},
-          {"income_mean": 5972,  "expenditure_mean": 3873},
-          {"income_mean": 6108,  "expenditure_mean": 4628},
-          {"income_mean": 6230,  "expenditure_mean": 4529},
-          {"income_mean": 6352,  "expenditure_mean": 4762},
-          {"income_mean": 6555,  "expenditure_mean": 4459},
-          {"income_mean": 7524,  "expenditure_mean": 4198},
-          {"income_mean": 7914,  "expenditure_mean": 5592},
-          {"income_mean": 8013,  "expenditure_mean": 5340},
-          {"income_mean": 8016,  "expenditure_mean": 5421},
-          {"income_mean": 8072,  "expenditure_mean": 5357},
-          {"income_mean": 12396, "expenditure_mean": 6697},
-          {"income_mean": 13809, "expenditure_mean": 8903}
+          {"i": 4885,  "e": 3505,  "s": "Kelantan"},
+          {"i": 5550,  "e": 3765,  "s": "Kedah"},
+          {"i": 5664,  "e": 3834,  "s": "Perlis"},
+          {"i": 5777,  "e": 4107,  "s": "Pahang"},
+          {"i": 5779,  "e": 3903,  "s": "Perak"},
+          {"i": 6171,  "e": 3342,  "s": "Sabah"},
+          {"i": 6457,  "e": 3915,  "s": "Sarawak"},
+          {"i": 6788,  "e": 4678,  "s": "Negeri Sembilan"},
+          {"i": 7248,  "e": 4796,  "s": "Terengganu"},
+          {"i": 8057,  "e": 5707,  "s": "Melaka"},
+          {"i": 8250,  "e": 4176,  "s": "W.P. Labuan"},
+          {"i": 8267,  "e": 5322,  "s": "Pulau Pinang"},
+          {"i": 8517,  "e": 5342,  "s": "Johor"},
+          {"i": 12233, "e": 6770,  "s": "Selangor"},
+          {"i": 13325, "e": 7823,  "s": "W.P. Kuala Lumpur"},
+          {"i": 13473, "e": 8897,  "s": "W.P. Putrajaya"}
         ]
       },
       "mark": {
@@ -41,20 +41,16 @@
       },
       "encoding": {
         "x": {
-          "field": "income_mean",
+          "field": "i",
           "type": "quantitative",
           "axis": {"grid": false},
           "scale": {"zero": false}
         },
         "y": {
-          "field": "expenditure_mean",
+          "field": "e",
           "type": "quantitative",
           "axis": {"grid": false},
           "scale": {"zero": false}
-        },
-        "order": {
-          "field": "income_mean",
-          "sort": "ascending"
         }
       }
     },
@@ -105,18 +101,18 @@
       "data": {
         "values": [
           {
-            "x": 7000,
-            "y": 8000,
+            "x": 7200,
+            "y": 8200,
             "label": "Higher income → higher spending"
           },
           {
-            "x": 7000,
-            "y": 7750,
+            "x": 7200,
+            "y": 7950,
             "label": "KL & Putrajaya lead both"
           },
           {
-            "x": 7000,
-            "y": 7500,
+            "x": 7200,
+            "y": 7700,
             "label": "Sabah = notable outlier"
           }
         ]
