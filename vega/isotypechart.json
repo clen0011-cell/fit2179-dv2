@@ -45,7 +45,12 @@
         "domain": ["High (≥10%)", "Medium (5–10%)", "Low (<5%)"],
         "range": ["#D55E00", "#E69F00", "#56B4E9"]
       },
-      "legend": {"title": "Poverty Level", "orient": "top-left"}
+      "legend": {
+        "title": "Poverty Level",
+        "orient": "none",
+        "legendX": 300,
+        "legendY": 10
+      }
     },
     "tooltip": [
       {"field": "state",   "title": "State"},
