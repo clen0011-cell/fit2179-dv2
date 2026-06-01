@@ -42,29 +42,7 @@
       "data": {"values": [{"date": "2022-06-01"}]},
       "mark": {"type": "rule", "color": "#009E73", "strokeDash": [5, 4], "strokeWidth": 1.8},
       "encoding": {"x": {"field": "date", "type": "temporal"}}
-    },
-    {
-      "data": {
-        "values": [
-          {"date": "2008-01-01", "index": 130, "label": "Global food crisis"},
-          {"date": "2020-03-01", "index": 148, "label": "COVID-19"},
-          {"date": "2022-06-01", "index": 155, "label": "Subsidy cuts"}
-        ]
-      },
-      "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 10},
-      "encoding": {
-        "x": {"field": "date", "type": "temporal"},
-        "y": {"field": "index", "type": "quantitative"},
-        "text": {"field": "label"},
-        "color": {
-          "field": "label",
-          "type": "nominal",
-          "scale": {
-            "domain": ["Global food crisis", "COVID-19", "Subsidy cuts"],
-            "range": ["#E69F00", "#CC79A7", "#009E73"]
-          },
-          "legend": null
-        }
+    }
       }
     },
     {
