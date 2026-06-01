@@ -24,8 +24,29 @@
   <section id="big-picture">
     <h2>Two decades of food prices</h2>
     <p class="section-intro">Malaysia's food prices stayed largely stable for a decade — until 2021, when global supply shocks changed everything.</p>
-    <div id="linechart" class="chart-container chart-wide"></div>
-    <p class="chart-caption">Between 2010 and 2020, food inflation stayed under 4% annually. The COVID-19 pandemic disrupted global supply chains, and the removal of government subsidies pushed prices to their highest sustained level in two decades. The food price index crossed 140 points in 2023 — meaning food costs 40% more on average than it did in 2010.</p>
+    <div class="chart-row" style="align-items: stretch;">
+      <div id="linechart" class="chart-container"></div>
+      <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
+        <h3>Four decades of rising prices, accelerating fast</h3>
+        <p class="chart-caption" style="margin-top: 0;">
+          Between 2010 and 2020, food inflation stayed under 4% annually. The COVID-19 pandemic disrupted global supply chains, and the removal of government subsidies pushed prices to their highest sustained level in two decades. The food price index crossed 140 points in 2023 — meaning food costs 40% more on average than it did in 2010.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 24px; border-top: 2px dashed #D55E00; flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">2008 — Global food crisis</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 24px; border-top: 2px dashed #D55E00; flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">2020 — COVID-19 pandemic</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 24px; border-top: 2px dashed #D55E00; flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">2022 — Subsidy removal</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SECTION 2: CATEGORY BREAKDOWN -->
@@ -89,14 +110,44 @@
       <div id="streamgraph" class="chart-container"></div>
       <div id="isotypechart" class="chart-container"></div>
     </div>
-    <div id="bumpchart" class="chart-container chart-wide" style="margin-top: 2rem;"></div>
+    <div class="chart-row" style="margin-top: 2rem; align-items: stretch;">
+      <div id="bumpchart" class="chart-container"></div>
+      <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
+        <h3>Rankings shift, but East Malaysia stays expensive</h3>
+        <p class="chart-caption" style="margin-top: 0;">
+          Sabah and Sarawak have consistently ranked among the highest for food prices, while W.P. Kuala Lumpur has moved up the rankings in recent years — reflecting the urban cost-of-living squeeze felt in the capital.
+        </p>
+        <p style="font-size: 0.85rem; color: #888;">Highlighted: Selangor, W.P. Kuala Lumpur, Sabah, Kelantan</p>
+      </div>
+    </div>
   </section>
 
   <!-- SECTION 5: SEA COMPARISON -->
   <section id="comparison">
-    <h2>How Malaysia compares in Southeast Asia</h2>
-    <p class="section-intro">Malaysia's food inflation sits in the middle of the regional pack — lower than the Philippines, Indonesia and Myanmar, but higher than Singapore, Thailand and Brunei.</p>
-    <div id="symbolmap" class="chart-container chart-wide"></div>
+    <div class="chart-row" style="align-items: stretch;">
+      <div id="symbolmap" class="chart-container"></div>
+      <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
+        <h2 style="font-size: 1.5rem;">How Malaysia compares in Southeast Asia</h2>
+        <p class="section-intro" style="margin-bottom: 0;">
+          Malaysia's food inflation sits in the middle of the regional pack — lower than the Philippines, Indonesia and Myanmar, but higher than Singapore, Thailand and Brunei.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 14px; height: 14px; border-radius: 50%; background: #7f2704; flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">Lao PDR & Myanmar — highest CPI</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 14px; height: 14px; border-radius: 50%; background: #f16913; flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">Philippines & Indonesia — above average</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <div style="width: 14px; height: 14px; border-radius: 50%; background: #fdd0a2; flex-shrink: 0;"></div>
+            <span style="font-size: 0.9rem; color: #555;">Singapore, Thailand & Brunei — lowest</span>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">Circle size = average food CPI (base 2015 = 100). Source: FAO, 2022</p>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
