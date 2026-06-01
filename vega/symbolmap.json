@@ -100,7 +100,7 @@
           "field": "avg_cpi",
           "type": "quantitative",
           "scale": {"range": [300, 3000]},
-          "legend": {"title": "Food Customer Price Index Index"}
+          "legend": {"title": "Food Customer Price Index"}
         },
         "color": {
           "field": "avg_cpi",
