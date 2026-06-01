@@ -9,54 +9,58 @@
   },
   "width": "container",
   "height": 350,
-  "data": {"url": "data/cpi_state_inflation.csv"},
-  "transform": [
-    {"filter": "datum.division == '01'"},
-    {"filter": "datum.inflation_yoy != ''"},
-    {"calculate": "year(datum.date)", "as": "year"},
-    {"filter": "datum.year >= 2015"},
+  "layer": [
     {
-      "aggregate": [{"op": "mean", "field": "inflation_yoy", "as": "avg_inflation"}],
-      "groupby": ["state", "year"]
-    }
-  ],
-  "mark": "rect",
-  "encoding": {
-    "x": {"field": "year", "type": "ordinal", "title": "Year"},
-    "y": {"field": "state", "type": "nominal", "title": null},
-    "color": {
-      "field": "avg_inflation",
-      "type": "quantitative",
-      "scale": {"scheme": "blues", "domain": [0, 8]},
-      "legend": {"title": "Inflation %"}
-    },
-    "tooltip": [
-      {"field": "state", "title": "State"},
-      {"field": "year", "title": "Year"},
-      {"field": "avg_inflation", "title": "Food Inflation %", "format": ".1f"}
-    ]
-  }
-  {
-    "data": {
-      "values": [
+      "data": {"url": "data/cpi_state_inflation.csv"},
+      "transform": [
+        {"filter": "datum.division == '01'"},
+        {"filter": "datum.inflation_yoy != ''"},
+        {"calculate": "year(datum.date)", "as": "year"},
+        {"filter": "datum.year >= 2015"},
         {
-          "year": 2022,
-          "state": "Selangor",
-          "label": "Inflation spike period"
+          "aggregate": [{"op": "mean", "field": "inflation_yoy", "as": "avg_inflation"}],
+          "groupby": ["state", "year"]
         }
-      ]
+      ],
+      "mark": "rect",
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal", "title": "Year"},
+        "y": {"field": "state", "type": "nominal", "title": null},
+        "color": {
+          "field": "avg_inflation",
+          "type": "quantitative",
+          "scale": {"scheme": "blues", "domain": [0, 8]},
+          "legend": {"title": "Inflation %"}
+        },
+        "tooltip": [
+          {"field": "state", "title": "State"},
+          {"field": "year", "title": "Year"},
+          {"field": "avg_inflation", "title": "Food Inflation %", "format": ".1f"}
+        ]
+      }
     },
-    "mark": {
-      "type": "text",
-      "fontWeight": "bold",
-      "fontSize": 11,
-      "dy": -15,
-      "color": "black"
-    },
-    "encoding": {
-      "x": {"field": "year", "type": "ordinal"},
-      "y": {"field": "state", "type": "nominal"},
-      "text": {"field": "label"}
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2022,
+            "state": "Selangor",
+            "label": "Inflation spike period"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontWeight": "bold",
+        "fontSize": 11,
+        "dy": -15,
+        "color": "black"
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "state", "type": "nominal"},
+        "text": {"field": "label"}
+      }
     }
-  }
+  ]
 }
