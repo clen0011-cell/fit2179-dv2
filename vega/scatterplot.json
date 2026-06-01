@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Do Richer States Spend More on Food?",
-    "subtitle": "Mean household income vs mean expenditure by state, 2022. Source: DOSM HIES",
+    "subtitle": "Mean household income vs mean expenditure by state, 2022.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
