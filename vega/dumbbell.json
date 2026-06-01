@@ -53,7 +53,7 @@
           "field": "index",
           "type": "quantitative",
           "title": "Customer Price Index (2010 = 100)",
-          "scale": {"domain": [90, 170]}
+          "scale": {"domain": [90, 180]}
         },
         "detail": {"field": "label"}
       }
