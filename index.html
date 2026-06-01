@@ -1,32 +1,91 @@
-<!-- SECTION 3: STATE MAP -->
-<section id="states">
-  <h2>Where you live matters</h2>
-  <p class="section-intro">Selangor and Putrajaya saw the sharpest rises, while Perak and Kedah remained comparatively affordable.</p>
-  <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.5rem;">📍 Malaysia is located in Southeast Asia, between latitudes 1°N and 7°N.</p>
-  <div id="choropleth" class="chart-container chart-wide"></div>
-  <div class="chart-row" style="margin-top: 2rem;">
-    <div id="heatmap" class="chart-container"></div>
-    <div id="dumbbell" class="chart-container"></div>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rising Cost of Malaysian Food</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-<!-- SECTION 4: EATING OUT VS HOME -->
-<section id="eating-out">
-  <h2>Eating out is getting further from reach</h2>
-  <p class="section-intro">The gap between cooking at home and eating out has widened significantly — a trend that affects lower-income households the most.</p>
-  <div class="chart-row">
-    <div id="areachart" class="chart-container"></div>
-    <div id="scatterplot" class="chart-container"></div>
+  <!-- HERO BANNER -->
+  <div class="hero-banner">
+    <div class="hero-inner">
+      <h1>The Rising Cost of <span>Malaysian Food</span></h1>
+      <p class="hero-sub">Food prices in Malaysia have risen sharply since 2020. Here's what changed, where it hit hardest, and what it means for your household.</p>
+    </div>
   </div>
-  <div class="chart-row" style="margin-top: 2rem;">
-    <div id="radialchart" class="chart-container"></div>
-    <div id="bumpchart" class="chart-container"></div>
-  </div>
-</section>
 
-<!-- SECTION 5: SEA COMPARISON -->
-<section id="comparison">
-  <h2>How Malaysia compares in Southeast Asia</h2>
-  <p class="section-intro">Malaysia's food inflation sits in the middle of the regional pack — lower than the Philippines, Indonesia and Myanmar, but higher than Singapore, Thailand and Brunei.</p>
-  <div id="symbolmap" class="chart-container chart-wide"></div>
-</section>
+  <!-- SECTION 1: THE BIG PICTURE -->
+  <section id="big-picture">
+    <h2>Two decades of food prices</h2>
+    <p class="section-intro">Malaysia's food prices stayed largely stable for a decade — until 2021, when global supply shocks changed everything.</p>
+    <div id="linechart" class="chart-container chart-wide"></div>
+    <p class="chart-caption">Between 2010 and 2020, food inflation stayed under 4% annually. The COVID-19 pandemic disrupted global supply chains, and the removal of government subsidies pushed prices to their highest sustained level in two decades. The food price index crossed 140 points in 2023 — meaning food costs 40% more on average than it did in 2010.</p>
+  </section>
+
+  <!-- SECTION 2: CATEGORY BREAKDOWN -->
+  <section id="categories">
+    <h2>Not all food inflated equally</h2>
+    <p class="section-intro">Restaurants and hotels saw the steepest price rises. Meanwhile, food and non-alcoholic drinks — the everyday grocery basket — rose nearly as fast. Communication was the only category to fall below overall inflation.</p>
+    <div class="chart-row">
+      <div id="barchart" class="chart-container"></div>
+      <div id="treemap" class="chart-container"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: STATE MAP -->
+  <section id="states">
+    <h2>Where you live matters</h2>
+    <p class="section-intro">Food costs are not the same across Malaysia. Selangor and Putrajaya saw the sharpest rises, while Perak and Kedah remained comparatively affordable.</p>
+    <p style="font-size: 0.85rem; color: #888; margin-bottom: 0.5rem;">📍 Malaysia is located in Southeast Asia, between latitudes 1°N and 7°N.</p>
+    <div id="choropleth" class="chart-container chart-wide"></div>
+    <div class="chart-row" style="margin-top: 2rem;">
+      <div id="heatmap" class="chart-container"></div>
+      <div id="dumbbell" class="chart-container"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: EATING OUT VS HOME -->
+  <section id="eating-out">
+    <h2>Eating out is getting further from reach</h2>
+    <p class="section-intro">The gap between cooking at home and eating out has widened significantly — a trend that affects lower-income households the most. Wealthier states spend more in absolute terms, but poorer states feel the squeeze harder.</p>
+    <div class="chart-row">
+      <div id="areachart" class="chart-container"></div>
+      <div id="scatterplot" class="chart-container"></div>
+    </div>
+    <div class="chart-row" style="margin-top: 2rem;">
+      <div id="radialchart" class="chart-container"></div>
+      <div id="bumpchart" class="chart-container"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: SEA COMPARISON -->
+  <section id="comparison">
+    <h2>How Malaysia compares in Southeast Asia</h2>
+    <p class="section-intro">Malaysia's food inflation sits in the middle of the regional pack — lower than the Philippines, Indonesia and Myanmar, but higher than Singapore, Thailand and Brunei.</p>
+    <div id="symbolmap" class="chart-container chart-wide"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p><strong>The Rising Cost of Malaysian Food</strong></p>
+      <p>By Caroline Gracia Lendrian, 35170352 · May 2026 · FIT2179 Data Visualisation, Monash University Malaysia</p>
+      <p>
+        Data sources:
+        <a href="https://data.gov.my" target="_blank">Department of Statistics Malaysia — data.gov.my</a> ·
+        <a href="https://www.fao.org/faostat" target="_blank">FAO FAOSTAT — faostat.fao.org</a>
+      </p>
+      <p>Visualisations built with <a href="https://vega.github.io/vega-lite/" target="_blank">Vega-Lite</a>. Page styled with custom CSS.</p>
+      <p>AI tools (Claude by Anthropic) were used to assist with code generation and grammar checking.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
