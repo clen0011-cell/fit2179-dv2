@@ -49,7 +49,7 @@
                 {"country": "Philippines",                      "lat": 12.8797, "lon": 122.5000},
                 {"country": "Singapore",                        "lat": 1.3521,  "lon": 103.8198},
                 {"country": "Thailand",                         "lat": 15.8700, "lon": 100.9925},
-                {"country": "Viet Nam",                         "lat": 14.0583, "lon": 108.2772}
+                {"country": "VietNam",                         "lat": 14.0583, "lon": 108.2772}
               ]
             },
             "key": "country",
