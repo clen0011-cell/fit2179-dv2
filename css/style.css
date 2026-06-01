@@ -116,7 +116,7 @@ section:last-of-type {
   margin: 0;
   padding-left: 2rem;
   color: #ffffff;
-  max-width: none;
+  max-width: 520px;
   line-height: 1.7;
   font-size: 0.95rem;
 }
