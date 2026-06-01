@@ -56,4 +56,28 @@
       }
     }
   ]
+  {
+    "data": {
+      "values": [
+        {
+          "year": 2025,
+          "rank": 2,
+          "label": "Selangor remains among highest-priced states"
+        }
+      ]
+    },
+    "mark": {
+      "type": "text",
+      "align": "left",
+      "dx": 8,
+      "fontSize": 11,
+      "fontWeight": "bold",
+      "color": "#D55E00"
+    },
+    "encoding": {
+      "x": {"field": "year", "type": "ordinal"},
+      "y": {"field": "rank", "type": "quantitative"},
+      "text": {"field": "label"}
+    }
+  }
 }
