@@ -2,32 +2,21 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Eating Out vs Cooking at Home",
-    "subtitle": "CPI index for Food at Home (div 01) vs Restaurants & Hotels (div 11)",
+    "subtitle": "Food CPI index: groceries vs restaurants & hotels. Source: DOSM",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 300,
+  "height": 320,
   "data": {"url": "data/cpi_national.csv"},
   "transform": [
     {"filter": "datum.division == '01' || datum.division == '11'"},
-    {
-      "calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'",
-      "as": "category"
-    }
+    {"calculate": "datum.division == '01' ? 'Food at Home' : 'Eating Out'", "as": "category"}
   ],
-  "mark": {
-    "type": "area",
-    "opacity": 0.7,
-    "line": true
-  },
+  "mark": {"type": "area", "opacity": 0.6, "line": true},
   "encoding": {
-    "x": {
-      "field": "date",
-      "type": "temporal",
-      "title": "Year"
-    },
+    "x": {"field": "date", "type": "temporal", "title": "Year"},
     "y": {
       "field": "index",
       "type": "quantitative",
