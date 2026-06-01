@@ -42,8 +42,16 @@
         "color": {
           "field": "inflation_yoy",
           "type": "quantitative",
-          "scale": {"scheme": "oranges"},
-          "legend": {"title": "Inflation %"}
+          "scale": {"scheme": "oranges", "domain": [3, 7]},
+          "legend": {
+            "title": "Inflation %",
+            "orient": "none",
+            "legendX": 420,
+            "legendY": 40,
+            "gradientLength": 120,
+            "titleFontSize": 11,
+            "labelFontSize": 10
+          }
         },
         "tooltip": [
           {"field": "state", "title": "State"},
@@ -61,26 +69,22 @@
           {
             "lat": 5.3,
             "lon": 117.8,
-            "label": "Sabah → highest ~7%",
-            "anchor": "left"
+            "label": "Sabah → highest ~7%"
           },
           {
             "lat": 2.5,
             "lon": 113.5,
-            "label": "Sarawak → above 5%",
-            "anchor": "left"
+            "label": "Sarawak → above 5%"
           },
           {
             "lat": 3.1,
             "lon": 101.5,
-            "label": "KL → lowest ~3%",
-            "anchor": "left"
+            "label": "KL → lowest ~3%"
           },
           {
             "lat": 6.1,
             "lon": 102.2,
-            "label": "Kelantan → above 5%",
-            "anchor": "left"
+            "label": "Kelantan → above 5%"
           }
         ]
       },
@@ -89,7 +93,8 @@
           "mark": {
             "type": "text",
             "fontSize": 10,
-            "color": "black",
+            "fontStyle": "italic",
+            "color": "white",
             "stroke": "white",
             "strokeWidth": 3,
             "strokeOpacity": 1
@@ -97,8 +102,7 @@
           "encoding": {
             "latitude": {"field": "lat", "type": "quantitative"},
             "longitude": {"field": "lon", "type": "quantitative"},
-            "text": {"field": "label"},
-            "align": {"field": "anchor"}
+            "text": {"field": "label"}
           }
         },
         {
@@ -106,14 +110,12 @@
             "type": "text",
             "fontSize": 10,
             "fontStyle": "italic",
-            "fontWeight": "bold",
-            "color": "#333"
+            "color": "#000"
           },
           "encoding": {
             "latitude": {"field": "lat", "type": "quantitative"},
             "longitude": {"field": "lon", "type": "quantitative"},
-            "text": {"field": "label"},
-            "align": {"field": "anchor"}
+            "text": {"field": "label"}
           }
         }
       ]
