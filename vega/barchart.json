@@ -9,44 +9,59 @@
   },
   "width": "container",
   "height": 320,
-  "data": {
-    "values": [
-      {"label": "Restaurants & Hotels",        "diff": 2.01},
-      {"label": "Food & Non-Alcoholic Drinks", "diff": 1.63},
-      {"label": "Insurance & Finance",         "diff": 0.20},
-      {"label": "Education",                   "diff": -0.10},
-      {"label": "Health",                      "diff": -0.31},
-      {"label": "Misc Goods & Services",       "diff": -0.45},
-      {"label": "Housing & Utilities",         "diff": -0.54},
-      {"label": "Furnishings",                 "diff": -1.00},
-      {"label": "Recreation",                  "diff": -1.22},
-      {"label": "Transport",                   "diff": -1.75},
-      {"label": "Alcoholic Drinks & Tobacco",  "diff": -2.55},
-      {"label": "Clothing & Footwear",         "diff": -2.97},
-      {"label": "Communication",               "diff": -3.10}
-    ]
-  },
-  "mark": {"type": "bar", "cornerRadiusEnd": 3},
-  "encoding": {
-    "y": {
-      "field": "label",
-      "type": "nominal",
-      "sort": "-x",
-      "title": null
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {"label": "Restaurants & Hotels",        "diff": 2.01},
+          {"label": "Food & Non-Alcoholic Drinks", "diff": 1.63},
+          {"label": "Insurance & Finance",         "diff": 0.20},
+          {"label": "Education",                   "diff": -0.10},
+          {"label": "Health",                      "diff": -0.31},
+          {"label": "Misc Goods & Services",       "diff": -0.45},
+          {"label": "Housing & Utilities",         "diff": -0.54},
+          {"label": "Furnishings",                 "diff": -1.00},
+          {"label": "Recreation",                  "diff": -1.22},
+          {"label": "Transport",                   "diff": -1.75},
+          {"label": "Alcoholic Drinks & Tobacco",  "diff": -2.55},
+          {"label": "Clothing & Footwear",         "diff": -2.97},
+          {"label": "Communication",               "diff": -3.10}
+        ]
+      },
+      "mark": {"type": "bar", "cornerRadiusEnd": 3},
+      "encoding": {
+        "y": {"field": "label", "type": "nominal", "sort": "-x", "title": null},
+        "x": {
+          "field": "diff", "type": "quantitative",
+          "title": "Difference from overall CPI (%)",
+          "axis": {"grid": true}
+        },
+        "color": {
+          "condition": {"test": "datum.diff > 0", "value": "#D55E00"},
+          "value": "#0072B2"
+        },
+        "tooltip": [
+          {"field": "label", "title": "Category"},
+          {"field": "diff",  "title": "Diff from overall (%)", "format": ".2f"}
+        ]
+      }
     },
-    "x": {
-      "field": "diff",
-      "type": "quantitative",
-      "title": "Difference from overall CPI (%)",
-      "axis": {"grid": true}
-    },
-    "color": {
-      "condition": {"test": "datum.diff > 0", "value": "#D55E00"},
-      "value": "#0072B2"
-    },
-    "tooltip": [
-      {"field": "label", "title": "Category"},
-      {"field": "diff",  "title": "Diff from overall (%)", "format": ".2f"}
-    ]
-  }
+    {
+      "data": {
+        "values": [
+          {"x": 0.3,  "label": "Restaurants & Hotels", "note": "only 2 above avg"},
+          {"x": -2.5, "label": "Communication",        "note": "comms fell most (–3.1%)"}
+        ]
+      },
+      "mark": {
+        "type": "text", "fontSize": 10.5, "color": "#888",
+        "align": "left", "fontStyle": "italic", "dx": 4
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "label", "type": "nominal", "sort": "-x"},
+        "text": {"field": "note"}
+      }
+    }
+  ]
 }
