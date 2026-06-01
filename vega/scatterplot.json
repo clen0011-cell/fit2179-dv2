@@ -1,59 +1,66 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Do Richer States Spend More on Food?",
-    "subtitle": "Mean household income vs mean expenditure by state, 2022.",
+    "text": "Poverty Rates Across Malaysian States",
+    "subtitle": "Each circle represents 0.5% poverty rate.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
   },
   "width": "container",
-  "height": 360,
-  "data": {"url": "data/hies_state.csv"},
+  "height": 380,
   "layer": [
     {
-      "mark": {"type": "point", "filled": true, "size": 80, "opacity": 0.6, "color": "#90bcd4"},
+      "data": {"url": "data/hies_state.csv"},
+      "transform": [
+        {"calculate": "ceil(datum.poverty / 0.5)", "as": "dot_count"},
+        {"calculate": "sequence(1, datum.dot_count + 1)", "as": "dots"},
+        {"flatten": ["dots"]},
+        {"calculate": "datum.dots", "as": "dot_index"},
+        {
+          "calculate": "datum.poverty >= 10 ? 'High (≥10%)' : datum.poverty >= 5 ? 'Medium (5–10%)' : 'Low (<5%)'",
+          "as": "poverty_group"
+        }
+      ],
+      "mark": {"type": "circle", "opacity": 0.85, "size": 80},
       "encoding": {
-        "x": {
-          "field": "income_mean",
-          "type": "quantitative",
-          "title": "Mean Household Income (RM/month)",
-          "axis": {"grid": false},
-          "scale": {"zero": false}
-        },
+        "x": {"field": "dot_index", "type": "ordinal", "title": null, "axis": null},
         "y": {
-          "field": "expenditure_mean",
-          "type": "quantitative",
-          "title": "Mean Household Expenditure (RM/month)",
-          "axis": {"grid": false},
-          "scale": {"zero": false}
+          "field": "state", "type": "nominal", "title": null,
+          "sort": {"field": "poverty", "order": "descending"}
+        },
+        "color": {
+          "field": "poverty_group", "type": "nominal",
+          "scale": {
+            "domain": ["High (≥10%)", "Medium (5–10%)", "Low (<5%)"],
+            "range": ["#D55E00", "#E69F00", "#56B4E9"]
+          },
+          "legend": {
+            "title": "Poverty Level", "orient": "none",
+            "legendX": 200, "legendY": 10
+          }
         },
         "tooltip": [
-          {"field": "state",            "title": "State"},
-          {"field": "income_mean",      "title": "Mean Income (RM)",      "format": ",.0f"},
-          {"field": "expenditure_mean", "title": "Mean Expenditure (RM)", "format": ",.0f"},
-          {"field": "poverty",          "title": "Poverty Rate (%)",      "format": ".1f"}
+          {"field": "state",   "title": "State"},
+          {"field": "poverty", "title": "Poverty Rate (%)", "format": ".1f"}
         ]
       }
     },
     {
       "data": {
         "values": [
-          {"x": 4200, "y": 8600, "label": "Richer states spend more."},
-          {"x": 4200, "y": 8200, "label": "KL and Putrajaya top both axes."},
-          {"x": 4200, "y": 7800, "label": "Kelantan lowest; Sabah an outlier."}
+          {"dot_index": 2, "state": "W.P. Putrajaya", "label": "← lowest"},
+          {"dot_index": 84, "state": "Sabah",          "label": "← highest"}
         ]
       },
       "mark": {
-        "type": "text",
-        "fontSize": 10.5,
-        "color": "#222",
-        "align": "left",
-        "fontStyle": "italic"
+        "type": "text", "fontSize": 10.5, "color": "#888",
+        "align": "left", "fontStyle": "italic", "dx": 4
       },
       "encoding": {
-        "x":    {"field": "x", "type": "quantitative"},
-        "y":    {"field": "y", "type": "quantitative"},
+        "x": {"field": "dot_index", "type": "ordinal"},
+        "y": {"field": "state",     "type": "nominal",
+              "sort": {"field": "dot_index", "op": "max", "order": "descending"}},
         "text": {"field": "label"}
       }
     }
