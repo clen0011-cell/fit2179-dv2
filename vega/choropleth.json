@@ -18,7 +18,7 @@
       "projection": {
         "type": "mercator",
         "center": [109.5, 3.8],
-        "scale": 1850,
+        "scale": 1800,
         "translate": [250, 170]
       },
       "transform": [
@@ -45,27 +45,6 @@
           {"field": "state", "title": "State"},
           {"field": "inflation_yoy", "title": "Food Inflation %", "format": ".1f"}
         ]
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 470,
-            "y": 250,
-            "label": "Higher inflation observed in East Malaysia"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "fontSize": 11,
-        "color": "#00000"
-      },
-      "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "y", "type": "quantitative"},
-        "text": {"field": "label"}
       }
     }
   ]
