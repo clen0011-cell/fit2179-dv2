@@ -1,226 +1,43 @@
-/* ── Reset & Base ── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html {
-  scroll-behavior: smooth;
-}
-body {
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #2c2c2c;
-  background: #DCEEF4;
-  overflow-x: hidden;
-}
-
-/* ── Typography ── */
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  line-height: 1.2;
-  color: #1a1a1a;
-}
-h2 {
-  font-size: 1.9rem;
-  margin-bottom: 0.5rem;
-}
-h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
-}
-p {
-  max-width: 70ch;
-}
-a {
-  color: #2c2c2c;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-a:hover {
-  color: #D55E00;
-}
-
-/* ── Hero Banner ── */
-.hero-banner {
-  background: #1a1a2e;
-  padding: 5rem 2rem;
-  margin-bottom: 0;
-}
-.hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.hero-banner h1 {
-  color: #fff;
-  font-size: 3rem;
-  line-height: 1.15;
-  margin-bottom: 1.2rem;
-  max-width: 20ch;
-}
-.hero-banner h1 span {
-  color: #E69F00;
-}
-.hero-sub {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1.1rem;
-  max-width: 60ch;
-  line-height: 1.7;
-}
-
-/* ── Sections ── */
-section {
-  padding: 4rem 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  border-bottom: 1px solid #bfd7e2;
-}
-section:last-of-type {
-  border-bottom: none;
-}
-
-/* ── Section Header (dark blue card) ── */
+/* ── SECTION HEADER (FINAL FIXED VERSION) ── */
 .section-header {
   display: flex;
   align-items: center;
   gap: 0;
+
   margin-bottom: 1.5rem;
-  background: #4F7F99;
+
+  background: #4F7F99; /* soft dark blue */
   border-radius: 12px;
   padding: 1.3rem 1.8rem;
 }
+
+/* LEFT TITLE */
 .section-header h2 {
   flex: 0 0 auto;
   margin: 0;
   padding-right: 2rem;
-  color: #ffffff;
+  color: #ffffff; /* WHITE */
 }
+
+/* DIVIDER */
 .section-header .section-divider {
   width: 2px;
   align-self: stretch;
-  background: #ffffff;
+  background: #ffffff; /* WHITE */
   flex-shrink: 0;
 }
+
+/* RIGHT SUBTITLE */
 .section-header .section-intro {
   flex: 1 1 auto;
   margin: 0;
   padding-left: 2rem;
-  color: #ffffff;
+  color: #ffffff; /* WHITE */
   max-width: none;
   line-height: 1.7;
 }
+
+/* remove old conflicting style */
 .section-intro {
   color: #2c2c2c;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  max-width: 65ch;
-  line-height: 1.7;
-}
-
-/* ── Charts ── */
-.chart-caption {
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-top: 1rem;
-  max-width: 75ch;
-}
-
-/* All chart rows stretch so both cells always match height */
-.chart-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  align-items: stretch;
-}
-
-/* Chart containers — uniform size */
-.chart-container {
-  background: #ffffff;
-  border: 1px solid #c8dde6;
-  border-radius: 8px;
-  padding: 1.5rem;
-  min-height: 560px;
-  height: 560px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-/* Vega-Embed fills the container */
-.chart-container .vega-embed {
-  width: 100% !important;
-  flex: 1 1 auto;
-}
-.chart-container .vega-embed canvas,
-.chart-container .vega-embed svg {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* Sidebar companion panels — transparent, no border */
-.chart-row > div:not(.chart-container) {
-  min-height: 560px;
-  height: 560px;
-  overflow: auto;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 1.5rem;
-}
-
-/* ── Footer ── */
-footer {
-  background: #1a1a2e;
-  color: rgba(255, 255, 255, 0.7);
-  padding: 3rem 2rem;
-  font-size: 0.85rem;
-  line-height: 2;
-}
-footer a {
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-footer a:hover {
-  color: #E69F00;
-}
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  .hero-banner h1 {
-    font-size: 2rem;
-  }
-  .chart-row {
-    grid-template-columns: 1fr;
-  }
-  .chart-container,
-  .chart-row > div:not(.chart-container) {
-    height: auto;
-    min-height: 320px;
-  }
-  section {
-    padding: 2.5rem 1rem;
-  }
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  .section-header h2 {
-    padding-right: 0;
-  }
-  .section-header .section-divider {
-    width: 100%;
-    height: 2px;
-  }
-  .section-header .section-intro {
-    padding-left: 0;
-  }
 }
