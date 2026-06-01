@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Which Categories Beat Overall Inflation?",
-    "subtitle": "Difference between category inflation and overall CPI, 2023. Positive = above average.",
+    "subtitle": "Difference between category inflation and overall Customer Price Index, 2023. Positive = above average.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -33,7 +33,7 @@
         "y": {"field": "label", "type": "nominal", "sort": "-x", "title": null},
         "x": {
           "field": "diff", "type": "quantitative",
-          "title": "Difference from overall CPI (%)",
+          "title": "Difference from overall Customer Price Index (%)",
           "axis": {"grid": true}
         },
         "color": {
@@ -52,12 +52,12 @@
           {
             "x": 0.0,
             "label": "Restaurants & Hotels",
-            "note": "highest above overall CPI"
+            "note": "highest above overall Customer Price Index"
           },
           {
             "x": -1.8,
             "label": "Communication",
-            "note": "largest decline vs CPI"
+            "note": "largest decline vs Customer Price Index"
           }
         ]
       },
