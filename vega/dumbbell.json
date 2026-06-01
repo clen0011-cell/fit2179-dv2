@@ -50,7 +50,7 @@
         "x": {
           "field": "index", "type": "quantitative",
           "title": "CPI Index (2010 = 100)",
-          "scale": {"domain": [90, 165]}
+          "scale": {"domain": [90, 170]}
         },
         "detail": {"field": "label"}
       }
@@ -79,6 +79,26 @@
           {"field": "year",  "title": "Year"},
           {"field": "index", "title": "CPI Index", "format": ".1f"}
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x": 158, "y": "Restaurants & Hotels",  "label": "↑ +49 pts, biggest jump"},
+          {"x": 100, "y": "Communication",          "label": "barely moved (+1 pt)"}
+        ]
+      },
+      "mark": {
+        "type": "text", "fontSize": 10.5, "color": "#888",
+        "align": "left", "fontStyle": "italic", "dx": 6
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {
+          "field": "y", "type": "nominal",
+          "sort": {"field": "x", "op": "max", "order": "descending"}
+        },
+        "text": {"field": "label"}
       }
     }
   ]
