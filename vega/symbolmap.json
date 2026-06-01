@@ -95,7 +95,7 @@
       },
       "encoding": {
         "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude":  {"field": "lat", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
         "size": {
           "field": "avg_cpi",
           "type": "quantitative",
@@ -187,8 +187,8 @@
           },
           "encoding": {
             "longitude": {"field": "lon", "type": "quantitative"},
-            "latitude":  {"field": "lat", "type": "quantitative"},
-            "text":      {"field": "country"}
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "text": {"field": "country"}
           }
         },
         {
@@ -201,8 +201,8 @@
           },
           "encoding": {
             "longitude": {"field": "lon", "type": "quantitative"},
-            "latitude":  {"field": "lat", "type": "quantitative"},
-            "text":      {"field": "country"}
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "text": {"field": "country"}
           }
         }
       ]
@@ -211,28 +211,37 @@
       "data": {
         "values": [
           {
-            "lon": 80.0,
-            "lat": -1.5,
-            "label": "Laos & Myanmar → highest CPI"
+            "lon": 88.5,
+            "lat": 22.0,
+            "label": "→ highest CPI"
           },
           {
-            "lon": 96.0,
-            "lat": -2.5,
+            "lon": 88.5,
+            "lat": 20.5,
+            "label": "Laos & Myanmar"
+          },
+          {
+            "lon": 105.5,
+            "lat": -5.5,
+            "label": "Indonesia → above avg"
+          },
+          {
+            "lon": 100.0,
+            "lat": -1.0,
             "label": "Singapore & Brunei → lowest"
           }
         ]
       },
       "mark": {
         "type": "text",
-        "fontSize": 10.5,
-        "fontStyle": "italic",
-        "color": "#444",
+        "fontSize": 10,
+        "color": "#00000",
         "align": "left"
       },
       "encoding": {
         "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude":  {"field": "lat", "type": "quantitative"},
-        "text":      {"field": "label"}
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "label"}
       }
     }
   ]
