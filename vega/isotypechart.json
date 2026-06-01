@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Poverty Rates Across Malaysian States",
+    "subtitle": "Each circle represents 0.5% poverty rate. Source: DOSM HIES 2022",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 380,
+  "data": {"url": "data/hies_state.csv"},
+  "transform": [
+    {"calculate": "ceil(datum.poverty / 0.5)", "as": "dot_count"},
+    {"calculate": "sequence(1, datum.dot_count + 1)", "as": "dots"},
+    {"flatten": ["dots"]},
+    {"calculate": "datum.dots", "as": "dot_index"},
+    {
+      "calculate": "datum.poverty >= 10 ? 'High (≥10%)' : datum.poverty >= 5 ? 'Medium (5–10%)' : 'Low (<5%)'",
+      "as": "poverty_group"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "opacity": 0.85,
+    "size": 80
+  },
+  "encoding": {
+    "x": {
+      "field": "dot_index",
+      "type": "ordinal",
+      "title": null,
+      "axis": null
+    },
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": null,
+      "sort": {"field": "poverty", "order": "descending"}
+    },
+    "color": {
+      "field": "poverty_group",
+      "type": "nominal",
+      "scale": {
+        "domain": ["High (≥10%)", "Medium (5–10%)", "Low (<5%)"],
+        "range": ["#D55E00", "#E69F00", "#56B4E9"]
+      },
+      "legend": {"title": "Poverty Level", "orient": "top-left"}
+    },
+    "tooltip": [
+      {"field": "state",   "title": "State"},
+      {"field": "poverty", "title": "Poverty Rate (%)", "format": ".1f"}
+    ]
+  }
+}
