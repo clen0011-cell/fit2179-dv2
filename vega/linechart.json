@@ -23,7 +23,7 @@
           "scale": {"zero": false}
         },
         "tooltip": [
-          {"field": "date",  "type": "temporal",    "title": "Date"},
+          {"field": "date", "type": "temporal", "title": "Date"},
           {"field": "index", "type": "quantitative", "title": "Food CPI", "format": ".1f"}
         ]
       }
@@ -53,62 +53,62 @@
       },
       "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 10},
       "encoding": {
-        "x":     {"field": "date",  "type": "temporal"},
-        "y":     {"field": "index", "type": "quantitative"},
-        "text":  {"field": "label"},
+        "x": {"field": "date", "type": "temporal"},
+        "y": {"field": "index", "type": "quantitative"},
+        "text": {"field": "label"},
         "color": {
           "field": "label",
           "type": "nominal",
           "scale": {
             "domain": ["Global food crisis", "COVID-19", "Subsidy cuts"],
-            "range":  ["#E69F00",            "#CC79A7",  "#009E73"]
+            "range": ["#E69F00", "#CC79A7", "#009E73"]
           },
           "legend": null
         }
       }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "date": "2023-01-01",
+            "index": 165,
+            "label": "Rapid food price growth after COVID"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": -10,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#444"
+      },
+      "encoding": {
+        "x": {"field": "date", "type": "temporal"},
+        "y": {"field": "index", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"x1": "2022-01-01", "y1": 160, "x2": "2023-01-01", "y2": 165}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 1.5,
+        "color": "#444"
+      },
+      "encoding": {
+        "x": {"field": "x1", "type": "temporal"},
+        "y": {"field": "y1", "type": "quantitative"},
+        "x2": {"field": "x2"},
+        "y2": {"field": "y2"}
+      }
     }
   ]
-  {
-    "data": {
-      "values": [
-        {
-          "date": "2023-01-01",
-          "index": 165,
-          "label": "Rapid food price growth after COVID"
-        }
-      ]
-    },
-    "mark": {
-      "type": "text",
-      "align": "left",
-      "dx": 10,
-      "dy": -10,
-      "fontSize": 11,
-      "fontWeight": "bold",
-      "color": "#444"
-    },
-    "encoding": {
-      "x": {"field": "date", "type": "temporal"},
-      "y": {"field": "index", "type": "quantitative"},
-      "text": {"field": "label"}
-    }
-  }
-  {
-    "data": {
-      "values": [
-        {"x1":"2022-01-01","y1":160,"x2":"2023-01-01","y2":165}
-      ]
-    },
-    "mark": {
-      "type":"rule",
-      "strokeWidth":1.5,
-      "color":"#444"
-    },
-    "encoding": {
-      "x":{"field":"x1","type":"temporal"},
-      "y":{"field":"y1","type":"quantitative"},
-      "x2":{"field":"x2"},
-      "y2":{"field":"y2"}
-    }
-  }
 }
