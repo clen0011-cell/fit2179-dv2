@@ -17,11 +17,15 @@
         {"calculate": "year(datum.date)", "as": "year"},
         {"filter": "datum.year >= 2018"},
         {
-          "aggregate": [{"op": "mean", "field": "index", "as": "avg_index"}],
+          "aggregate": [
+            {"op": "mean", "field": "index", "as": "avg_index"}
+          ],
           "groupby": ["state", "year"]
         },
         {
-          "window": [{"op": "rank", "field": "avg_index", "as": "rank"}],
+          "window": [
+            {"op": "rank", "field": "avg_index", "as": "rank"}
+          ],
           "sort": [{"field": "avg_index", "order": "descending"}],
           "groupby": ["year"]
         }
@@ -59,18 +63,33 @@
       "data": {
         "values": [
           {
-            "year": 2022,
-            "rank": 1,
-            "label": "Selangor remains among highest-priced states"
+            "year": 2023,
+            "rank": 2,
+            "label": "Sabah: stays top 3"
+          },
+          {
+            "year": 2023,
+            "rank": 5,
+            "label": "Kelantan: climbs"
+          },
+          {
+            "year": 2023,
+            "rank": 8,
+            "label": "Selangor: mid-tier"
+          },
+          {
+            "year": 2023,
+            "rank": 13,
+            "label": "KL: drops over time"
           }
         ]
       },
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 8,
-        "fontSize": 11,
-        "color": "#black"
+        "dx": 6,
+        "fontSize": 10.5,
+        "color": "#00000"
       },
       "encoding": {
         "x": {"field": "year", "type": "ordinal"},
