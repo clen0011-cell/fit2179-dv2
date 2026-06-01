@@ -7,72 +7,44 @@
     "fontSize": 15,
     "subtitleFontSize": 12
   },
-  "vconcat": [
+  "width": "container",
+  "height": 420,
+  "layer": [
     {
-      "width": "container",
-      "height": 80,
-      "projection": {"type": "equirectangular"},
-      "layer": [
-        {
-          "data": {
-            "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
-            "format": {"type": "topojson", "feature": "countries"}
-          },
-          "mark": {"type": "geoshape", "fill": "#d4e8c2", "stroke": "#aaa", "strokeWidth": 0.3}
-        },
-        {
-          "data": {
-            "values": [{"lon": 109.5, "lat": 4.2}]
-          },
-          "mark": {"type": "circle", "color": "#D55E00", "size": 60, "opacity": 0.9},
-          "encoding": {
-            "longitude": {"field": "lon", "type": "quantitative"},
-            "latitude": {"field": "lat", "type": "quantitative"}
-          }
-        }
-      ]
-    },
-    {
-      "width": "container",
-      "height": 400,
+      "data": {
+        "url": "https://raw.githubusercontent.com/clen0011-cell/fit2179-dv2/main/malaysia.topojson",
+        "format": {"type": "topojson", "feature": "states"}
+      },
       "projection": {
         "type": "mercator",
         "center": [108, 4],
         "scale": 1800
       },
-      "layer": [
+      "transform": [
         {
-          "data": {
-            "url": "https://raw.githubusercontent.com/clen0011-cell/fit2179-dv2/main/malaysia.topojson",
-            "format": {"type": "topojson", "feature": "states"}
-          },
-          "transform": [
-            {
-              "lookup": "properties.Name",
-              "from": {
-                "data": {
-                  "url": "https://clen0011-cell.github.io/fit2179-dv2/data/cpi_state_2023.csv"
-                },
-                "key": "topo_name",
-                "fields": ["inflation_yoy", "state"]
-              }
-            }
-          ],
-          "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 0.8},
-          "encoding": {
-            "color": {
-              "field": "inflation_yoy",
-              "type": "quantitative",
-              "scale": {"scheme": "oranges"},
-              "legend": {"title": "Inflation %"}
+          "lookup": "properties.Name",
+          "from": {
+            "data": {
+              "url": "https://clen0011-cell.github.io/fit2179-dv2/data/cpi_state_2023.csv"
             },
-            "tooltip": [
-              {"field": "state", "title": "State"},
-              {"field": "inflation_yoy", "title": "Food Inflation %", "format": ".1f"}
-            ]
+            "key": "topo_name",
+            "fields": ["inflation_yoy", "state"]
           }
         }
-      ]
+      ],
+      "mark": {"type": "geoshape", "stroke": "#fff", "strokeWidth": 0.8},
+      "encoding": {
+        "color": {
+          "field": "inflation_yoy",
+          "type": "quantitative",
+          "scale": {"scheme": "oranges"},
+          "legend": {"title": "Inflation %"}
+        },
+        "tooltip": [
+          {"field": "state", "title": "State"},
+          {"field": "inflation_yoy", "title": "Food Inflation %", "format": ".1f"}
+        ]
+      }
     }
   ]
 }
