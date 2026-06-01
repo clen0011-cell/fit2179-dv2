@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "How Each Category Drove Price Growth Over Time",
+    "subtitle": "Stacked food CPI index by category, 2010–2024. Source: DOSM",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 320,
+  "data": {"url": "data/cpi_national.csv"},
+  "transform": [
+    {"filter": "datum.division != 'overall'"},
+    {
+      "lookup": "division",
+      "from": {
+        "data": {
+          "values": [
+            {"division": "01", "label": "Food & Drinks"},
+            {"division": "02", "label": "Alcohol & Tobacco"},
+            {"division": "03", "label": "Clothing"},
+            {"division": "04", "label": "Housing"},
+            {"division": "05", "label": "Furnishings"},
+            {"division": "06", "label": "Health"},
+            {"division": "07", "label": "Transport"},
+            {"division": "08", "label": "Communication"},
+            {"division": "09", "label": "Recreation"},
+            {"division": "10", "label": "Education"},
+            {"division": "11", "label": "Restaurants"},
+            {"division": "12", "label": "Insurance"},
+            {"division": "13", "label": "Misc"}
+          ]
+        },
+        "key": "division",
+        "fields": ["label"]
+      }
+    }
+  ],
+  "mark": {"type": "area", "interpolate": "monotone"},
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {"grid": false}
+    },
+    "y": {
+      "field": "index",
+      "type": "quantitative",
+      "title": "CPI Index",
+      "stack": "center",
+      "axis": null
+    },
+    "color": {
+      "field": "label",
+      "type": "nominal",
+      "scale": {"scheme": "tableau20"},
+      "legend": {"title": "Category", "orient": "right"}
+    },
+    "tooltip": [
+      {"field": "date",  "type": "temporal", "title": "Date"},
+      {"field": "label", "title": "Category"},
+      {"field": "index", "title": "CPI Index", "format": ".1f"}
+    ]
+  }
+}
