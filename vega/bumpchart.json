@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "How State Food Price Rankings Have Shifted",
+    "subtitle": "Annual rank of each state's food CPI (1 = highest prices). Source: DOSM",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 12
+  },
+  "width": "container",
+  "height": 400,
+  "data": {"url": "data/cpi_state.csv"},
+  "transform": [
+    {"filter": "datum.division == '01'"},
+    {"calculate": "year(datum.date)", "as": "year"},
+    {"filter": "datum.year >= 2018"},
+    {
+      "aggregate": [{"op": "mean", "field": "index", "as": "avg_index"}],
+      "groupby": ["state", "year"]
+    },
+    {
+      "window": [{"op": "rank", "field": "avg_index", "as": "rank"}],
+      "sort": [{"field": "avg_index", "order": "descending"}],
+      "groupby": ["year"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "line", "strokeWidth": 1.5, "point": true},
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank (1 = highest food prices)",
+          "scale": {"domain": [1, 16]}
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {"scheme": "tableau20"},
+          "legend": {"title": "State", "orient": "right"}
+        },
+        "opacity": {
+          "condition": {
+            "test": "datum.state == 'Selangor' || datum.state == 'W.P. Kuala Lumpur' || datum.state == 'Sabah' || datum.state == 'Kelantan'",
+            "value": 1
+          },
+          "value": 0.15
+        },
+        "tooltip": [
+          {"field": "state", "title": "State"},
+          {"field": "year",  "title": "Year"},
+          {"field": "rank",  "title": "Rank"}
+        ]
+      }
+    }
+  ]
+}
