@@ -9,6 +9,116 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Additional inline styles for hero banner layout */
+    .hero-banner {
+      background: linear-gradient(135deg, #fff5eb 0%, #ffe8d6 100%);
+      padding: 4rem 2rem;
+      border-bottom: 1px solid #f0d5b0;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-inner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin: 0;
+      flex: 0 0 auto;
+    }
+
+    .hero-inner h1 span {
+      color: #d94701;
+    }
+
+    .hero-sub {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #555;
+      margin: 0;
+      flex: 1;
+      max-width: 600px;
+      border-left: 3px solid #d94701;
+      padding-left: 1.5rem;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .hero-inner {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .hero-sub {
+        border-left: none;
+        border-top: 3px solid #d94701;
+        padding-left: 0;
+        padding-top: 1rem;
+        max-width: 100%;
+      }
+      
+      .hero-inner h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Keep your existing styles below */
+    .section-header {
+      max-width: 1200px;
+      margin: 0 auto 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .chart-row {
+      max-width: 1200px;
+      margin: 0 auto 2rem auto;
+      padding: 0 2rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .chart-container {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 1rem;
+    }
+
+    footer {
+      background: #2c2c2c;
+      color: #ccc;
+      padding: 3rem 2rem;
+      margin-top: 3rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    footer a {
+      color: #f16913;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
