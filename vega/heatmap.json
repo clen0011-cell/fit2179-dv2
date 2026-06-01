@@ -51,7 +51,6 @@
       },
       "mark": {
         "type": "text",
-        "fontWeight": "bold",
         "fontSize": 11,
         "dy": -15,
         "color": "black"
