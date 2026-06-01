@@ -39,7 +39,8 @@
       {"label": "Communication",               "year": "2023", "index": 99.1}
     ]
   },
-  "layer": [
+  "layer": 
+  [
     {
       "mark": {"type": "line", "color": "#ccc", "strokeWidth": 2},
       "encoding": {
@@ -82,8 +83,10 @@
       }
     },
     {
-      "data": {
-        "values": [
+      "data": 
+      {
+        "values": 
+        [
           {
             "x": 135,
             "y": "Restaurants & Hotels",
@@ -96,14 +99,16 @@
           }
         ]
       },
-      "mark": {
+      "mark": 
+      {
         "type": "text",
         "fontSize": 10.5,
         "color": "#000000",
         "align": "left",
         "dx": 8
       },
-      "encoding": {
+      "encoding": 
+      {
         "x": {"field": "x", "type": "quantitative"},
         "y": {"field": "y", "type": "nominal"},
         "text": {"field": "label"}
