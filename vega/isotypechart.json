@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Poverty Rates Across Malaysian States",
-    "subtitle": "Each circle represents 0.5% poverty rate. Source: DOSM HIES 2022",
+    "subtitle": "Each circle represents 0.5% poverty rate.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
