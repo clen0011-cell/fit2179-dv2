@@ -37,7 +37,7 @@
           },
           "legend": {
             "title": "Poverty Level", "orient": "none",
-            "legendX": 200, "legendY": "Negeri Sembilan"
+            "legendX": 200, "legendY": 80
           }
         },
         "tooltip": [
