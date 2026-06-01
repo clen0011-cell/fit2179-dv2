@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "How Much Prices Have Shifted: 2015 vs 2023",
-    "subtitle": "Food CPI index per category — gap shows price rise over 8 years. Source: DOSM",
+    "subtitle": "Food CPI index per category — gap shows price rise over 8 years.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
