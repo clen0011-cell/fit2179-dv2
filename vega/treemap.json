@@ -41,21 +41,33 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {"x": 25, "category": "Food & Drinks",   "label": "food + housing = 53% of basket"},
-          {"x": 15, "category": "Communication",   "label": "comms → smallest share"}
-        ]
+  "data": {
+    "values": [
+      {
+        "x": 18,
+        "category": "Food & Drinks",
+        "label": "food + housing = 53%"
       },
-      "mark": {
-        "type": "text", "fontSize": 10.5, "color": "#888",
-        "align": "left", "fontStyle": "italic", "dx": 4
-      },
-      "encoding": {
-        "x": {"field": "x", "type": "quantitative"},
-        "y": {"field": "category", "type": "nominal", "sort": "-x"},
-        "text": {"field": "label"}
+      {
+        "x": 5,
+        "category": "Communication",
+        "label": "smallest basket share"
       }
+    ]
+  },
+  "mark": {
+    "type": "text",
+    "fontSize": 10.5,
+    "color": "#000000",
+    "align": "left",
+    "dx": 6
+  },
+  "encoding": {
+    "x": {"field": "x", "type": "quantitative"},
+    "y": {"field": "category", "type": "nominal"},
+    "text": {"field": "label"}
+  }
+}
     }
   ]
 }
