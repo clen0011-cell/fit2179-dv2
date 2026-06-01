@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "How Each Category Drove Price Growth Over Time",
-    "subtitle": "Stacked CPI index by category, 2010–2024. Source: DOSM",
+    "subtitle": "Stacked CPI index by category, 2010–2024.",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
