@@ -7,7 +7,7 @@
     "fontSize": 15,
     "subtitleFontSize": 12
   },
-  "width": "container",
+  "width": 500,
   "height": 340,
   "layer": [
     {
@@ -17,8 +17,9 @@
       },
       "projection": {
         "type": "mercator",
-        "center": [109, 3.8],
-        "scale": 900
+        "center": [109.5, 3.8],
+        "scale": 2500,
+        "translate": [250, 170]
       },
       "transform": [
         {
