@@ -94,7 +94,7 @@
           },
           {
             "x": 104,
-            "y": "transport"+0.5,
+            "y": "transport",
             "label": "barely moved (+1 pt)"
           }
         ]
