@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "How Much Prices Have Shifted: 2015 vs 2023",
-    "subtitle": "Food CPI index per category — gap shows price rise over 8 years",
+    "subtitle": "Food CPI index per category — gap shows price rise over 8 years. Source: DOSM",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 12
@@ -21,7 +21,7 @@
       {"label": "Health",                      "year": "2023", "index": 131.6},
       {"label": "Education",                   "year": "2015", "index": 106.3},
       {"label": "Education",                   "year": "2023", "index": 128.9},
-      {"label": "Housing & Utilities",         "year": "2015", "index": 104.2},
+      {"label": "Housing & Utilities",         "year": "2015", "index": 106.8},
       {"label": "Housing & Utilities",         "year": "2023", "index": 122.8},
       {"label": "Insurance & Finance",         "year": "2015", "index": 103.8},
       {"label": "Insurance & Finance",         "year": "2023", "index": 120.4},
@@ -41,7 +41,7 @@
   },
   "layer": [
     {
-      "mark": {"type": "line", "color": "#ddd", "strokeWidth": 2},
+      "mark": {"type": "line", "color": "#ccc", "strokeWidth": 2},
       "encoding": {
         "y": {
           "field": "label", "type": "nominal", "title": null,
