@@ -41,33 +41,33 @@
       }
     },
     {
-  "data": {
-    "values": [
-      {
-        "x": 18,
-        "category": "Food & Drinks",
-        "label": "food + housing = 53%"
+      "data": {
+        "values": [
+          {
+            "x": 18,
+            "category": "Food & Drinks",
+            "label": "food + housing = 53%"
+          },
+          {
+            "x": 5,
+            "category": "Communication",
+            "label": "smallest basket share"
+          }
+        ]
       },
-      {
-        "x": 5,
-        "category": "Communication",
-        "label": "smallest basket share"
+      "mark": {
+        "type": "text",
+        "fontSize": 10.5,
+        "color": "#000000",
+        "align": "left",
+        "dx": 6
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "category", "type": "nominal"},
+        "text": {"field": "label"}
       }
-    ]
-  },
-  "mark": {
-    "type": "text",
-    "fontSize": 10.5,
-    "color": "#000000",
-    "align": "left",
-    "dx": 6
-  },
-  "encoding": {
-    "x": {"field": "x", "type": "quantitative"},
-    "y": {"field": "category", "type": "nominal"},
-    "text": {"field": "label"}
-  }
-}
+    }
     }
   ]
 }
