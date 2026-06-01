@@ -81,33 +81,14 @@
         "type": "text",
         "align": "left",
         "dx": 10,
-        "dy": -10,
+        "dy": 0,
         "fontSize": 11,
-        "fontWeight": "bold",
-        "color": "#444"
+        "color": "#0000"
       },
       "encoding": {
         "x": {"field": "date", "type": "temporal"},
         "y": {"field": "index", "type": "quantitative"},
         "text": {"field": "label"}
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {"x1": "2022-01-01", "y1": 160, "x2": "2023-01-01", "y2": 165}
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "strokeWidth": 1.5,
-        "color": "#444"
-      },
-      "encoding": {
-        "x": {"field": "x1", "type": "temporal"},
-        "y": {"field": "y1", "type": "quantitative"},
-        "x2": {"field": "x2"},
-        "y2": {"field": "y2"}
       }
     }
   ]
